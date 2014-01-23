@@ -27,9 +27,11 @@
 /*
 ** @description assign color values
 */
-long int color;
+long int color = 0;
+long int previous = 0;
 long int colors[14] = {RED, ORANGE, YELLOW, GREEN, LIME, TEAL, AQUA, TURQUOISE, NAVY, BLUE, INDIGO, PURPLE, PINK, WHITE};
 int* rgb;
+int* prgb;
 int* fade;
 
 /*
@@ -106,7 +108,10 @@ void setup()
   /*
   ** @description EEPROM Allocations 
   */
-  #ifdef UNO || #ifdef RAZER
+  #ifdef UNO
+    EEPROM.setMemPool(1024 , EEPROMSizeUno);  
+  #endif
+  #ifdef RAZER
     EEPROM.setMemPool(1024 , EEPROMSizeUno);  
   #endif
   #ifdef LEO
@@ -138,9 +143,10 @@ void setup()
   /*
   ** @description set configurator to true to test programming mode
   */
-  configurator = true;
+  configurator = false;
 }
 
+  int i = 0;
 void loop()
 {
   if(configurator)
@@ -149,7 +155,14 @@ void loop()
   }
   else
   {
+    /*
     watchIO();
     now = millis();
+    */
+    now = millis();    
+    displayIO(i);
+    i++;
+    if(i > 255){i = 0;}
+    delay(1000);
   }
 }

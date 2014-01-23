@@ -35,13 +35,16 @@ int dw = window.innerWidth, dh = window.innerHeight;
 */
 void setup()
 {
+	if(dh > dw){dh = dw*ratio;}
 	size(dw, dh, P2D);
 	smooth();
 	noStroke();
-	background(221);
+	background(0);
 
 	ext = source();
 	ctx = externals.context;
+
+	content();
 }
 
 /*
@@ -52,9 +55,12 @@ void draw()
 {
 	dw = window.innerWidth;
 	dh = window.innerHeight;
+	if(dh > dw){dh = dw*ratio;}
 	size(dw, dh, P2D);
 	ratio = vh/vw;
-	ctx.drawImage(video, 0, 0, dw, dw*ratio);
+	ctx.drawImage(video, 0, 0, dw, dh);
+
+	content();
 }
 
 /*
@@ -65,4 +71,9 @@ void draw()
 String source()
 {
 	return video.canPlayType && video.canPlayType("video/ogg") ? "ogv" : "mp4";
+}
+
+void content()
+{
+	//document.getElementById("content").style.top = dh + "px";	
 }

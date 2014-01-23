@@ -6,8 +6,8 @@
 ** @description declare button variables
 */
 #ifdef RAZER
-  const int inputs[] = {14,15,16,17,18,19,0,1};
-  const int outputs[] = {2,3,4,5,6,7,8,12};
+  const int inputs[] = {0,15,1,18,19,14,16,17};
+  const int outputs[] = {6,7,8,12,2,3,4,5};
   const int pwm[] = {9,10,11};
 #endif
 
@@ -88,8 +88,10 @@ void readIO()
 void outputIO()
 {
   //if(address > 0){address-=1;}
+  previous = color;
   color = getLongEEPROM(address);
   //color = -16711680;
+  prgb = getRGB(previous);
   rgb = getRGB(color);
   if(address == 0)
   {
@@ -108,23 +110,7 @@ void outputIO()
   if(FADER)
   {
     if(changed > now)
-    {
-      /*
-      #ifdef SERIAL
-        Serial.print("address:");
-        Serial.print( address);      
-        Serial.print(" state:");
-        Serial.print( state);
-        Serial.print(" color:");
-        Serial.print( color);
-        Serial.print(" red:");
-        Serial.print( rgb[0]);
-        Serial.print(" green:");
-        Serial.print( rgb[1]);
-        Serial.print(" blue:");
-        Serial.println( rgb[2]);        
-      #endif 
-      */      
+    {   
       /*
       ** change state of outputs based on press
       */
@@ -137,6 +123,7 @@ void outputIO()
       **
       **
       */
+      /*
       for(int c = 0; c < 3; c++)
       {
         int val = rgb[c];
@@ -147,7 +134,20 @@ void outputIO()
           delta = 255 - (int)(rgb[c] * percent);
           analogWrite(pwm[c], delta);
         }
-      }   
+      }
+      */  
+      for(int c = 0; c < 3; c++)
+      {
+        int val = rgb[c];
+        int diff = rgb[c] > prgb[c] ? rgb[c] - prgb[c] : -(rgb[c] - prgb[c]);
+        if(diff < 0){diff = -diff;}
+        float percent = 1 - (changed-now)/duration;
+        if(percent > 0)
+        {  
+          val = (int)(rgb[c] * (1-percent)) + (int)(prgb[c] * percent);
+          analogWrite(pwm[c], val);
+        }
+      }      
     }
   }
   else
@@ -233,5 +233,5 @@ void demoIO()
   }
   
   address = 0;
-  //outputIO();
+  outputIO();
 }

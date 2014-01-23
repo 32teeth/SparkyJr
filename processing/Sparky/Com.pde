@@ -33,8 +33,8 @@ class Com
     {
       println("set " + address + " " + clr);
       port.write("set " + address + " " + clr);
-      delay(2500);
       port.write("display " + address);
+      delay(2500);
     }
   }
 

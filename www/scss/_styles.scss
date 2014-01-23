@@ -7,6 +7,7 @@ html
 	height:100%;
 	margin:0;
 	padding:0;
+	background:$black;
 	
 	body
 	{
@@ -23,6 +24,7 @@ html
 			left:0;
 			right:0;
 			z-index:-1;
+			overflow: no-scroll;
 
 			video
 			{
@@ -33,6 +35,21 @@ html
 			{
 				z-index:1;
 				@include transition(500);
+			}
+		}
+
+		.content
+		{
+			@include display-box;	
+			@include box-orient(vertical);
+
+			height:100%;
+
+			section
+			{
+				clear:both;
+				height:100%;
+				padding:1rem;
 			}
 		}
 	}
