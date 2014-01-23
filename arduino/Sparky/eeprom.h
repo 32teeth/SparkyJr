@@ -1,3 +1,5 @@
+int block;
+
 /*
 ** @method setEEPROM
 ** @param address {int} 0-254
@@ -6,7 +8,7 @@
 */
 void setEEPROM(int address, long color)
 {
-  int block = address*4;
+  block = address*4;
   EEPROM.writeLong(block, color);
 }
 
@@ -17,7 +19,7 @@ void setEEPROM(int address, long color)
 */
 int* getColorEEPROM(int address)
 {
-  int block = address*4;
+  block = address*4;
   long color = EEPROM.readLong(block);
   return getRGB(color);
 }
@@ -29,7 +31,7 @@ int* getColorEEPROM(int address)
 */
 long getLongEEPROM(int address)
 {
-  int block = address*4;
+  block = address*4;
   return EEPROM.readLong(block);
 }
 

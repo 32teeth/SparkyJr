@@ -5,6 +5,7 @@
 ** @description SparkyFive 
 */
 
+
 /*
 ** @define (LEO|UNO|JOY|RAZER)
 ** @description LEO = Arduino Leonardo
@@ -29,7 +30,7 @@
 */
 long int color = 0;
 long int previous = 0;
-long int colors[14] = {RED, ORANGE, YELLOW, GREEN, LIME, TEAL, AQUA, TURQUOISE, NAVY, BLUE, INDIGO, PURPLE, PINK, WHITE};
+PROGMEM long int colors[14] = {RED, ORANGE, YELLOW, GREEN, LIME, TEAL, AQUA, TURQUOISE, NAVY, BLUE, INDIGO, PURPLE, PINK, WHITE};
 int* rgb;
 int* prgb;
 int* fade;
@@ -67,15 +68,15 @@ float duration = 250;
 float now = millis();
 float changed = now;
 
-#define CATHODE
-//#define ANODE
-#ifdef CATHODE
-  int ON = HIGH;
-  int OFF = LOW;
-#endif
+//#define CATHODE
+#define ANODE
 #ifdef ANODE
-  int ON = LOW;
-  int OFF = HIGH;
+  #define ON HIGH
+  #define OFF LOW
+#endif
+#ifdef CATHODE
+  #define ON LOW
+  #define OFF HIGH
 #endif
 
 #include "io.h"

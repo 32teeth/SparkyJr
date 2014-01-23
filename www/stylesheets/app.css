@@ -7776,6 +7776,16 @@ th.hide-for-touch {
 	Mixins
 */
 /*
+@mixin transition($time)
+{
+	-webkit-transition: all $time ease-in-out;
+	-moz-transition: all $time ease-in-out;
+	-o-transition: all $time ease-in-out;
+	-ms-transition: all $time ease-in-out;
+	transition: all $time ease-in-out;	
+}
+*/
+/*
 	fonts
 */
 @font-face {
@@ -7809,8 +7819,9 @@ html {
   height: 100%;
   margin: 0;
   padding: 0;
+  background: none;
 }
-/* line 12, ../scss/_styles.scss */
+/* line 13, ../scss/_styles.scss */
 html body {
   width: 100%;
   height: 100%;
@@ -7835,11 +7846,10 @@ html body .hero video {
 /* line 35, ../scss/_styles.scss */
 html body .hero canvas {
   z-index: 1;
-  -webkit-transition: all 500 ease-in-out;
-  -moz-transition: all 500 ease-in-out;
-  -o-transition: all 500 ease-in-out;
-  -ms-transition: all 500 ease-in-out;
-  transition: all 500 ease-in-out;
+  -webkit-transition: all 500ms ease-in-out;
+  -moz-transition: all 500ms ease-in-out;
+  -o-transition: all 500ms ease-in-out;
+  transition: all 500ms ease-in-out;
 }
 /* line 42, ../scss/_styles.scss */
 html body .content {
@@ -7851,11 +7861,15 @@ html body .content {
   -moz-box-orient: vertical;
   -ms-box-orient: vertical;
   box-orient: vertical;
+  float: left;
+  top: 0;
   height: 100%;
+  width: 100%;
+  position: relative;
 }
-/* line 49, ../scss/_styles.scss */
+/* line 52, ../scss/_styles.scss */
 html body .content section {
-  clear: both;
-  height: 100%;
   padding: 1rem;
+  height: 100%;
+  width: 100%;
 }

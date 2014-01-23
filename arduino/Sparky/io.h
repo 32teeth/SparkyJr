@@ -23,7 +23,7 @@
   const int pwm[] = {9,10,11};
 #endif
 
-int count = 8;
+unsigned int count = 8;
 
 
 
@@ -89,10 +89,11 @@ void outputIO()
 {
   //if(address > 0){address-=1;}
   previous = color;
-  color = getLongEEPROM(address);
+  color = address == 0 ? 0 : getLongEEPROM(address);
   //color = -16711680;
   prgb = getRGB(previous);
   rgb = getRGB(color);
+  /*
   if(address == 0)
   {
     for(int c = 0; c < 3; c++)
@@ -100,13 +101,14 @@ void outputIO()
       rgb[c] = 0;
     }
   }
+  */
 
   /*
   ** @description if the changed timestamp is greater than current timestamp fade in the lights, 
   ** otherwise, light them up as necessary
   **
   */
-  boolean FADER = true;
+  const boolean FADER = true;
   if(FADER)
   {
     if(changed > now)

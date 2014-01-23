@@ -44,6 +44,8 @@ void setup()
 	ext = source();
 	ctx = externals.context;
 
+	$("#content").css({top:$("canvas").height()-50});	
+
 	content();
 }
 
@@ -58,7 +60,6 @@ void draw()
 	size(dw, dh, P2D);
 	ratio = vh/vw;
 	ctx.drawImage(video, 0, 0, dw, dh);
-
 	content();
 }
 
