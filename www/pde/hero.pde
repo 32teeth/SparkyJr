@@ -35,7 +35,7 @@ int dw = window.innerWidth, dh = window.innerHeight;
 */
 void setup()
 {
-	if(dh > dw){dh = dw*ratio;}
+	dh = dw*ratio;
 	size(dw, dh, P2D);
 	smooth();
 	noStroke();
@@ -54,8 +54,7 @@ void setup()
 void draw()
 {
 	dw = window.innerWidth;
-	dh = window.innerHeight;
-	if(dh > dw){dh = dw*ratio;}
+	dh = dw*ratio;
 	size(dw, dh, P2D);
 	ratio = vh/vw;
 	ctx.drawImage(video, 0, 0, dw, dh);
