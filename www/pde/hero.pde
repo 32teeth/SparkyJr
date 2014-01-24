@@ -13,10 +13,11 @@ import processing.video.*;
 /*
 ** @description declare Video object
 */
-Video video = document.getElementById("hero");
+Video video = document.querySelector("video");
 String ext;
 PImage img;
 PImage poster;
+var canvas = document.querySelector('canvas');
 var ctx;
 
 /*
@@ -40,15 +41,13 @@ void setup()
 	size(dw, dh, P2D);
 	smooth();
 	noStroke();
-	background(0);
+	background(255);
 
 	ext = source();
-	ctx = externals.context;
+	ctx = canvas.getContext('2d');
 
 	poster = loadImage("video/hero.png");
 	$("#content").css({top:$("canvas").height()-50});	
-
-	content();
 }
 
 /*
@@ -63,7 +62,6 @@ void draw()
 	ratio = vh/vw;
 	image(poster, 0, 0, dw, dh);
 	ctx.drawImage(video, 0, 0, dw, dh);
-	content();
 }
 
 /*
@@ -79,20 +77,4 @@ String source()
 void content()
 {
 	//document.getElementById("content").style.top = dh + "px";	
-}
-
-void mousePressed() 
-{
-	document.getElementById("hero").play();
-}
-
-void mouseDragged()
-{
-	if(mouseX > 0 && mouseX < dw)
-	{
-		if(mouseY > 0 && mouseY < dh)
-		{
-			line(pmouseX, pmouseY, mouseX, mouseY);
-		}	
-	}
 }

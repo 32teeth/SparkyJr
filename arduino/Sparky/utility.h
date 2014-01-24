@@ -75,7 +75,7 @@ String getHEX(int* rgb)
 ** @param color {long} long value represantation of color
 ** @return {String}
 */
-String setRGB(int* xrgb)
+void setRGB(int* xrgb)
 {
     for(int c = 0; c < 3; c++)
     {

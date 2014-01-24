@@ -5,7 +5,6 @@
 ** @description SparkyFive 
 */
 
-
 /*
 ** @define (LEO|UNO|JOY|RAZER)
 ** @description LEO = Arduino Leonardo
@@ -21,7 +20,9 @@
 int* xrgb;
 int rgb[] = {0,0,0};
 int prgb[] = {0,0,0};
-int* fade;
+int in[] = {0,0,0};
+int out[] = {0,0,0};
+
 #include "utility.h"
 
 /*
@@ -32,10 +33,8 @@ int* fade;
 /*
 ** @description assign color values
 */
-long int color = 0;
-long int previous = 0;
+long int color;
 long int colors[14] = {RED, ORANGE, YELLOW, GREEN, LIME, TEAL, AQUA, TURQUOISE, NAVY, BLUE, INDIGO, PURPLE, PINK, WHITE};
-
 
 /*
 ** @description assign eeprom values
@@ -66,17 +65,17 @@ int address;
 int states[] = {0,0,0,0,0,0,0,0};
 int stored[] = {0,0,0,0,0,0,0,0};
 String state;
-float duration = 250;
+float duration = 1000;
 float now = millis();
 float changed = now;
 
-//#define CATHODE
-#define ANODE
-#ifdef ANODE
+#define CATHODE
+//#define ANODE
+#ifdef CATHODE
   int ON = HIGH;
   int OFF = LOW;
 #endif
-#ifdef CATHODE
+#ifdef ANODE
   int ON = LOW;
   int OFF = HIGH;
 #endif
@@ -116,7 +115,7 @@ void setup()
   #endif
   #ifdef RAZER
     EEPROM.setMemPool(1024 , EEPROMSizeUno);  
-  #endif
+  #endif  
   #ifdef LEO
     EEPROM.setMemPool(1024 , EEPROMSizeATmega32u4);
   #endif  
@@ -146,10 +145,9 @@ void setup()
   /*
   ** @description set configurator to true to test programming mode
   */
-  configurator = true;
+  configurator = false;
 }
 
-  int i = 0;
 void loop()
 {
   if(configurator)
@@ -158,16 +156,7 @@ void loop()
   }
   else
   {
-    ///*
     watchIO();
     now = millis();
-    //*/
-    /*
-    now = millis();    
-    displayIO(i);
-    i++;
-    if(i > 255){i = 0;}
-    delay(1000);
-    */
   }
 }

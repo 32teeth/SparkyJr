@@ -23,7 +23,7 @@
   const int pwm[] = {9,10,11};
 #endif
 
-unsigned int count = 8;
+int count = 8;
 
 
 
@@ -73,8 +73,7 @@ void readIO()
   for(int n = 0; n < count; n++){
     if(states[n] != stored[n])
     {     
-      previous = color;
-      changed = now + duration; //millis() + duration;      
+      changed = now + duration; //millis() + duration;
       break;
     }
   }
@@ -87,55 +86,70 @@ void readIO()
 ** @description light up RGB values accoring to input states
 */
 void outputIO()
-{ 
+{
   /*
   ** @description if the changed timestamp is greater than current timestamp fade in the lights, 
   ** otherwise, light them up as necessary
   **
-  */
-  for(int n = 0; n < count; n++){states[n] == 0 ? digitalWrite(outputs[n], ON) : digitalWrite(outputs[n], OFF);}  
+  */  
   
   color = getLongEEPROM(address);
   xrgb = getRGB(color);
   setRGB(xrgb);
+
   
   boolean fader = true;
-  
+
   if(changed > now)
   {   
     if(fader)
     {
       for(int c = 0; c < 3; c++)
       {
-        float percent = abs((changed-now)/duration);
-        int val = (int)(rgb[c] * (1-percent)) + (int)(prgb[c] * percent);
-        fade[c] = val;
-        #ifdef CATHODE
-          analogWrite(pwm[c], fade[c]);
-        #endif
-        #ifdef ANODE
-          analogWrite(pwm[c], fade[c]);
-        #endif
-      }           
+        float percent = (changed-now)/duration;
+        out[c] = (int)(prgb[c] * percent);        
+        //in[c] = (int)(rgb[c] * (1-percent)) + out[c];
+        in[c] = (int)(rgb[c] * (1-percent));        
+      }
+
+      for(int n = 0; n < count; n++){digitalWrite(outputs[n], OFF);}
+
+      //for(int n = 0; n < count; n++){states[n] == 0 ? digitalWrite(outputs[n], ON) : digitalWrite(outputs[n], OFF);}      
+      for(int c = 0; c < 3; c++)
+      {
+          analogWrite(pwm[c], 255 - in[c]);
+      }
+      
+      for(int n = 0; n < count; n++){stored[n] == 0 ? digitalWrite(outputs[n], ON) : digitalWrite(outputs[n], OFF);}      
+      for(int c = 0; c < 3; c++)
+      {
+          //analogWrite(pwm[c], 255 - out[c]);
+      }     
     }
     else
     {
-    }
-    for(int c = 0; c < 3; c++)
-    {
-      float percent = 1 - (changed-now)/duration;
-      int delta = 0;
-      if(percent > 0)
-      {  
-        delta = 255 - (int)(rgb[c] * percent);
-        analogWrite(pwm[c], delta);
+      for(int n = 0; n < count; n++){states[n] == 0 ? digitalWrite(outputs[n], ON) : digitalWrite(outputs[n], OFF);}
+      for(int c = 0; c < 3; c++)
+      {
+        float percent = 1 - (changed-now)/duration;
+        int delta = 0;
+        if(percent > 0)
+        {  
+          delta = (int)(rgb[c] * percent);
+          analogWrite(pwm[c], 255 - delta);
+        }
       }
-    } 
+    }
   }
   else
   {
-    for(int c = 0; c < 3; c++){analogWrite(pwm[c], 255 - rgb[c]);}  
+    for(int n = 0; n < count; n++){states[n] == 0 ? digitalWrite(outputs[n], ON) : digitalWrite(outputs[n], OFF);}
+    for(int c = 0; c < 3; c++)
+    {
+      analogWrite(pwm[c], 255 - rgb[c]);
+    }  
   }
+  
 }
 
 /*
@@ -156,7 +170,7 @@ void displayIO(int address)
 {
   color = getLongEEPROM(address);
   xrgb = getRGB(color);
-  setRGB(xrgb); 
+  setRGB(xrgb);
   String incoming = getBin(address);
   
   for(int n = 0; n < count; n++)
@@ -209,5 +223,5 @@ void demoIO()
   }
   
   address = 0;
-  outputIO();
+  //outputIO();
 }
