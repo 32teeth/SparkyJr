@@ -16,6 +16,7 @@ import processing.video.*;
 Video video = document.getElementById("hero");
 String ext;
 PImage img;
+PImage poster;
 var ctx;
 
 /*
@@ -44,6 +45,7 @@ void setup()
 	ext = source();
 	ctx = externals.context;
 
+	poster = loadImage("video/hero.png");
 	$("#content").css({top:$("canvas").height()-50});	
 
 	content();
@@ -59,6 +61,7 @@ void draw()
 	dh = dw*ratio;
 	size(dw, dh, P2D);
 	ratio = vh/vw;
+	image(poster, 0, 0, dw, dh);
 	ctx.drawImage(video, 0, 0, dw, dh);
 	content();
 }
@@ -76,4 +79,20 @@ String source()
 void content()
 {
 	//document.getElementById("content").style.top = dh + "px";	
+}
+
+void mousePressed() 
+{
+	document.getElementById("hero").play();
+}
+
+void mouseDragged()
+{
+	if(mouseX > 0 && mouseX < dw)
+	{
+		if(mouseY > 0 && mouseY < dh)
+		{
+			line(pmouseX, pmouseY, mouseX, mouseY);
+		}	
+	}
 }

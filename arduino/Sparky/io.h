@@ -73,7 +73,8 @@ void readIO()
   for(int n = 0; n < count; n++){
     if(states[n] != stored[n])
     {     
-      changed = now + duration; //millis() + duration;
+      previous = color;
+      changed = now + duration; //millis() + duration;      
       break;
     }
   }
@@ -86,84 +87,35 @@ void readIO()
 ** @description light up RGB values accoring to input states
 */
 void outputIO()
-{
-  //if(address > 0){address-=1;}
-  previous = color;
-  color = address == 0 ? 0 : getLongEEPROM(address);
-  //color = -16711680;
-  prgb = getRGB(previous);
-  rgb = getRGB(color);
-  /*
-  if(address == 0)
-  {
-    for(int c = 0; c < 3; c++)
-    {
-      rgb[c] = 0;
-    }
-  }
-  */
-
+{ 
   /*
   ** @description if the changed timestamp is greater than current timestamp fade in the lights, 
   ** otherwise, light them up as necessary
   **
   */
-  const boolean FADER = true;
-  if(FADER)
-  {
-    if(changed > now)
-    {   
-      /*
-      ** change state of outputs based on press
-      */
-      for(int n = 0; n < count; n++)
-      {
-        states[n] == 0 ? digitalWrite(outputs[n], ON) : digitalWrite(outputs[n], OFF);
+  for(int n = 0; n < count; n++){states[n] == 0 ? digitalWrite(outputs[n], ON) : digitalWrite(outputs[n], OFF);}  
+  
+  prgb = getRGB(color);      
+  color = getLongEEPROM(address);
+  rgb = getRGB(color);  
+  
+  if(changed > now)
+  {   
+    for(int c = 0; c < 3; c++)
+    {
+      int val = rgb[c];
+      float percent = 1 - (changed-now)/duration;
+      int delta = 0;
+      if(percent > 0)
+      {  
+        delta = 255 - (int)(rgb[c] * percent);
+        analogWrite(pwm[c], delta);
       }
-      
-      /*
-      **
-      **
-      */
-      /*
-      for(int c = 0; c < 3; c++)
-      {
-        int val = rgb[c];
-        float percent = 1 - (changed-now)/duration;
-        int delta = 0;
-        if(percent > 0)
-        {  
-          delta = 255 - (int)(rgb[c] * percent);
-          analogWrite(pwm[c], delta);
-        }
-      }
-      */  
-      for(int c = 0; c < 3; c++)
-      {
-        int val = rgb[c];
-        int diff = rgb[c] > prgb[c] ? rgb[c] - prgb[c] : -(rgb[c] - prgb[c]);
-        if(diff < 0){diff = -diff;}
-        float percent = 1 - (changed-now)/duration;
-        if(percent > 0)
-        {  
-          val = (int)(rgb[c] * (1-percent)) + (int)(prgb[c] * percent);
-          analogWrite(pwm[c], val);
-        }
-      }      
-    }
+    } 
   }
   else
   {
     for(int c = 0; c < 3; c++){analogWrite(pwm[c], 255 - rgb[c]);}  
-    for(int n = 0; n < count; n++)
-    {
-      if(states[n] == 0)
-      {
-        digitalWrite(outputs[n], ON);
-        delayMicroseconds(500);
-        digitalWrite(outputs[n], OFF);
-      }
-    }
   }
 }
 

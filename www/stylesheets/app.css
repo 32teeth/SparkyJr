@@ -7836,7 +7836,6 @@ html body .hero {
   bottom: 0;
   left: 0;
   right: 0;
-  z-index: -1;
   overflow: no-scroll;
 }
 /* line 30, ../scss/_styles.scss */

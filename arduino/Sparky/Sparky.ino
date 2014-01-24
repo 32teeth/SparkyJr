@@ -30,7 +30,7 @@
 */
 long int color = 0;
 long int previous = 0;
-PROGMEM long int colors[14] = {RED, ORANGE, YELLOW, GREEN, LIME, TEAL, AQUA, TURQUOISE, NAVY, BLUE, INDIGO, PURPLE, PINK, WHITE};
+long int colors[14] = {RED, ORANGE, YELLOW, GREEN, LIME, TEAL, AQUA, TURQUOISE, NAVY, BLUE, INDIGO, PURPLE, PINK, WHITE};
 int* rgb;
 int* prgb;
 int* fade;
@@ -71,12 +71,12 @@ float changed = now;
 //#define CATHODE
 #define ANODE
 #ifdef ANODE
-  #define ON HIGH
-  #define OFF LOW
+  int ON = HIGH;
+  int OFF = LOW;
 #endif
 #ifdef CATHODE
-  #define ON LOW
-  #define OFF HIGH
+  int ON = LOW;
+  int OFF = HIGH;
 #endif
 
 #include "io.h"
@@ -156,14 +156,16 @@ void loop()
   }
   else
   {
-    /*
+    ///*
     watchIO();
     now = millis();
-    */
+    //*/
+    /*
     now = millis();    
     displayIO(i);
     i++;
     if(i > 255){i = 0;}
     delay(1000);
+    */
   }
 }
