@@ -18,6 +18,10 @@
 /*
 ** @description include utility
 */
+int* xrgb;
+int rgb[] = {0,0,0};
+int prgb[] = {0,0,0};
+int* fade;
 #include "utility.h"
 
 /*
@@ -31,9 +35,7 @@
 long int color = 0;
 long int previous = 0;
 long int colors[14] = {RED, ORANGE, YELLOW, GREEN, LIME, TEAL, AQUA, TURQUOISE, NAVY, BLUE, INDIGO, PURPLE, PINK, WHITE};
-int* rgb;
-int* prgb;
-int* fade;
+
 
 /*
 ** @description assign eeprom values
@@ -144,7 +146,7 @@ void setup()
   /*
   ** @description set configurator to true to test programming mode
   */
-  configurator = false;
+  configurator = true;
 }
 
   int i = 0;

@@ -68,3 +68,18 @@ String getHEX(int* rgb)
   int b = rgb[2];
   return getHEX(getLong(r,g,b));
 }
+
+/*
+** @method setRGB
+** @description convert long values to rgb array
+** @param color {long} long value represantation of color
+** @return {String}
+*/
+String setRGB(int* xrgb)
+{
+    for(int c = 0; c < 3; c++)
+    {
+      prgb[c] = rgb[c];
+      rgb[c] = xrgb[c];
+    }
+}

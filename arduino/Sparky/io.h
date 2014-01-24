@@ -95,15 +95,34 @@ void outputIO()
   */
   for(int n = 0; n < count; n++){states[n] == 0 ? digitalWrite(outputs[n], ON) : digitalWrite(outputs[n], OFF);}  
   
-  prgb = getRGB(color);      
   color = getLongEEPROM(address);
-  rgb = getRGB(color);  
+  xrgb = getRGB(color);
+  setRGB(xrgb);
+  
+  boolean fader = true;
   
   if(changed > now)
   {   
+    if(fader)
+    {
+      for(int c = 0; c < 3; c++)
+      {
+        float percent = abs((changed-now)/duration);
+        int val = (int)(rgb[c] * (1-percent)) + (int)(prgb[c] * percent);
+        fade[c] = val;
+        #ifdef CATHODE
+          analogWrite(pwm[c], fade[c]);
+        #endif
+        #ifdef ANODE
+          analogWrite(pwm[c], fade[c]);
+        #endif
+      }           
+    }
+    else
+    {
+    }
     for(int c = 0; c < 3; c++)
     {
-      int val = rgb[c];
       float percent = 1 - (changed-now)/duration;
       int delta = 0;
       if(percent > 0)
@@ -136,7 +155,8 @@ void watchIO()
 void displayIO(int address)
 {
   color = getLongEEPROM(address);
-  rgb = getRGB(color); 
+  xrgb = getRGB(color);
+  setRGB(xrgb); 
   String incoming = getBin(address);
   
   for(int n = 0; n < count; n++)
@@ -154,7 +174,8 @@ void displayIO(int address)
 */
 void displayIO(int address, long color)
 {
-  rgb = getRGB(color); 
+  xrgb = getRGB(color);
+  setRGB(xrgb);
   String incoming = getBin(address);
   
   for(int n = 0; n < count; n++)
@@ -182,7 +203,8 @@ void demoIO()
     }
 
     color = getLongEEPROM(address);
-    rgb = getRGB(color);
+    xrgb = getRGB(color);
+    setRGB(xrgb);
     for(int c = 0; c < 3; c++){analogWrite(pwm[c], rgb[c]);}
   }
   
