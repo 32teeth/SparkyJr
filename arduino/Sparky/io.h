@@ -6,24 +6,24 @@
 ** @description declare button variables
 */
 #ifdef RAZER
-  const int inputs[] = {0,15,1,18,19,14,16,17};
-  const int outputs[] = {6,7,8,12,2,3,4,5};
-  const int pwm[] = {9,10,11};
+  PROGMEM const int inputs[] = {0,15,1,18,19,14,16,17};
+  PROGMEM const int outputs[] = {6,7,8,12,2,3,4,5};
+  PROGMEM const int pwm[] = {9,10,11};
 #endif
 
 #ifdef UNO
-  const int inputs[] = {0,1,2,3,4,5,6,7};
-  const int outputs[] = {18,17,16,15,14,13,12,8};
-  const int pwm[] = {9,10,11};
+  PROGMEM const int inputs[] = {0,1,2,3,4,5,6,7};
+  PROGMEM const int outputs[] = {18,17,16,15,14,13,12,8};
+  PROGMEM const int pwm[] = {9,10,11};
 #endif
 
 #ifdef LEO
-  const int inputs[] = {3,2,0,1,4,12,6,8};
-  const int outputs[] = {23,22,21,20,19,18,13,5};
-  const int pwm[] = {9,10,11};
+  PROGMEM const int inputs[] = {3,2,0,1,4,12,6,8};
+  PROGMEM const int outputs[] = {23,22,21,20,19,18,13,5};
+  PROGMEM const int pwm[] = {9,10,11};
 #endif
 
-int count = 8;
+PROGMEM int count = 8;
 
 
 

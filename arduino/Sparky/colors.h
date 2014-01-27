@@ -2,10 +2,6 @@
 ** @description List of color constants converted into 565 from RGB
 */  
 #define MAROON getLong(128,0,0)
-#define DARK_RED getLong(139,0,0)
-#define BROWN getLong(165,42,42)
-#define FIREBRICK getLong(178,34,34)
-#define CRIMSON getLong(220,20,60)
 #define RED getLong(255,0,0)
 #define TOMATO getLong(255,99,71)
 #define CORAL getLong(255,127,80)

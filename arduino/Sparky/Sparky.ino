@@ -83,6 +83,11 @@ float changed = now;
 #include "io.h"
 
 /*
+** @description layouts
+*/
+#include "layout.h"
+
+/*
 ** @description include programming and help files
 */
 #include "help.h";
