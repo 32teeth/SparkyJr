@@ -136,3 +136,10 @@
 #define GAINSBORO getLong(220,220,220)
 #define WHITE_SMOKE getLong(245,245,245)
 #define WHITE getLong(255,255,255)
+
+
+/*
+** @desc assign color values
+*/
+long int color;
+long int colors[14] = {RED, ORANGE, YELLOW, GREEN, LIME, TEAL, AQUA, TURQUOISE, NAVY, BLUE, INDIGO, PURPLE, PINK, WHITE};

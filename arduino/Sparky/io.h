@@ -1,35 +1,8 @@
 /*
 ** @desc this file includes everything to do with buttons and button manipulation
+** @desc see setup.h if you wish to create your own pin mapping
 */
 
-/*
-** @desc declare button variables
-*/
-#ifdef RAZER
-  const int inputs[] = {0,15,1,18,19,14,16,17};
-  const int outputs[] = {6,7,8,12,2,3,4,5};
-  const int pwm[] = {9,10,11};
-#endif
-
-#ifdef SPARKY
-  const int inputs[] = {0,1,2,3,4,5,6,7};
-  const int outputs[] = {18,17,16,15,14,13,12,8};
-  const int pwm[] = {9,10,11};
-#endif
-
-#ifdef UNO
-  const int inputs[] = {0,1,2,3,4,5,6,7};
-  const int outputs[] = {18,17,16,15,14,13,12,8};
-  const int pwm[] = {9,10,11};
-#endif
-
-#ifdef LEO
-  const int inputs[] = {3,2,0,1,4,12,6,8};
-  const int outputs[] = {23,22,21,20,19,18,13,5};
-  const int pwm[] = {9,10,11};
-#endif
-
-int count = 8;
 
 /*
 ** @method pins
@@ -199,10 +172,10 @@ void displayIO(int address, long color)
 }
 
 /*
-** @method demoIO
+** @method introIO
 ** @description watch and delegate all IO
 */
-void demoIO()
+void introIO()
 {
   for(int n = 0; n < 10; n++)
   {

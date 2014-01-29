@@ -6,24 +6,14 @@
 */
 
 /*
-** @define (LEO|UNO|JOY|RAZER)
-** @desc LEO = Arduino Leonardo
-** @desc SPARKY = SparkyJrFTDI
-** @desc UNO = Arduino UNO
-** @desc JOY = Arduino Joystick Shield
-** @desc RAZER = Razer Atrox Arcade Stick
+** @desc include setup
+** @desc change your settings in this file
 */
-#define RAZER
+#include "setup.h"
 
 /*
 ** @desc include utility
 */
-int* xrgb;
-int rgb[] = {0,0,0};
-int prgb[] = {0,0,0};
-int in[] = {0,0,0};
-int out[] = {0,0,0};
-
 #include "utility.h"
 
 /*
@@ -32,54 +22,11 @@ int out[] = {0,0,0};
 #include "colors.h"
 
 /*
-** @desc assign color values
-*/
-long int color;
-long int colors[14] = {RED, ORANGE, YELLOW, GREEN, LIME, TEAL, AQUA, TURQUOISE, NAVY, BLUE, INDIGO, PURPLE, PINK, WHITE};
-
-/*
-** @desc assign eeprom values
-*/
-long int empty = 4294967295;
-int addressLong;
-int addressMax = 1016;
-/*
 ** @desc include eeprom files
 */
 #include <EEPROMex.h>
 #include "eeprom.h";
 
-/*
-** @desc configurator mode
-*/
-boolean configurator = false;
-
-/*
-** @desc command
-*/
-String command;
-
-/*
-** @desc IO
-*/
-int address;
-int states[] = {0,0,0,0,0,0,0,0};
-int stored[] = {0,0,0,0,0,0,0,0};
-String state;
-float duration = 250;
-float now = millis();
-float changed = now;
-
-#define CATHODE
-//#define ANODE
-#ifdef CATHODE
-  int ON = HIGH;
-  int OFF = LOW;
-#endif
-#ifdef ANODE
-  int ON = LOW;
-  int OFF = HIGH;
-#endif
 
 #include "io.h"
 
@@ -87,19 +34,12 @@ float changed = now;
 ** @desc layouts
 */
 #include "layout.h"
-boolean MADCATZ_LAYOUT = false;
-boolean HORI_LAYOUT = false;
 
 /*
 ** @desc include programming and help files
 */
 #include "help.h";
 #include "programming.h";
-
-/*
-** @desc uncomment to run Serial Monitor
-*/
-//#define SERIAL
 
 /*
 ** @method setup
@@ -111,22 +51,16 @@ void setup()
   ** @desc Timer adjustments
   */  
   TCCR1B = TCCR1B & 0b11111000 | 0x01; 
-  #ifdef UNO
+  #ifdef UNO || #ifdef RAZER
     TCCR2B = TCCR2B & 0b11111000 | 0x01;
   #endif
-  #ifdef RAZER
-    TCCR2B = TCCR2B & 0b11111000 | 0x01;
-  #endif   
 
   /*
   ** @description EEPROM Allocations 
   */
-  #ifdef UNO
+  #ifdef UNO || #ifdef RAZER
     EEPROM.setMemPool(1024 , EEPROMSizeUno);  
   #endif
-  #ifdef RAZER
-    EEPROM.setMemPool(1024 , EEPROMSizeUno);  
-  #endif  
   #ifdef LEO
     EEPROM.setMemPool(1024 , EEPROMSizeATmega32u4);
   #endif 
@@ -142,31 +76,20 @@ void setup()
   setIO();
   
   /*
-  ** 
+  ** @desc run intro
   */
-  #ifdef SERIAL
-    Serial.begin(115200);
-    while (!Serial) {
-      ; // wait for serial port to connect. Needed for Leonardo only
-    }  
-  #endif  
-  
-  demoIO();
-  
-  /*
-  ** @desc set configurator to true to test programming mode
-  */
-  configurator = false;
-  MADCATZ_LAYOUT = false;
-  HORI_LAYOUT = false;  
+  #ifdef INTRO
+    introIO();
+  #endif
 }
 
+/*
+** @method loop
+** @desc main arduino loop
+*/
 void loop()
 {
-  if(configurator)
-  {
-    programming();
-  }
+  if(configurator){programming();}
   else
   {
     if(!MADCATZ_LAYOUT && !HORI_LAYOUT)
@@ -176,14 +99,8 @@ void loop()
     }
     else
     {
-      if(MADCATZ_LAYOUT)
-      {
-        madcatz();
-      }
-      if(HORI_LAYOUT)
-      {
-        hori();
-      }
+      if(MADCATZ_LAYOUT){madcatz();}
+      if(HORI_LAYOUT){hori();}
     }
   }
 }
