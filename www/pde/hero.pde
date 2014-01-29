@@ -2,16 +2,16 @@
 ** @author Eugene Andruszczenko
 ** @version 0.1
 ** @date January 22nd, 2014
-** @description hero video player
+** @desc hero video player
 */
 
 /*
-** @description import video files
+** @desc import video files
 */
 import processing.video.*;
 
 /*
-** @description declare Video object
+** @desc declare Video object
 */
 Video video = document.querySelector("video");
 String ext;
@@ -21,19 +21,19 @@ var canvas = document.querySelector('canvas');
 var ctx;
 
 /*
-** @description video dimensions
+** @desc video dimensions
 */
 int vw = 1280, vh = 720;
 int ratio = vh/vw;
 
 /*
-** @description width and height of full screen
+** @desc width and height of full screen
 */
 int dw = window.innerWidth, dh = window.innerHeight;
 
 /*
 ** @method setup
-** @description main processing setup
+** @desc main processing setup
 */
 void setup()
 {
@@ -52,7 +52,7 @@ void setup()
 
 /*
 ** @method draw
-** @description main processing loop
+** @desc main processing loop
 */
 void draw()
 {
@@ -66,7 +66,7 @@ void draw()
 
 /*
 ** @method source
-** @description get the type of video that the browser can play
+** @desc get the type of video that the browser can play
 ** @return returns video playable type {String}
 */
 String source()
@@ -76,5 +76,5 @@ String source()
 
 void content()
 {
-	//document.getElementById("content").style.top = dh + "px";	
+	document.getElementById("content").style.top = dh + "px";	
 }

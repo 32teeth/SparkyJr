@@ -2,12 +2,12 @@
 ** @author Eugene Andruszczenko
 ** @version 0.1
 ** @date January 3rd, 2014
-** @description interface for Arduino based SparkyFive
+** @desc interface for Arduino based SparkyFive
 */
 
 /*
 ** @class Header
-** @description display header image
+** @desc display header image
 */
 class Header
 {
@@ -21,7 +21,7 @@ class Header
   
   /*
   ** @method setup
-  ** @description set initial centering based on screen size and invoke draw()
+  ** @desc set initial centering based on screen size and invoke draw()
   */
   void setup()
   { 
@@ -33,7 +33,7 @@ class Header
   
   /*
   ** @method draw
-  ** @description redraw the header image and graphic to extend to screen width
+  ** @desc redraw the header image and graphic to extend to screen width
   */  
   void draw()
   { 

@@ -2,12 +2,12 @@
 ** @author Eugene Andruszczenko
 ** @version 0.1
 ** @date January 3rd, 2014
-** @description interface for Arduino based SparkyFive
+** @desc interface for Arduino based SparkyFive
 */
 
 /*
 ** @class Loading
-** @description this is a loading stub simply to show a splash screen for the app
+** @desc this is a loading stub simply to show a splash screen for the app
 */
 class Loading
 {
@@ -22,7 +22,7 @@ class Loading
   
   /*
   ** @method setup
-  ** @description set initial centering based on screen size and invoke draw()
+  ** @desc set initial centering based on screen size and invoke draw()
   */
   void setup()
   {
@@ -38,7 +38,7 @@ class Loading
   /*
   ** @method draw
   ** @param percent {int}
-  ** @description change the opacity and blur of the splash screen based on percent paramerter
+  ** @desc change the opacity and blur of the splash screen based on percent paramerter
   */
   void draw(int percent)
   {

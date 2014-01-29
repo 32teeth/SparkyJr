@@ -2,12 +2,12 @@
 ** @author Eugene Andruszczenko
 ** @version 0.1
 ** @date January 3rd, 2014
-** @description interface for Arduino based SparkyFive
+** @desc interface for Arduino based SparkyFive
 */
 
 /*
 ** @class Screens
-** @description draw current screen and manage application states
+** @desc draw current screen and manage application states
 */
 class Screens
 {
@@ -36,7 +36,7 @@ class Screens
   
   /*
   ** @method setup
-  ** @description set initial centering based on screen size and invoke draw()
+  ** @desc set initial centering based on screen size and invoke draw()
   */
   void setup()
   {
@@ -49,7 +49,7 @@ class Screens
   
   /*
   ** @method draw
-  ** @description stub
+  ** @desc stub
   */
   void draw()
   {
@@ -59,7 +59,7 @@ class Screens
   /*
   ** @method show
   ** @param screen {int} index of items array
-  ** @description call appropriate screen controller based on string value of items index
+  ** @desc call appropriate screen controller based on string value of items index
   **              invoke mouse listener
   */  
   void show(int screen)
@@ -78,7 +78,7 @@ class Screens
   /*
   ** @method connection
   ** @param setup {boolean} 
-  ** @description load and show modal with list of ports available to select
+  ** @desc load and show modal with list of ports available to select
   */  
   void connection(boolean setup)
   {
@@ -105,7 +105,7 @@ class Screens
   /*
   ** @method controller
   ** @param setup {boolean} 
-  ** @description load and show modal with list of devices available to select
+  ** @desc load and show modal with list of devices available to select
   */
   void controller(boolean setup)
   {
@@ -130,7 +130,7 @@ class Screens
   
   /*
   ** @method picer
-  ** @description load and show modal with colorwheel
+  ** @desc load and show modal with colorwheel
   */
   void picker()
   {    
@@ -159,7 +159,7 @@ class Screens
   
   /*
   ** @method mouse
-  ** @description read x and y coordinates of the mouse and set static, hover and clicked states
+  ** @desc read x and y coordinates of the mouse and set static, hover and clicked states
   */  
   void mouse()
   {
@@ -167,7 +167,7 @@ class Screens
     int mY = mouseY;
 
     /*
-    ** @description close button for connection and controller modals
+    ** @desc close button for connection and controller modals
     */    
     if(mX > (cX+close[0]) && mX < (cX+close[0]+45) && screen != 3)
     {
@@ -184,7 +184,7 @@ class Screens
     }
 
     /*
-    ** @description close button for colorwheel color picker modal
+    ** @desc close button for colorwheel color picker modal
     */
     if(mX > (cX+close[2]) && mX < (cX+close[2]+45) && screen == 3)
     {
@@ -201,7 +201,7 @@ class Screens
     }    
     
     /*
-    ** @description mouse states for listed serial connections
+    ** @desc mouse states for listed serial connections
     */
     if(items[screen] == "connection")
     {
@@ -234,7 +234,7 @@ class Screens
     }
 
     /*
-    ** @description mouse states for listed controllers
+    ** @desc mouse states for listed controllers
     */    
     if(items[screen] == "controller")
     {
@@ -265,13 +265,13 @@ class Screens
     }
    
     /*
-    ** @description mouse states for color picker
+    ** @desc mouse states for color picker
     */    
     if(items[screen] == "picker")
     {
       colorstate = colorwheel;
       /*
-      ** @description colors
+      ** @desc colors
       */
       if(mX > (x+p[0]) && mX < (x+p[0]+p[2]))
       {
@@ -294,7 +294,7 @@ class Screens
       }
       
       /*
-      ** @description send button for colorwheel color picker modal
+      ** @desc send button for colorwheel color picker modal
       */
       if(mX > (cX+s[0]) && mX < (cX+s[0]+45))
       {
@@ -314,7 +314,7 @@ class Screens
       preview();
 
       /*
-      ** @description send
+      ** @desc send
       */      
     }
   }

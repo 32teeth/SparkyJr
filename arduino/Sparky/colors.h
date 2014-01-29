@@ -1,5 +1,5 @@
 /*
-** @description List of color constants converted into 565 from RGB
+** @desc List of color constants converted into 565 from RGB
 */  
 #define MAROON getLong(128,0,0)
 #define RED getLong(255,0,0)

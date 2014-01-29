@@ -1,31 +1,35 @@
 /*
-** @description this file includes everything to do with buttons and button manipulation
+** @desc this file includes everything to do with buttons and button manipulation
 */
 
 /*
-** @description declare button variables
+** @desc declare button variables
 */
 #ifdef RAZER
-  PROGMEM const int inputs[] = {0,15,1,18,19,14,16,17};
-  PROGMEM const int outputs[] = {6,7,8,12,2,3,4,5};
-  PROGMEM const int pwm[] = {9,10,11};
+  const int inputs[] = {0,15,1,18,19,14,16,17};
+  const int outputs[] = {6,7,8,12,2,3,4,5};
+  const int pwm[] = {9,10,11};
+#endif
+
+#ifdef SPARKY
+  const int inputs[] = {0,1,2,3,4,5,6,7};
+  const int outputs[] = {18,17,16,15,14,13,12,8};
+  const int pwm[] = {9,10,11};
 #endif
 
 #ifdef UNO
-  PROGMEM const int inputs[] = {0,1,2,3,4,5,6,7};
-  PROGMEM const int outputs[] = {18,17,16,15,14,13,12,8};
-  PROGMEM const int pwm[] = {9,10,11};
+  const int inputs[] = {0,1,2,3,4,5,6,7};
+  const int outputs[] = {18,17,16,15,14,13,12,8};
+  const int pwm[] = {9,10,11};
 #endif
 
 #ifdef LEO
-  PROGMEM const int inputs[] = {3,2,0,1,4,12,6,8};
-  PROGMEM const int outputs[] = {23,22,21,20,19,18,13,5};
-  PROGMEM const int pwm[] = {9,10,11};
+  const int inputs[] = {3,2,0,1,4,12,6,8};
+  const int outputs[] = {23,22,21,20,19,18,13,5};
+  const int pwm[] = {9,10,11};
 #endif
 
-PROGMEM int count = 8;
-
-
+int count = 8;
 
 /*
 ** @method pins
@@ -73,7 +77,7 @@ void readIO()
   for(int n = 0; n < count; n++){
     if(states[n] != stored[n])
     {     
-      changed = now + duration; //millis() + duration;
+      changed = now + duration;
       break;
     }
   }
@@ -112,44 +116,18 @@ void outputIO()
         in[c] = (int)(rgb[c] * (1-percent));        
       }
 
-      for(int n = 0; n < count; n++){digitalWrite(outputs[n], OFF);}
-
-      //for(int n = 0; n < count; n++){states[n] == 0 ? digitalWrite(outputs[n], ON) : digitalWrite(outputs[n], OFF);}      
-      for(int c = 0; c < 3; c++)
-      {
-          analogWrite(pwm[c], 255 - in[c]);
-      }
-      
       for(int n = 0; n < count; n++){stored[n] == 0 ? digitalWrite(outputs[n], ON) : digitalWrite(outputs[n], OFF);}      
-      for(int c = 0; c < 3; c++)
-      {
-          //analogWrite(pwm[c], 255 - out[c]);
-      }     
+      for(int c = 0; c < 3; c++){analogWrite(pwm[c], 255 - out[c]);}     
+
+      for(int n = 0; n < count; n++){states[n] == 0 ? digitalWrite(outputs[n], ON) : digitalWrite(outputs[n], OFF);}      
+      for(int c = 0; c < 3; c++){analogWrite(pwm[c], 255 - in[c]);}      
     }
     else
     {
       for(int n = 0; n < count; n++){states[n] == 0 ? digitalWrite(outputs[n], ON) : digitalWrite(outputs[n], OFF);}
-      for(int c = 0; c < 3; c++)
-      {
-        float percent = 1 - (changed-now)/duration;
-        int delta = 0;
-        if(percent > 0)
-        {  
-          delta = (int)(rgb[c] * percent);
-          analogWrite(pwm[c], 255 - delta);
-        }
-      }
+      for(int c = 0; c < 3; c++){analogWrite(pwm[c], 255 - rgb[c]);}
     }
   }
-  else
-  {
-    for(int n = 0; n < count; n++){states[n] == 0 ? digitalWrite(outputs[n], ON) : digitalWrite(outputs[n], OFF);}
-    for(int c = 0; c < 3; c++)
-    {
-      analogWrite(pwm[c], 255 - rgb[c]);
-    }  
-  }
-  
 }
 
 /*
@@ -178,7 +156,6 @@ void displayIO(int address)
     char pin = incoming[n];
     pin == '0' ? digitalWrite(outputs[n], OFF) : digitalWrite(outputs[n], ON);
   }
-  
   for(int c = 0; c < 3; c++){analogWrite(pwm[c], 255 - rgb[c]);} 
 }
 
@@ -197,8 +174,28 @@ void displayIO(int address, long color)
     char pin = incoming[n];
     pin == '0' ? digitalWrite(outputs[n], OFF) : digitalWrite(outputs[n], ON);
   }
+
+  for(int n = 0; n < 250; n++)
+  {
+      for(int c = 0; c < 3; c++)
+      {
+        float percent = n/duration;
+        in[c] = (int)(rgb[c] * (percent));
+        analogWrite(pwm[c], 255-(int)in[c]);
+      }         
+      delayMicroseconds(750);
+  }
   
-  for(int c = 0; c < 3; c++){analogWrite(pwm[c], 255 - rgb[c]);} 
+  for(int n = 0; n < 250; n++)
+  {
+      for(int c = 0; c < 3; c++)
+      {
+        float percent = n/duration;
+        out[c] = (int)(rgb[c] * (1-percent));
+        analogWrite(pwm[c], 255-(int)out[c]);
+      }         
+      delayMicroseconds(750);
+  }
 }
 
 /*
@@ -207,21 +204,12 @@ void displayIO(int address, long color)
 */
 void demoIO()
 {
-  for(int n = 0; n < 255; n++)
+  for(int n = 0; n < 10; n++)
   {
-    address = n;
+    address = random(255);
     state = getBin(address);
-    for(int n = 0; n < count; n++)
-    {
-      state.charAt(n) == '0' ? digitalWrite(inputs[n], OFF) : digitalWrite(inputs[n], ON);
-    }
-
     color = getLongEEPROM(address);
-    xrgb = getRGB(color);
-    setRGB(xrgb);
-    for(int c = 0; c < 3; c++){analogWrite(pwm[c], rgb[c]);}
+    displayIO(address, color);
   }
-  
-  address = 0;
-  //outputIO();
+  displayIO(255, 16777215);
 }

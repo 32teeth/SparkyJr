@@ -2,17 +2,17 @@
 ** @author Eugene Andruszczenko
 ** @version 0.1
 ** @date January 3rd, 2014
-** @description interface for Arduino based SparkyFive
+** @desc interface for Arduino based SparkyFive
 */
 
 /*
 ** @class Manu
-** @description draw menu and manage states
+** @desc draw menu and manage states
 */
 class Menu
 {
   /*
-  ** @description list of menu items and their string names
+  ** @desc list of menu items and their string names
   */
   String items[] = {
     "",
@@ -45,7 +45,7 @@ class Menu
   
   /*
   ** @method setup
-  ** @description set initial centering based on screen size and invoke draw()
+  ** @desc set initial centering based on screen size and invoke draw()
   **              create image sprites for active states (icon)
   **              create image sprites from menu image (menu)
   **              populate mapY array with approrpiate values for vertical location of sprites
@@ -84,7 +84,7 @@ class Menu
   
   /*
   ** @method draw
-  ** @description set device states icons based on set parameters for icon display
+  ** @desc set device states icons based on set parameters for icon display
   **              call mouse()
   */      
   void draw()
@@ -97,7 +97,7 @@ class Menu
   
   /*
   ** @method mouse
-  ** @description read x and y coordinates of the mouse and set static, hover and clicked states
+  ** @desc read x and y coordinates of the mouse and set static, hover and clicked states
   */   
   void mouse()
   {
@@ -170,7 +170,7 @@ class Menu
   
   /*
   ** @method connection
-  ** @description set activemodal to true, set screen
+  ** @desc set activemodal to true, set screen
   */
   void connection()
   {
@@ -180,7 +180,7 @@ class Menu
   
   /*
   ** @method controller
-  ** @description set activemodal to true, set screen
+  ** @desc set activemodal to true, set screen
   */  
   void controller()
   {
@@ -190,7 +190,7 @@ class Menu
   
   /*
   ** @method picker
-  ** @description set activemodal to true, set screen
+  ** @desc set activemodal to true, set screen
   */  
   void picker()
   {

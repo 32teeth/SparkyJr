@@ -38,7 +38,7 @@ void configure(int state)
 
 /*
 ** @method programming
-** @description this is a watcher for the serial event automatically opens serial
+** @desc this is a watcher for the serial event automatically opens serial
 ** 
 */
 void programming()
@@ -64,33 +64,33 @@ void programming()
       color = Serial.parseInt();
       rgb = getRGB(color);     
       
-      Serial.print("previously stored:");
+      Serial.print(F("previously stored:"));
       Serial.println(EEPROM.readLong(address));
           
-      Serial.print("changing stored:");
+      Serial.print(F("changing stored:"));
       Serial.print(address/4);
-      Serial.print("\tto:");
+      Serial.print(F("\tto:"));
       Serial.print(color);
-      Serial.print("\thex:");
+      Serial.print(F("\thex:"));
       Serial.print(getHEX(color));
-      Serial.print("\trgb:(");
+      Serial.print(F("\trgb:("));
       Serial.print(rgb[0]);
-      Serial.print(",");
+      Serial.print(F(","));
       Serial.print(rgb[1]);
-      Serial.print(",");
+      Serial.print(F(","));
       Serial.print(rgb[2]);    
-      Serial.println(")");
+      Serial.println(F(")"));
       Serial.flush();
       
       EEPROM.writeLong(address, color);
       delay(50);
-      Serial.print("reading stored:");
+      Serial.print(F("reading stored:"));
       Serial.println(EEPROM.readLong(address));
-      Serial.println("-------------------------------");      
+      Serial.println(F("-------------------------------\n"));      
     }
     else
     {
-      Serial.print("running:");
+      Serial.print(F("running:"));
       Serial.println(command);      
 
       if(command.equals("erase"))
@@ -108,28 +108,28 @@ void programming()
         color = EEPROM.readLong(address);
         rgb = getRGB(color);
         
-        Serial.print("reading stored:");
+        Serial.print(F("reading stored:"));
         Serial.print(address/4);
-        Serial.print("\tlong:");
+        Serial.print(F("\tlong:"));
         Serial.print(color);
-        Serial.print("\thex:");
+        Serial.print(F("\thex:"));
         Serial.print(getHEX(color));
-        Serial.print("\trgb:(");
+        Serial.print(F("\trgb:("));
         Serial.print(rgb[0]);
-        Serial.print(",");
+        Serial.print(F(","));
         Serial.print(rgb[1]);
-        Serial.print(",");
+        Serial.print(F(","));
         Serial.print(rgb[2]);    
-        Serial.println(")");        
+        Serial.println(F(")"));        
       } 
       
       if(command.equals("print"))
       {
         for(int n = 0; n < 1020; n+=4)
         {
-          Serial.print("reading address:");
+          Serial.print(F("reading address:"));
           Serial.print(n/4);
-          Serial.print("\tlong:");
+          Serial.print(F("\tlong:"));
           Serial.println(EEPROM.readLong(n));
         }
       }
@@ -147,7 +147,7 @@ void programming()
       {
          int d = 128;
          Serial.print(d);
-         Serial.print(":");
+         Serial.print(F(":"));
          Serial.print(String(d,BIN));     
       }
 
@@ -156,9 +156,9 @@ void programming()
         int states = Serial.parseInt();
         incoming = getBin(states);
         
-        Serial.print("reading states:");
+        Serial.print(F("reading states:"));
         Serial.print(states);  
-        Serial.print("\tincoming:");
+        Serial.print(F("\tincoming:"));
         Serial.println(incoming);  
  
         for(int n = 0; n < count; n++)
@@ -175,13 +175,19 @@ void programming()
         int states = Serial.parseInt();
         incoming = getBin(states);
         
-        Serial.print("reading states:");
+        Serial.print(F("reading states:"));
         Serial.print(states);  
-        Serial.print("\tincoming:");
+        Serial.print(F("\tincoming:"));
         Serial.println(incoming); 
 
         displayIO(states);        
-      }      
+      }
+      
+      if(command.equals("exit"))
+      {
+        Serial.print(F("exiting configurator\n"));
+        configurator = false;
+      }
 
       if(command.equals("help"))
       {
@@ -198,14 +204,14 @@ void programming()
       if(command.equals("debug"))
       {
         debug = Serial.parseInt();
-        Serial.print("debug:");
+        Serial.print(F("debug:"));
         Serial.println(debug);        
       }
       */
       
       Serial.print(command);       
-      Serial.println(" complete");  
-      Serial.println("-------------------------------");      
+      Serial.println(F(" complete\n"));  
+      Serial.println(F("-------------------------------\n"));
     }
   }
 }

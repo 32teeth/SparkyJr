@@ -2,11 +2,11 @@
 ** @author Eugene Andruszczenko
 ** @version 0.1
 ** @date January 3rd, 2014
-** @description interface for Arduino based SparkyFive
+** @desc interface for Arduino based SparkyFive
 */
 
 /*
-** @description all import files for controller
+** @desc all import files for controller
 */
 import java.util.*;
 import procontroll.*;
@@ -17,7 +17,7 @@ ControllIO HIDs;
 String HID = "";
 
 /*
-** @description all import files and definitions for serial and arduino
+** @desc all import files and definitions for serial and arduino
 */
 import processing.serial.*; 
 Serial port;
@@ -31,68 +31,68 @@ int baudrate = 115200;
 boolean open = false;
 
 /*
-** @description set mouse type
+** @desc set mouse type
 ** 0 = ARROW, 1 = HAND, 2 = pencil
 */
 int mouseType = 0;
 PImage pencil;
 
 /*
-** @description fonts
+** @desc fonts
 */
 PFont AR24;
 PFont A14;
 
 /*
-** @description frame rate per second
+** @desc frame rate per second
 */
 int fps = 120;
 
 /*
-** @description width and height of full screen
+** @desc width and height of full screen
 */
 int dW, dH;
 
 /*
-** @description Stick class
+** @desc Stick class
 */
 Stick stick;
 
 /*
-** @description Menu Class and Screen class
+** @desc Menu Class and Screen class
 */
 Menu menu;
 Screens screens;
 int screen;
 
 /*
-** @description Header Class
+** @desc Header Class
 */
 Header header;
 
 /*
-** @description Header Class
+** @desc Header Class
 */
 Footer footer;
 
 /*
-** @description Loading Class
+** @desc Loading Class
 */
 Loading loading;
 float now = millis()+5000;
 
 /*
-** @description Com Class
+** @desc Com Class
 */
 Com com;
 
 /*
-** @description width and height of full screen
+** @desc width and height of full screen
 */
 boolean activemodal = false;
 
 /*
-** @description width and height of full screen
+** @desc width and height of full screen
 */
 boolean full = true;
 
@@ -101,7 +101,7 @@ Sparky Sparky = this;
 
 /*
 ** @method setup
-** @description main processing setup
+** @desc main processing setup
 */
 void setup()
 {
@@ -158,7 +158,7 @@ void setup()
 
 /*
 ** @method draw
-** @description main processing loop
+** @desc main processing loop
 */
 void draw()
 {
@@ -195,7 +195,7 @@ void draw()
 
 /*
 ** @method sketchFullScreen
-** @description this is processing fullscreen mode based
+** @desc this is processing fullscreen mode based
 */
 boolean sketchFullScreen() {
   return full;

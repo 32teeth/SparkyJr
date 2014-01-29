@@ -2,12 +2,12 @@
 ** @author Eugene Andruszczenko
 ** @version 0.1
 ** @date January 3rd, 2014
-** @description interface for Arduino based SparkyFive
+** @desc interface for Arduino based SparkyFive
 */
 
 /*
 ** @class Stick
-** @description draw arcade stick and manage button states and colors
+** @desc draw arcade stick and manage button states and colors
 */
 class Stick
 {
@@ -36,7 +36,7 @@ class Stick
   
   /*
   ** @method setup
-  ** @description set initial centering based on screen size and invoke draw()
+  ** @desc set initial centering based on screen size and invoke draw()
   **              create buffer of offscreen mouse rollovers
   */
   void setup()
@@ -53,7 +53,7 @@ class Stick
   
   /*
   ** @method draw
-  ** @description manage stage, draw stick image, invoke mapper() and display() and set address (for port writing)
+  ** @desc manage stage, draw stick image, invoke mapper() and display() and set address (for port writing)
   */
   void draw()
   {
@@ -73,7 +73,7 @@ class Stick
 
   /*
   ** @method mapper
-  ** @description used strickly for drawing offscreen buffer for roll over detection
+  ** @desc used strickly for drawing offscreen buffer for roll over detection
   **              if color matches current underlying map defined color and mouse clicked, set selected state for button
   */  
   void mapper()

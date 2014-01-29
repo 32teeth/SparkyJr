@@ -2,12 +2,12 @@
 ** @author Eugene Andruszczenko
 ** @version 0.1
 ** @date January 3rd, 2014
-** @description interface for Arduino based SparkyFive
+** @desc interface for Arduino based SparkyFive
 */
 
 /*
 ** @class Footer
-** @description draw footer bar
+** @desc draw footer bar
 */
 class Footer
 {
@@ -20,7 +20,7 @@ class Footer
   
   /*
   ** @method setup
-  ** @description set initial centering based on screen size and invoke draw()
+  ** @desc set initial centering based on screen size and invoke draw()
   */  
   void setup()
   { 
@@ -29,7 +29,7 @@ class Footer
   
   /*
   ** @method draw
-  ** @description redraw the footer graphic to extend to screen width
+  ** @desc redraw the footer graphic to extend to screen width
   */    
   void draw()
   { 

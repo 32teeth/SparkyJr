@@ -4,7 +4,7 @@ int block;
 ** @method setEEPROM
 ** @param address {int} 0-254
 ** @param color {long}
-** @description set eeprom address with color
+** @desc set eeprom address with color
 */
 void setEEPROM(int address, long color)
 {
@@ -15,7 +15,7 @@ void setEEPROM(int address, long color)
 /*
 ** @method getColorEEPROM
 ** @param address {int} 0-254
-** @description get color from eeprom address
+** @desc get color from eeprom address
 */
 int* getColorEEPROM(int address)
 {
@@ -27,7 +27,7 @@ int* getColorEEPROM(int address)
 /*
 ** @method getLongEEPROM
 ** @param address {int} 0-254
-** @description get color from eeprom address
+** @desc get color from eeprom address
 */
 long getLongEEPROM(int address)
 {
@@ -37,7 +37,7 @@ long getLongEEPROM(int address)
 
 /*
 ** @method randomEEPROM
-** @description assign random colors to address
+** @desc assign random colors to address
 */
 void randomEEPROM()
 {
@@ -50,7 +50,7 @@ void randomEEPROM()
 
 /*
 ** @method printEEPROM
-** @description print out all EEPROM address
+** @desc print out all EEPROM address
 */
 void printEEPROM()
 {
@@ -65,7 +65,7 @@ void printEEPROM()
 
 /*
 ** @method eraseEEPROM
-** @description print out all EEPROM address
+** @desc print out all EEPROM address
 */
 void eraseEEPROM()
 {

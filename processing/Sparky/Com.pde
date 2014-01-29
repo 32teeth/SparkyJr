@@ -2,7 +2,7 @@
 ** @author Eugene Andruszczenko
 ** @version 0.1
 ** @date January 3rd, 2014
-** @description interface for Arduino based SparkyFive
+** @desc interface for Arduino based SparkyFive
 */
 
 class Com
@@ -10,7 +10,7 @@ class Com
   /*
   ** @method setup
   ** @param command {String} (erase|print|reset|help)
-  ** @description used to call and recieve serial commands to arduino
+  ** @desc used to call and recieve serial commands to arduino
   */  
   void send(String command)
   {
@@ -23,7 +23,7 @@ class Com
 
   /*
   ** @method set
-  ** @description set a specific EEPROM address block value
+  ** @desc set a specific EEPROM address block value
   ** @param address {int} clr {long}
   ** @example set 127 12345
   */  
@@ -40,7 +40,7 @@ class Com
 
   /*
   ** @method get
-  ** @description get a specific EEPROM address block value
+  ** @desc get a specific EEPROM address block value
   ** @param address {int}
   ** @example get 127
   */  
@@ -55,7 +55,7 @@ class Com
 
   /*
   ** @method press
-  ** @description press a specific EEPROM address block value
+  ** @desc press a specific EEPROM address block value
   ** @param address {int}
   ** @example press 127
   */  
@@ -70,7 +70,7 @@ class Com
 
   /*
   ** @method display
-  ** @description display a specific EEPROM address block value
+  ** @desc display a specific EEPROM address block value
   ** @param address {int}
   ** @example display 127
   */  
@@ -86,7 +86,7 @@ class Com
   /*
   ** @method setup
   ** @param command {String} (erase|print|reset|help)
-  ** @description used to recieve serial commands to arduino
+  ** @desc used to recieve serial commands to arduino
   */  
   void recieve()
   {

@@ -1,5 +1,5 @@
 /*
-** @description arduino
+** @desc arduino
 */
 #include "arduino.h"
 
@@ -7,9 +7,9 @@
 ** @method getBin
 ** @param number (int)
 ** @return result {String} 
-** @description converts the decimal param to binary string
+** @desc converts the decimal param to binary string
 */
-PROGMEM String getBin(int number)
+String getBin(int number)
 {  
   String result = "";
   for(int i = 0; i < (sizeof(number)*4); i++){result += ((number & (1 << i)) ? "1" : "0");}
@@ -18,20 +18,20 @@ PROGMEM String getBin(int number)
 
 /*
 ** @method getLong
-** @description convert rgb values to long int
+** @desc convert rgb values to long int
 ** @param r {int} red value
 ** @param g {int} red value
 ** @param b {int} red value
 ** @return {long}
 */
-PROGMEM long int getLong(int r, int g, int b)
+long int getLong(int r, int g, int b)
 {
   return (unsigned long)r << 16 | (unsigned long)g << 8 | (unsigned long)b;
 }
 
 /*
 ** @method getRGB
-** @description convert long values to rgb array
+** @desc convert long values to rgb array
 ** @param color {long} long value represantation of color
 ** @return {int*}
 */
@@ -46,7 +46,7 @@ int* getRGB(long color)
 
 /*
 ** @method getHEX
-** @description convert long values to rgb array
+** @desc convert long values to rgb array
 ** @param color {long} long value represantation of color
 ** @return {String}
 */
@@ -57,7 +57,7 @@ String getHEX(long color)
 
 /*
 ** @method getHEX
-** @description convert long values to rgb array
+** @desc convert long values to rgb array
 ** @param color {long} long value represantation of color
 ** @return {String}
 */
@@ -71,7 +71,7 @@ String getHEX(int* rgb)
 
 /*
 ** @method setRGB
-** @description convert long values to rgb array
+** @desc convert long values to rgb array
 ** @param color {long} long value represantation of color
 ** @return {String}
 */
