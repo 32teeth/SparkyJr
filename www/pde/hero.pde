@@ -11,7 +11,7 @@ import java.util.*;
 /*
 ** @desc import video files
 */
-//import processing.video.*;
+import processing.video.*;
 
 /*
 ** @desc declare Video object
