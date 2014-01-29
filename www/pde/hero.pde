@@ -68,8 +68,6 @@ void draw()
 	background(0);
 	image(poster, 0, 0, dw, dh);
 	ctx.drawImage(video, 0, 0, dw, dh);
-	fill(255, 255, 255, 100);
-	text("hello", 15, 75);
 }
 
 /*
