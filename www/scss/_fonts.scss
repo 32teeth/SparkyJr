@@ -9,3 +9,15 @@
 		"fontawesome-webfont.eot"
 	)
 );
+
+/*
+	fonts
+*/
+@include font-face(
+	'OpenSansRegular', 
+	font-files(
+		"OpenSansRegular.woff", 
+		"OpenSansRegular.ttf", 
+		"OpenSansRegular.eot"
+	)
+);

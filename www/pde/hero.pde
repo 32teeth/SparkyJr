@@ -5,10 +5,13 @@
 ** @desc hero video player
 */
 
+import processing.opengl.*
+import java.util.*;
+
 /*
 ** @desc import video files
 */
-import processing.video.*;
+//import processing.video.*;
 
 /*
 ** @desc declare Video object
@@ -19,6 +22,7 @@ PImage img;
 PImage poster;
 var canvas = document.querySelector('canvas');
 var ctx;
+
 
 /*
 ** @desc video dimensions
@@ -38,16 +42,17 @@ int dw = window.innerWidth, dh = window.innerHeight;
 void setup()
 {
 	dh = dw*ratio;
-	size(dw, dh, P2D);
+	size(dw, dh);
 	smooth();
 	noStroke();
-	background(255);
+	background(0);
 
 	ext = source();
 	ctx = canvas.getContext('2d');
 
 	poster = loadImage("video/sparkydark.jpg");
 	$("#content").css({top:$("canvas").height()-50});	
+
 }
 
 /*
@@ -58,13 +63,13 @@ void draw()
 {
 	dw = window.innerWidth;
 	dh = dw*ratio;
-	size(dw, dh, P2D);
+	size(dw, dh);
 	ratio = vh/vw;
+	background(0);
 	image(poster, 0, 0, dw, dh);
-	//ctx.drawImage(video, 0, 0, dw, dh);
-
-	fill(255);
-	text("hello", 100, 10);
+	ctx.drawImage(video, 0, 0, dw, dh);
+	fill(255, 255, 255, 100);
+	text("hello", 15, 75);
 }
 
 /*

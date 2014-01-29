@@ -7793,6 +7793,14 @@ th.hide-for-touch {
   src: url('fonts/fontawesome-webfont.woff') format('woff'), url('fonts/fontawesome-webfont.ttf') format('truetype'), url('fonts/fontawesome-webfont.eot') format('embedded-opentype');
 }
 
+/*
+	fonts
+*/
+@font-face {
+  font-family: "OpenSansRegular";
+  src: url('fonts/OpenSansRegular.woff') format('woff'), url('fonts/OpenSansRegular.ttf') format('truetype'), url('fonts/OpenSansRegular.eot') format('embedded-opentype');
+}
+
 /* line 18, ../scss/_icons.scss */
 [data-icon] {
   text-align: center;
@@ -7822,6 +7830,10 @@ html {
   background: none;
 }
 /* line 13, ../scss/_styles.scss */
+html h2 {
+  font-family: OpenSansRegular;
+}
+/* line 18, ../scss/_styles.scss */
 html body {
   width: 100%;
   height: 100%;
@@ -7829,7 +7841,7 @@ html body {
   padding: 0;
   background: none;
 }
-/* line 20, ../scss/_styles.scss */
+/* line 25, ../scss/_styles.scss */
 html body .hero {
   position: fixed;
   top: 0;
@@ -7839,11 +7851,11 @@ html body .hero {
   z-index: -1;
   overflow: no-scroll;
 }
-/* line 30, ../scss/_styles.scss */
+/* line 35, ../scss/_styles.scss */
 html body .hero video {
   display: none;
 }
-/* line 35, ../scss/_styles.scss */
+/* line 40, ../scss/_styles.scss */
 html body .hero canvas {
   z-index: 1;
   -webkit-transition: all 500ms ease-in-out;
@@ -7851,7 +7863,7 @@ html body .hero canvas {
   -o-transition: all 500ms ease-in-out;
   transition: all 500ms ease-in-out;
 }
-/* line 42, ../scss/_styles.scss */
+/* line 47, ../scss/_styles.scss */
 html body .content {
   display: -webkit-box;
   display: -moz-box;
@@ -7866,8 +7878,9 @@ html body .content {
   height: 100%;
   width: 100%;
   position: relative;
+  background: white;
 }
-/* line 52, ../scss/_styles.scss */
+/* line 58, ../scss/_styles.scss */
 html body .content section {
   padding: 1rem;
   height: 100%;
