@@ -46,7 +46,7 @@ void setup()
 	ext = source();
 	ctx = canvas.getContext('2d');
 
-	poster = loadImage("video/hero.png");
+	poster = loadImage("video/sparkydark.jpg");
 	$("#content").css({top:$("canvas").height()-50});	
 }
 
@@ -61,7 +61,10 @@ void draw()
 	size(dw, dh, P2D);
 	ratio = vh/vw;
 	image(poster, 0, 0, dw, dh);
-	ctx.drawImage(video, 0, 0, dw, dh);
+	//ctx.drawImage(video, 0, 0, dw, dh);
+
+	fill(255);
+	text("hello", 100, 10);
 }
 
 /*
