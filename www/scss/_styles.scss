@@ -1,66 +1,47 @@
 /*
 	stretch screen and center content
 */
-html
+html, body
 {
 	width:100%;
 	height:100%;
-	margin:0;
-	padding:0;
-	background:none;
 
-	h2
+	section
 	{
-		font-family:OpenSansRegular;		
-	}	
-	
-	body
-	{
+		position:fixed;
+		top:0;
+		left:0;
 		width:100%;
 		height:100%;
-		margin:0;
-		padding:0;
-		background:none;
-		.hero
+		background-size:cover;
+
+		.centered
 		{
-			position:fixed;
-			top:0;
-			bottom:0;
+			position:absolute;
+			top:45%;
 			left:0;
 			right:0;
-			z-index:-1;
-			overflow: no-scroll;
-
-			video
+			bottom:0;
+			text-align:center;
+			h1
 			{
-				display:none;
-			}
-
-			canvas
-			{
-				z-index:1;
-				@include transition(all 500ms ease-in-out);
-			}
-		}
-
-		.content
-		{
-			@include display-box;	
-			@include box-orient(vertical);
-
-			float:left;
-			top:0;
-			height:100%;
-			width:100%;
-			position: relative;
-			background:rgba($white, 1);
-			section
-			{
-				padding:1rem;
-				height:100%;
 				width:100%;
-				background:rgba($white, 1);
 			}
 		}
+		&.video
+		{
+
+		}
+
+		.box {
+			position:absolute;
+			left:0;
+			height:100%;
+		}
+	}
+
+	video
+	{
+		background:$black;
 	}
 }
