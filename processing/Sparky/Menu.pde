@@ -74,7 +74,7 @@ class Menu
       on[i] = createImage(w, h, ARGB);
       on[i].copy(menu, w*2, y, w, h, 0, 0, w, h);
       disabled[i] = createImage(w, h, ARGB);
-      disabled[i].copy(menu, w*3, y, w, h, 0, 0, w, h);      
+      disabled[i].copy(menu, w*3, y, w, h, 0, 0, w, h);   
       y += h;
       mapY[i][1] = y;      
     }    
