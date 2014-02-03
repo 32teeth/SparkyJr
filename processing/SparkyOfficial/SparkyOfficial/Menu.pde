@@ -147,8 +147,12 @@ class Menu
                   devices.page = 1;
                 break;
                 case 2:
+                  activemodal = true;
+                  selector = true;                
                 break;
-                case 3:                  
+                case 3:
+                  activemodal = true;
+                  option = true;
                 break;
                 case 4:
                   activemodal = true;

@@ -51,8 +51,7 @@ class Stick
   void draw()
   {
     image(stick, dx, 0);
-    /*
-    if(screen == 3)
+    if(selector)
     {
       mapper();    
       address = 0;
@@ -60,7 +59,6 @@ class Stick
       fill(0);
       //text("address:" + address + " hex:" + HEX + " color:" + COLOR, 10, 680);      
     }    
-    */
     display();    
   }
 

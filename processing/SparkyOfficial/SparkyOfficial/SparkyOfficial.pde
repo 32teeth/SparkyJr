@@ -98,6 +98,18 @@ boolean device = false;
 /*
 ** @desc Devices class
 */
+Options options;
+boolean option = false;
+
+/*
+** @desc Devices class
+*/
+Picker picker;
+boolean selector = false;
+
+/*
+** @desc Devices class
+*/
 Quit quit;
 boolean tryquit = false;
 
@@ -150,7 +162,7 @@ void setup()
   frame.setTitle("Sparky Jr. Configurator");
   
   dw = full ? displayWidth : 800;
-  dh = full ? displayHeight : 700; 
+  dh = full ? displayHeight : 800; 
   dx = dw/2 - 640;
   dy = dh/2 - 512;
   
@@ -184,6 +196,14 @@ void setup()
   // device
   devices = new Devices();
   devices.setup();  
+  
+  // picker
+  picker = new Picker();
+  picker.setup();
+
+  // picker
+  options = new Options();
+  options.setup();  
   
   // quit
   quit = new Quit();
@@ -219,10 +239,23 @@ void draw()
         devices.draw();
       }
     }
+    if(selector)
+    {
+      stick.draw();
+      menu.draw();
+      picker.draw();
+    }    
+    if(option)
+    {
+      stick.draw();
+      menu.draw();
+      options.draw();
+    }    
     if(tryquit)
     {
       quit.draw();
     }
+    
   }
   if(now > millis() && !loaded)
   {
@@ -260,6 +293,7 @@ void mouse()
       cursor(HAND);
     break;
     case 2:
+      noCursor();
       //cursor(pencil, 0, 30);
     break;
   }    
