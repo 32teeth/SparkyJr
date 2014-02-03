@@ -59,7 +59,16 @@ class Stick
       fill(0);
       //text("address:" + address + " hex:" + HEX + " color:" + COLOR, 10, 680);      
     }    
-    display();    
+
+    if(!MADCATZ_LAYOUT && !HORI_LAYOUT)
+    {
+      display();
+    }
+    else
+    {
+      if(MADCATZ_LAYOUT){madcatz();}
+      if(HORI_LAYOUT){hori();}
+    } 
   }
 
   /*
@@ -123,7 +132,7 @@ class Stick
     {
       fill(#777777);
       if(states[n] == 0){fill(#666666);};
-      if(selected[n] == 1){fill(#999999);};     
+      if(selected[n] == 1){fill(#999999);};    
       Base = buttons.getChild("Base"+n);
       Base.disableStyle();
       shape(Base, dx, 0);
@@ -146,7 +155,7 @@ class Stick
       
       fill(r,g,b);
       if(selected[n] == 0){fill(102);}
-      if(r == 254 && g == 254 && b == 254 && selected[n] == 1){fill(238);};
+      if(r == 255 && g == 255 && b == 255 && selected[n] == 1){fill(238);};
       
       Cap = buttons.getChild("Cap"+n);
       Cap.disableStyle();
@@ -155,4 +164,90 @@ class Stick
       fill(0);      
     }
   }
+  
+  void madcatz()
+  {
+    noStroke();
+    fill(211);
+    buttons.disableStyle();
+    shape(buttons, dx, 0);
+    
+    for(int n = 7; n >= 0; n--)
+    {
+      fill(#777777);
+      if(MADCATZ[n] == 1){fill(#999999);}; 
+     
+      Base = buttons.getChild("Base"+n);
+      Base.disableStyle();
+      shape(Base, dx, 0);
+      
+      int r = MADCATZ_COLORS[n][0];
+      int g = MADCATZ_COLORS[n][1];
+      int b = MADCATZ_COLORS[n][2];  
+      
+      fill(r,g,b);
+      if(MADCATZ[n] == 0){fill(102);}
+      
+      Color = buttons.getChild("Color"+n);
+      Color.disableStyle();
+      shape(Color, dx, 0);      
+      
+      fill(255,90);
+      Button = buttons.getChild("Button"+n);
+      Button.disableStyle();
+      shape(Button, dx, 0);
+      
+      fill(r,g,b);
+      if(MADCATZ[n] == 0){fill(102);}
+      
+      Cap = buttons.getChild("Cap"+n);
+      Cap.disableStyle();
+      shape(Cap, dx, 0);      
+      
+      fill(0);      
+    }
+  } 
+ 
+  void hori()
+  {
+    noStroke();
+    fill(211);
+    buttons.disableStyle();
+    shape(buttons, dx, 0);
+    
+    for(int n = 7; n >= 0; n--)
+    {
+      fill(#777777);
+      if(HORI[n] == 1){fill(#999999);}; 
+     
+      Base = buttons.getChild("Base"+n);
+      Base.disableStyle();
+      shape(Base, dx, 0);
+      
+      int r = HORI_COLORS[n][0];
+      int g = HORI_COLORS[n][1];
+      int b = HORI_COLORS[n][2];  
+      
+      fill(r,g,b);
+      if(HORI[n] == 0){fill(102);}
+      
+      Color = buttons.getChild("Color"+n);
+      Color.disableStyle();
+      shape(Color, dx, 0);      
+      
+      fill(255,90);
+      Button = buttons.getChild("Button"+n);
+      Button.disableStyle();
+      shape(Button, dx, 0);
+      
+      fill(r,g,b);
+      if(HORI[n] == 0){fill(102);}
+      
+      Cap = buttons.getChild("Cap"+n);
+      Cap.disableStyle();
+      shape(Cap, dx, 0);      
+      
+      fill(0);      
+    }
+  }   
 }

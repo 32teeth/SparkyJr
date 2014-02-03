@@ -148,7 +148,9 @@ class Menu
                 break;
                 case 2:
                   activemodal = true;
-                  selector = true;                
+                  selector = true;    
+                  MADCATZ_LAYOUT = false;
+                  HORI_LAYOUT = false;            
                 break;
                 case 3:
                   activemodal = true;

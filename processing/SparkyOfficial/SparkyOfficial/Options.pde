@@ -80,7 +80,8 @@ class Options
       state = pages[1];
       if(mousePressed)
       {
-
+        MADCATZ_LAYOUT = true;
+        HORI_LAYOUT = false;
       }
     }
    
@@ -93,7 +94,8 @@ class Options
       state = pages[2];
       if(mousePressed)
       {
-
+        MADCATZ_LAYOUT = false;
+        HORI_LAYOUT = true;
       }
     }
 

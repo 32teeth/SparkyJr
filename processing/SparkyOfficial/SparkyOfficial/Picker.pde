@@ -99,11 +99,10 @@ class Picker
         inc = 0;
         upload = true;
         state = pages[2];
-        /*
+
         exec = true;
         command = "set " + stick.address + " " + stick.COLOR;
-        action = "set";
-        */       
+        action = "set";  
       }
     }
     

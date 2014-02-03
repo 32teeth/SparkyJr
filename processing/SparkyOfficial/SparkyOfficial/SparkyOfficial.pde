@@ -67,6 +67,20 @@ int dw, dh, dx, dy;
 */
 
 /*
+** @desc madcatz buttons and colors
+*/
+boolean MADCATZ_LAYOUT = false;
+int[] MADCATZ = {1,1,0,0,1,1,0,0};
+int[][] MADCATZ_COLORS =  {{0,0,204}, {204,204,0}, {0,0,0}, {0,0,0}, {0,204,0}, {204,0,0}, {0,0,0}, {0,0,0}};
+
+/*
+** @desc hori buttons and colors
+*/
+boolean HORI_LAYOUT = false;
+int[] HORI = {1,1,1,0,1,0,0,0};
+int[][] HORI_COLORS =  {{204,0,0}, {0,0,204}, {204,204,0}, {0,0,0}, {0,204,0}, {0,0,0}, {0,0,0}, {0,0,0}};
+
+/*
 ** @desc Intro Class
 */
 Intro intro;
@@ -106,6 +120,11 @@ boolean option = false;
 */
 Picker picker;
 boolean selector = false;
+
+/*
+** @desc Devices class
+*/
+Com com;
 
 /*
 ** @desc Devices class
@@ -203,7 +222,10 @@ void setup()
 
   // picker
   options = new Options();
-  options.setup();  
+  options.setup(); 
+ 
+  // com
+  com = new Com(); 
   
   // quit
   quit = new Quit();
@@ -298,3 +320,17 @@ void mouse()
     break;
   }    
 }
+
+void mouseReleased() {
+  if(exec && action != "")
+  {
+    if(action == "set")
+    {
+      com.set(stick.address, stick.COLOR);
+    }
+    exec = false;
+    action = "";
+    command = "";
+  }
+}
+
