@@ -151,24 +151,26 @@ void programming()
          Serial.print(String(d,BIN));     
       }
 
-      if(command.equals("press"))
-      {
-        int states = Serial.parseInt();
-        incoming = getBin(states);
-        
-        Serial.print(F("reading states:"));
-        Serial.print(states);  
-        Serial.print(F("\tincoming:"));
-        Serial.println(incoming);  
- 
-        for(int n = 0; n < count; n++)
+      #ifndef DRIVER
+        if(command.equals("press"))
         {
-          char pin = incoming[n];
-          pin == '0' ? digitalWrite(outputs[n], LOW) : digitalWrite(outputs[n], HIGH);
-        }    
-        
-        //poll(states);        
-      }
+          int states = Serial.parseInt();
+          incoming = getBin(states);
+          
+          Serial.print(F("reading states:"));
+          Serial.print(states);  
+          Serial.print(F("\tincoming:"));
+          Serial.println(incoming);  
+   
+          for(int n = 0; n < count; n++)
+          {
+            char pin = incoming[n];
+            pin == '0' ? digitalWrite(outputs[n], LOW) : digitalWrite(outputs[n], HIGH);
+          }    
+          
+          //poll(states);        
+        }
+      #endif
       
       if(command.equals("display"))
       {
@@ -200,14 +202,6 @@ void programming()
         WDTCSR= (1<<WDE);
         for(;;);
       }
-      /*
-      if(command.equals("debug"))
-      {
-        debug = Serial.parseInt();
-        Serial.print(F("debug:"));
-        Serial.println(debug);        
-      }
-      */
       
       Serial.print(command);       
       Serial.println(F(" complete\n"));  

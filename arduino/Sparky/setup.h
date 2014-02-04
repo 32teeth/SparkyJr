@@ -1,16 +1,18 @@
 /*
 ** @desc this file is used set all the required information to run in specific modes
 */
+#include <arduino.h>
 
 /*
-** @define (LEO|UNO|JOY|RAZER)
+** @define (DRIVER|LEO|UNO|JOY|RAZER)
+** @desc DRIVER = Arduino WS2811 Shield
 ** @desc LEO = Arduino Leonardo
 ** @desc SPARKY = SparkyJrFTDI
 ** @desc UNO = Arduino UNO
 ** @desc JOY = Arduino Joystick Shield
 ** @desc RAZER = Razer Atrox Arcade Stick
 */
-#define RAZER
+#define LEO
 
 /*
 ** @desc play intro intro
@@ -122,39 +124,61 @@ float changed = now;
 ** @desc settings for on and off of digital pin states
 */
 #ifdef ANODE
-  int ON = HIGH;
-  int OFF = LOW;
+  PROGMEM int ON = HIGH;
+  PROGMEM int OFF = LOW;
 #endif
 #ifdef CATHODE
-  int ON = LOW;
-  int OFF = HIGH;
+  PROGMEM int ON = LOW;
+  PROGMEM int OFF = HIGH;
 #endif
 
 /*
 ** @desc declare inputs, outputs and pwm IO pins
+
+  .g8""8q.     .g8""8q.     .g8""8q.     .g8""8q.   
+.dP'    `YM. .dP'    `YM. .dP'    `YM. .dP'    `YM. 
+dM'      `MM dM'      `MM dM'      `MM dM'      `MM 
+MM    B   MM MM    X   MM MM    Y   MM MM   LB   MM 
+MM.      ,MP MM.      ,MP MM.      ,MP MM.      ,MP 
+`Mb.    ,dP' `Mb.    ,dP' `Mb.    ,dP' `Mb.    ,dP' 
+  `"bmmd"'     `"bmmd"'     `"bmmd"'     `"bmmd"'   
+                                                    
+  .g8""8q.     .g8""8q.     .g8""8q.     .g8""8q.   
+.dP'    `YM. .dP'    `YM. .dP'    `YM. .dP'    `YM. 
+dM'      `MM dM'      `MM dM'      `MM dM'      `MM 
+MM    A   MM MM   LT   MM MM   RT   MM MM   RB   MM 
+MM.      ,MP MM.      ,MP MM.      ,MP MM.      ,MP 
+`Mb.    ,dP' `Mb.    ,dP' `Mb.    ,dP' `Mb.    ,dP' 
+  `"bmmd"'     `"bmmd"'     `"bmmd"'     `"bmmd"'   
+
 */
+#ifdef DRIVER
+  PROGMEM const int inputs[] = {9,8,7,12,10,5,6,11};
+  PROGMEM const int data = 4;
+#endif
+
 #ifdef RAZER
-  const int inputs[] = {0,15,1,18,19,14,16,17};
-  const int outputs[] = {6,7,8,12,2,3,4,5};
-  const int pwm[] = {9,10,11};
+  PROGMEM const int inputs[] = {0,15,1,18,19,14,16,17};
+  PROGMEM const int outputs[] = {6,7,8,12,2,3,4,5};
+  PROGMEM const int pwm[] = {9,10,11};
 #endif
 
 #ifdef SPARKY
-  const int inputs[] = {0,1,2,3,4,5,6,7};
-  const int outputs[] = {18,17,16,15,14,13,12,8};
-  const int pwm[] = {9,10,11};
+  PROGMEM const int inputs[] = {0,1,2,3,4,5,6,7};
+  PROGMEM const int outputs[] = {18,17,16,15,14,13,12,8};
+  PROGMEM const int pwm[] = {9,10,11};
 #endif
 
 #ifdef UNO
-  const int inputs[] = {0,1,2,3,4,5,6,7};
-  const int outputs[] = {18,17,16,15,14,13,12,8};
-  const int pwm[] = {9,10,11};
+  PROGMEM const int inputs[] = {0,1,2,3,4,5,6,7};
+  PROGMEM const int outputs[] = {18,17,16,15,14,13,12,8};
+  PROGMEM const int pwm[] = {9,10,11};
 #endif
 
 #ifdef LEO
-  const int inputs[] = {3,2,0,1,4,12,6,8};
-  const int outputs[] = {23,22,21,20,19,18,13,5};
-  const int pwm[] = {9,10,11};
+  PROGMEM const int inputs[] = {3,2,0,1,4,12,6,8};
+  PROGMEM const int outputs[] = {23,22,21,20,19,18,13,5};
+  PROGMEM const int pwm[] = {9,10,11};
 #endif
 
 /*

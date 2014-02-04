@@ -3,35 +3,29 @@
 ** @desc see setup.h if you wish to create your own pin mapping
 */
 
-
 /*
 ** @method pins
-** @description light up RGB values accoring to input states
+** @desc light up RGB values accoring to input states
 */
 void setIO()
 {
-  for(int n = 0; n < count; n++)
-  {
-    /*RGB pins*/
-    if(n < 3)
+  #ifndef DRIVER
+    for(int n = 0; n < count; n++)
     {
-      pinMode(pwm[n], OUTPUT);
-      analogWrite(pwm[n], 0);
+      /*RGB pins*/
+      if(n < 3){pinMode(pwm[n], OUTPUT);analogWrite(pwm[n], 0);}
+       
+      /*Oupute pins*/       
+      pinMode(outputs[n], OUTPUT);digitalWrite(outputs[n], OFF);  
     }
-    
-    /*input and common pins*/
-    pinMode(inputs[n], INPUT); 
-    pinMode(outputs[n], OUTPUT);
-    
-    /*turn off all common*/
-    digitalWrite(inputs[n], HIGH);    
-    digitalWrite(outputs[n], OFF);  
-  }
+  #endif
+
+  for(int n = 0; n < count; n++){pinMode(inputs[n], INPUT);digitalWrite(inputs[n], HIGH);  }
 }
 
 /*
 ** @method pins
-** @description light up RGB values accoring to input states
+** @desc light up RGB values accoring to input states
 */
 void readIO()
 {
@@ -60,12 +54,12 @@ void readIO()
 
 /*
 ** @method outputIO
-** @description light up RGB values accoring to input states
+** @desc light up RGB values accoring to input states
 */
 void outputIO()
 {
   /*
-  ** @description if the changed timestamp is greater than current timestamp fade in the lights, 
+  ** @desc if the changed timestamp is greater than current timestamp fade in the lights, 
   ** otherwise, light them up as necessary
   **
   */  
@@ -73,8 +67,6 @@ void outputIO()
   color = getLongEEPROM(address);
   xrgb = getRGB(color);
   setRGB(xrgb);
-
-  
   boolean fader = true;
 
   if(changed > now)
@@ -86,19 +78,62 @@ void outputIO()
         float percent = (changed-now)/duration;
         out[c] = (int)(prgb[c] * percent);        
         //in[c] = (int)(rgb[c] * (1-percent)) + out[c];
-        in[c] = (int)(rgb[c] * (1-percent));        
+        in[c] = (int)(rgb[c] * (1-percent));
+
+        /*
+        ** @desc if NO driver and ANODE adjustment
+        */
+        #ifdef ANODE && #ifndef DRIVER
+          out[c] = 255 - out[c];
+          in[c] = 255 - in[c];
+        #endif       
       }
 
-      for(int n = 0; n < count; n++){stored[n] == 0 ? digitalWrite(outputs[n], ON) : digitalWrite(outputs[n], OFF);}      
-      for(int c = 0; c < 3; c++){analogWrite(pwm[c], 255 - out[c]);}     
+      /*
+      ** @desc if NO driver
+      */
+      #ifndef DRIVER
+        for(int n = 0; n < count; n++){stored[n] == 0 ? digitalWrite(outputs[n], ON) : digitalWrite(outputs[n], OFF);}      
+        for(int c = 0; c < 3; c++){analogWrite(pwm[c], out[c]);}     
 
-      for(int n = 0; n < count; n++){states[n] == 0 ? digitalWrite(outputs[n], ON) : digitalWrite(outputs[n], OFF);}      
-      for(int c = 0; c < 3; c++){analogWrite(pwm[c], 255 - in[c]);}      
+        for(int n = 0; n < count; n++){states[n] == 0 ? digitalWrite(outputs[n], ON) : digitalWrite(outputs[n], OFF);}      
+        for(int c = 0; c < 3; c++){analogWrite(pwm[c], in[c]);}     
+      /*
+      ** @desc if NO driver
+      ** @note order is R B G
+      */
+      #else
+        for(int n = 0; n < count; n++)
+        {
+          neo.setPixelColor(n, 0, 0, 0);
+          if(stored[n] == 0){neo.setPixelColor(n, out[0], out[2], out[1]);}
+          if(states[n] == 0){neo.setPixelColor(n, in[0], in[2], in[1]);}
+        }
+        neo.show();
+        delayMicroseconds(1000);
+      #endif              
     }
     else
     {
-      for(int n = 0; n < count; n++){states[n] == 0 ? digitalWrite(outputs[n], ON) : digitalWrite(outputs[n], OFF);}
-      for(int c = 0; c < 3; c++){analogWrite(pwm[c], 255 - rgb[c]);}
+      /*
+      ** @desc if NO driver
+      */
+      #ifndef DRIVER
+        for(int n = 0; n < count; n++){states[n] == 0 ? digitalWrite(outputs[n], ON) : digitalWrite(outputs[n], OFF);}
+        for(int c = 0; c < 3; c++){analogWrite(pwm[c], 255 - rgb[c]);}
+      /*
+      ** @desc if NO driver
+      ** @note order is R B G
+      */
+      #else
+        for(int n = 0; n < count; n++)
+        {
+          neo.setPixelColor(n, 0, 0, 0);
+          if(states[n] == 0){neo.setPixelColor(n, rgb[0], rgb[2], rgb[1]);}
+        }
+        neo.show();
+        delayMicroseconds(1000);
+      #endif         
     }
   }
 }
@@ -123,13 +158,40 @@ void displayIO(int address)
   xrgb = getRGB(color);
   setRGB(xrgb);
   String incoming = getBin(address);
-  
-  for(int n = 0; n < count; n++)
-  {
-    char pin = incoming[n];
-    pin == '0' ? digitalWrite(outputs[n], OFF) : digitalWrite(outputs[n], ON);
-  }
-  for(int c = 0; c < 3; c++){analogWrite(pwm[c], 255 - rgb[c]);} 
+
+  /*
+  ** @desc if NO driver
+  */
+  #ifndef DRIVER
+    for(int n = 0; n < count; n++)
+    {
+      char pin = incoming[n];
+      pin == '0' ? digitalWrite(outputs[n], OFF) : digitalWrite(outputs[n], ON);
+    }
+
+    /*
+    ** @desc ANODE adjustment
+    */
+    #ifdef ANODE
+      for(int c = 0; c < 3; c++){analogWrite(pwm[c], 255 - rgb[c]);} 
+    #else
+      for(int c = 0; c < 3; c++){analogWrite(pwm[c], rgb[c]);} 
+    #endif  
+  /*
+  ** @desc if NO driver
+  ** @note order is R B G
+  */
+  #else
+    for(int n = 0; n < count; n++)
+    {
+      neo.setPixelColor(n, 0, 0, 0);
+
+      char pin = incoming[n];
+      if(pin == 0){neo.setPixelColor(n, rgb[0], rgb[2], rgb[1]);}
+    }
+    neo.show();
+    delayMicroseconds(1000);
+  #endif     
 }
 
 /*
@@ -141,34 +203,89 @@ void displayIO(int address, long color)
   xrgb = getRGB(color);
   setRGB(xrgb);
   String incoming = getBin(address);
-  
-  for(int n = 0; n < count; n++)
-  {
-    char pin = incoming[n];
-    pin == '0' ? digitalWrite(outputs[n], OFF) : digitalWrite(outputs[n], ON);
-  }
 
-  for(int n = 0; n < 250; n++)
-  {
-      for(int c = 0; c < 3; c++)
+  /*
+  ** @desc if NO driver
+  */
+  #ifndef DRIVER
+    for(int n = 0; n < count; n++)
+    {
+      char pin = incoming[n];
+      pin == '0' ? digitalWrite(outputs[n], OFF) : digitalWrite(outputs[n], ON);
+    }
+
+    /*
+    ** @desc fade in
+    */
+    for(int n = 0; n < 250; n++)
+    {
+        for(int c = 0; c < 3; c++)
+        {
+          float percent = n/duration;
+          in[c] = (int)(rgb[c] * (percent));
+          #ifdef ANODE
+            in[c] = 255 - (int)in[c];
+          #endif            
+          analogWrite(pwm[c], in[c]);
+        }         
+        delayMicroseconds(1000);
+    }
+
+    /*
+    ** @desc fade out
+    */
+    for(int n = 250; n > 0; n--)
+    {
+        for(int c = 0; c < 3; c++)
+        {
+          float percent = n/duration;
+          out[c] = (int)(rgb[c] * (percent));
+          #ifdef ANODE
+            out[c] = 255 - (int)out[c];
+          #endif            
+          analogWrite(pwm[c], out[c]);
+        }         
+        delayMicroseconds(1000);
+    }           
+  /*
+  ** @desc if NO driver
+  ** @note order is R B G
+  */
+  #else
+    for(int n = 0; n < 250; n++)
+    {
+      for(int n = 0; n < count; n++)
       {
-        float percent = n/duration;
-        in[c] = (int)(rgb[c] * (percent));
-        analogWrite(pwm[c], 255-(int)in[c]);
-      }         
-      delayMicroseconds(750);
-  }
-  
-  for(int n = 0; n < 250; n++)
-  {
-      for(int c = 0; c < 3; c++)
+        for(int c = 0; c < 3; c++)
+        {
+          float percent = n/duration;
+          in[c] = (int)(rgb[c] * (percent));
+        }
+        neo.setPixelColor(n, 0, 0, 0);
+        char pin = incoming[n];
+        if(pin == 0){neo.setPixelColor(n, in[0], in[2], in[1]);}
+      }
+      neo.show();
+      delayMicroseconds(1000);      
+    }  
+    for(int n = 250; n > 0; n--)
+    {
+      for(int n = 0; n < count; n++)
       {
-        float percent = n/duration;
-        out[c] = (int)(rgb[c] * (1-percent));
-        analogWrite(pwm[c], 255-(int)out[c]);
-      }         
-      delayMicroseconds(750);
-  }
+        for(int c = 0; c < 3; c++)
+        {
+          float percent = n/duration;
+          out[c] = (int)(rgb[c] * (percent));
+        }        
+        neo.setPixelColor(n, 0, 0, 0);
+
+        char pin = incoming[n];
+        if(pin == 0){neo.setPixelColor(n, out[0], out[2], out[1]);}
+      }
+      neo.show();
+      delayMicroseconds(1000);      
+    }  
+  #endif 
 }
 
 /*

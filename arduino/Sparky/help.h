@@ -36,7 +36,7 @@ void help()
   Serial.print(F("\n@command display\n"));  
   Serial.print(F(" @desc convert int to binary to represent buttons pressed (this will show the stored color(\n"));
   Serial.print(F(" @param states {int}\n")); 
-  Serial.print(F(" @example display 127\n"));  
+  Serial.print(F(" @example display 127\n")); 
  
   Serial.print(F("\ngeneral\n")); 
   Serial.print(F("\n@command reset\n"));  

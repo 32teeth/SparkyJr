@@ -46,7 +46,7 @@ class Picker
     {
       if(inc < 740)
       {
-        inc+=10;
+        inc+=25;
         image(pages[1], dx, 0);
         fill(0,102,102);
         rect(button[0], button[1], inc, 100);

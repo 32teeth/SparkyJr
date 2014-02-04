@@ -11,6 +11,11 @@
 */
 #include "setup.h"
 
+#ifdef DRIVER
+  #include <Adafruit_NeoPixel.h>
+  Adafruit_NeoPixel neo = Adafruit_NeoPixel(8, data, NEO_RGB + NEO_KHZ800);
+#endif
+
 /*
 ** @desc include utility
 */
@@ -26,7 +31,6 @@
 */
 #include <EEPROMex.h>
 #include "eeprom.h";
-
 
 #include "io.h"
 
@@ -48,17 +52,26 @@
 void setup()
 {
   /*
+  ** @desc start
+  */  
+  #ifdef DRIVER
+    neo.begin();
+    neo.setBrightness(64);
+    neo.show();
+  #endif
+  
+  /*
   ** @desc Timer adjustments
   */  
   TCCR1B = TCCR1B & 0b11111000 | 0x01; 
-  #ifdef UNO || #ifdef RAZER
+  #ifdef UNO || #ifdef RAZER || #ifdef DRIVER
     TCCR2B = TCCR2B & 0b11111000 | 0x01;
   #endif
 
   /*
-  ** @description EEPROM Allocations 
+  ** @desc EEPROM Allocations 
   */
-  #ifdef UNO || #ifdef RAZER
+  #ifdef UNO || #ifdef RAZER || #ifdef DRIVER
     EEPROM.setMemPool(1024 , EEPROMSizeUno);  
   #endif
   #ifdef LEO
@@ -78,9 +91,12 @@ void setup()
   /*
   ** @desc run intro
   */
+  //#define INTRO
   #ifdef INTRO
     introIO();
   #endif
+  
+  configurator = true;
 }
 
 /*

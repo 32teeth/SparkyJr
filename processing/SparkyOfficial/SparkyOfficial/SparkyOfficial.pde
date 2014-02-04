@@ -326,6 +326,7 @@ void mouseReleased() {
   {
     if(action == "set")
     {
+      println("set " + stick.address + " " + stick.COLOR);
       com.set(stick.address, stick.COLOR);
     }
     exec = false;
