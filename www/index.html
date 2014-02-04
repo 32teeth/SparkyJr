@@ -8,9 +8,6 @@
         <link rel="stylesheet" href="stylesheets/app.css" />    
     </head>
     <body>
-
-
-
         <section>
             <div class="centered">
                 <div data-599="opacity:1;" data-600="opacity:0;">
@@ -30,15 +27,40 @@
                 <source src="video/sparkydark.webm" type="video/webm">
             </video>
         </section>  
-        <section data-0="transform:translate(0,100%);" data-1100="transform:translate(0,100%);" data-1200="transform:translate(0,-10%);">
-            <div class="centered">
+        <section id="front" 
+            data-0="transform:translate(0,100%);" 
+            data-1100="transform:translate(0,100%);" 
+            data-1200="transform:translate(0,0);"
+        >
+            <div class="centered"
+                data-0="transform:rotateY(0deg) perspective(100px);" 
+                data-1600="transform:rotateY(0deg) perspective(100px);" 
+                data-1800="transform:rotateY(90deg) perspective(100px);" 
+            >
                 <div>
                     <h1>Join Us</h1>
                     <a href="http://fitc.ca/event/to14/" target="_blank" class="button radius secondary">@FITC Toronto 2014</a>
                     <p>April 27-29, 2014</p>
                 </div>
             </div>
-        </section>          
+        </section>   
+        <section id="back" 
+            data-0="transform:translate(0,100%);" 
+            data-1100="transform:translate(0,100%);" 
+            data-1200="transform:translate(0,0);"           
+        >
+            <div class="centered"
+                data-0="transform:rotateY(-90deg) perspective(100px);" 
+                data-1800="transform:rotateY(-90deg) perspective(100px);" 
+                data-2000="transform:rotateY(0deg) perspective(100px);" 
+            >
+                <div>
+                    <h1>Coffee</h1>
+                    <a class="coinbase-button" data-code="d1b23b22f202691dffabc95d47e61753" data-button-style="custom_large" data-custom="32teeth" href="https://coinbase.com/checkouts/d1b23b22f202691dffabc95d47e61753">Donate Bitcoins</a><script src="https://coinbase.com/assets/button.js" type="text/javascript"></script>
+                    <p>Caffeine for coding!</p>
+                </div>
+            </div>
+        </section> 
         <!--    
         <section class="box" data-1100="transform:translate(0,-100%);" data-1200="transform:translate(0,0%);">
             <div class="large-6 medium-6 small-12 columns">

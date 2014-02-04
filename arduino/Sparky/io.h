@@ -20,7 +20,7 @@ void setIO()
     }
   #endif
 
-  for(int n = 0; n < count; n++){pinMode(inputs[n], INPUT);digitalWrite(inputs[n], HIGH);  }
+  for(int n = 0; n < count; n++){pinMode(inputs[n], INPUT);digitalWrite(inputs[n], HIGH);}
 }
 
 /*

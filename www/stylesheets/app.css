@@ -7850,3 +7850,8 @@ html section .box, body section .box {
 html video, body video {
   background: black;
 }
+
+/* line 50, ../scss/_styles.scss */
+iframe {
+  padding-left: 25px;
+}
