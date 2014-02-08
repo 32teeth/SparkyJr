@@ -64,17 +64,16 @@ void setup()
   ** @desc Timer adjustments
   */  
   TCCR1B = TCCR1B & 0b11111000 | 0x01; 
-  #ifdef UNO || #ifdef RAZER || #ifdef DRIVER
+  #ifndef LEO
     TCCR2B = TCCR2B & 0b11111000 | 0x01;
   #endif
 
   /*
   ** @desc EEPROM Allocations 
   */
-  #ifdef UNO || #ifdef RAZER || #ifdef DRIVER
+  #ifndef LEO
     EEPROM.setMemPool(1024 , EEPROMSizeUno);  
-  #endif
-  #ifdef LEO
+  #else
     EEPROM.setMemPool(1024 , EEPROMSizeATmega32u4);
   #endif 
   EEPROM.setMaxAllowedWrites(1024);
@@ -91,12 +90,14 @@ void setup()
   /*
   ** @desc run intro
   */
-  //#define INTRO
+  #define INTRO
   #ifdef INTRO
     introIO();
   #endif
   
-  configurator = true;
+  //configurator = true;
+  //MADCATZ_LAYOUT = true;
+  //HORI_LAYOUT = true;
 }
 
 /*

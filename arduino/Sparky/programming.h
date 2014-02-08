@@ -151,26 +151,26 @@ void programming()
          Serial.print(String(d,BIN));     
       }
 
-      #ifndef DRIVER
-        if(command.equals("press"))
+      if(command.equals("press"))
+      {
+        int states = Serial.parseInt();
+        incoming = getBin(states);
+        
+        Serial.print(F("reading states:"));
+        Serial.print(states);  
+        Serial.print(F("\tincoming:"));
+        Serial.println(incoming);  
+ 
+        for(int n = 0; n < count; n++)
         {
-          int states = Serial.parseInt();
-          incoming = getBin(states);
-          
-          Serial.print(F("reading states:"));
-          Serial.print(states);  
-          Serial.print(F("\tincoming:"));
-          Serial.println(incoming);  
-   
-          for(int n = 0; n < count; n++)
-          {
-            char pin = incoming[n];
-            pin == '0' ? digitalWrite(outputs[n], LOW) : digitalWrite(outputs[n], HIGH);
-          }    
-          
-          //poll(states);        
-        }
-      #endif
+          char pin = incoming[n];
+          #ifndef DRIVER
+            pin == '1' ? digitalWrite(pgm_read_byte(&outputs[n]), OFF) : digitalWrite(pgm_read_byte(&outputs[n]), ON);
+          #else
+            if(pin != '0'){neo.setPixelColor(n, 255, 255, 255);}
+          #endif
+        }    
+      }
       
       if(command.equals("display"))
       {

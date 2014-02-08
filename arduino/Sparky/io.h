@@ -13,14 +13,14 @@ void setIO()
     for(int n = 0; n < count; n++)
     {
       /*RGB pins*/
-      if(n < 3){pinMode(pwm[n], OUTPUT);analogWrite(pwm[n], 0);}
+      if(n < 3){pinMode(pgm_read_byte(&pwm[n]), OUTPUT);analogWrite(pgm_read_byte(&pwm[n]), 0);}
        
       /*Oupute pins*/       
-      pinMode(outputs[n], OUTPUT);digitalWrite(outputs[n], OFF);  
+      pinMode(pgm_read_byte(&outputs[n]), OUTPUT);digitalWrite(pgm_read_byte(&outputs[n]), OFF);  
     }
   #endif
 
-  for(int n = 0; n < count; n++){pinMode(inputs[n], INPUT);digitalWrite(inputs[n], HIGH);}
+  for(int n = 0; n < count; n++){pinMode(pgm_read_byte(&inputs[n]), INPUT);digitalWrite(pgm_read_byte(&inputs[n]), HIGH);}
 }
 
 /*
@@ -38,7 +38,7 @@ void readIO()
   
   for(int n = 0; n < count; n++)
   {
-    states[n] = digitalRead(inputs[n]);
+    states[n] = digitalRead(pgm_read_byte(&inputs[n]));
     address |= states[n] == 0 ? 1 << n : 0 << n;
   }
   for(int n = 0; n < count; n++){
@@ -64,6 +64,7 @@ void outputIO()
   **
   */  
   
+  
   color = getLongEEPROM(address);
   xrgb = getRGB(color);
   setRGB(xrgb);
@@ -83,9 +84,11 @@ void outputIO()
         /*
         ** @desc if NO driver and ANODE adjustment
         */
-        #ifdef ANODE && #ifndef DRIVER
-          out[c] = 255 - out[c];
-          in[c] = 255 - in[c];
+        #ifndef DRIVER
+          #ifdef ANODE
+            out[c] = 255 - out[c];
+            in[c] = 255 - in[c];
+          #endif
         #endif       
       }
 
@@ -93,11 +96,11 @@ void outputIO()
       ** @desc if NO driver
       */
       #ifndef DRIVER
-        for(int n = 0; n < count; n++){stored[n] == 0 ? digitalWrite(outputs[n], ON) : digitalWrite(outputs[n], OFF);}      
-        for(int c = 0; c < 3; c++){analogWrite(pwm[c], out[c]);}     
+        for(int n = 0; n < count; n++){stored[n] == 0 ? digitalWrite(pgm_read_byte(&outputs[n]), ON) : digitalWrite(pgm_read_byte(&outputs[n]), OFF);}      
+        for(int c = 0; c < 3; c++){analogWrite(pgm_read_byte(&pwm[c]), out[c]);}     
 
-        for(int n = 0; n < count; n++){states[n] == 0 ? digitalWrite(outputs[n], ON) : digitalWrite(outputs[n], OFF);}      
-        for(int c = 0; c < 3; c++){analogWrite(pwm[c], in[c]);}     
+        for(int n = 0; n < count; n++){states[n] == 0 ? digitalWrite(pgm_read_byte(&outputs[n]), ON) : digitalWrite(pgm_read_byte(&outputs[n]), OFF);}      
+        for(int c = 0; c < 3; c++){analogWrite(pgm_read_byte(&pwm[c]), in[c]);}     
       /*
       ** @desc if NO driver
       ** @note order is R B G
@@ -119,8 +122,8 @@ void outputIO()
       ** @desc if NO driver
       */
       #ifndef DRIVER
-        for(int n = 0; n < count; n++){states[n] == 0 ? digitalWrite(outputs[n], ON) : digitalWrite(outputs[n], OFF);}
-        for(int c = 0; c < 3; c++){analogWrite(pwm[c], 255 - rgb[c]);}
+        for(int n = 0; n < count; n++){states[n] == 0 ? digitalWrite(pgm_read_byte(&outputs[n]), ON) : digitalWrite(pgm_read_byte(&outputs[n]), OFF);}
+        for(int c = 0; c < 3; c++){analogWrite(pgm_read_byte(&pwm[c]), 255 - rgb[c]);}
       /*
       ** @desc if NO driver
       ** @note order is R B G
@@ -166,16 +169,16 @@ void displayIO(int address)
     for(int n = 0; n < count; n++)
     {
       char pin = incoming[n];
-      pin == '0' ? digitalWrite(outputs[n], OFF) : digitalWrite(outputs[n], ON);
+      pin == '0' ? digitalWrite(pgm_read_byte(&outputs[n]), OFF) : digitalWrite(pgm_read_byte(&outputs[n]), ON);
     }
 
     /*
     ** @desc ANODE adjustment
     */
     #ifdef ANODE
-      for(int c = 0; c < 3; c++){analogWrite(pwm[c], 255 - rgb[c]);} 
+      for(int c = 0; c < 3; c++){analogWrite(pgm_read_byte(&pwm[c]), 255 - rgb[c]);} 
     #else
-      for(int c = 0; c < 3; c++){analogWrite(pwm[c], rgb[c]);} 
+      for(int c = 0; c < 3; c++){analogWrite(pgm_read_byte(&pwm[c]), rgb[c]);} 
     #endif  
   /*
   ** @desc if NO driver
@@ -187,7 +190,7 @@ void displayIO(int address)
       neo.setPixelColor(n, 0, 0, 0);
 
       char pin = incoming[n];
-      if(pin == 0){neo.setPixelColor(n, rgb[0], rgb[2], rgb[1]);}
+      if(pin != '0'){neo.setPixelColor(n, rgb[0], rgb[2], rgb[1]);}
     }
     neo.show();
     delayMicroseconds(1000);
@@ -211,7 +214,7 @@ void displayIO(int address, long color)
     for(int n = 0; n < count; n++)
     {
       char pin = incoming[n];
-      pin == '0' ? digitalWrite(outputs[n], OFF) : digitalWrite(outputs[n], ON);
+      pin == '1' ? digitalWrite(pgm_read_byte(&outputs[n]), OFF) : digitalWrite(pgm_read_byte(&outputs[n]), ON);
     }
 
     /*
@@ -226,7 +229,7 @@ void displayIO(int address, long color)
           #ifdef ANODE
             in[c] = 255 - (int)in[c];
           #endif            
-          analogWrite(pwm[c], in[c]);
+          analogWrite(pgm_read_byte(&pwm[c]), in[c]);
         }         
         delayMicroseconds(1000);
     }
@@ -243,7 +246,7 @@ void displayIO(int address, long color)
           #ifdef ANODE
             out[c] = 255 - (int)out[c];
           #endif            
-          analogWrite(pwm[c], out[c]);
+          analogWrite(pgm_read_byte(&pwm[c]), out[c]);
         }         
         delayMicroseconds(1000);
     }           
@@ -254,36 +257,36 @@ void displayIO(int address, long color)
   #else
     for(int n = 0; n < 250; n++)
     {
-      for(int n = 0; n < count; n++)
+      float percent = n/duration;
+      for(int i = 0; i < count; i++)
       {
+        neo.setPixelColor(n, 0, 0, 0);        
         for(int c = 0; c < 3; c++)
         {
-          float percent = n/duration;
           in[c] = (int)(rgb[c] * (percent));
         }
-        neo.setPixelColor(n, 0, 0, 0);
-        char pin = incoming[n];
-        if(pin == 0){neo.setPixelColor(n, in[0], in[2], in[1]);}
+        char pin = incoming[i];
+        if(pin != '0'){neo.setPixelColor(i, in[0], in[2], in[1]);}
       }
       neo.show();
-      delayMicroseconds(1000);      
+      delayMicroseconds(500);      
     }  
     for(int n = 250; n > 0; n--)
     {
-      for(int n = 0; n < count; n++)
+      float percent = n/duration;      
+      for(int i = 0; i < count; i++)
       {
         for(int c = 0; c < 3; c++)
         {
-          float percent = n/duration;
           out[c] = (int)(rgb[c] * (percent));
         }        
-        neo.setPixelColor(n, 0, 0, 0);
+        neo.setPixelColor(i, 0, 0, 0);
 
-        char pin = incoming[n];
-        if(pin == 0){neo.setPixelColor(n, out[0], out[2], out[1]);}
+        char pin = incoming[i];
+        if(pin != '0'){neo.setPixelColor(i, out[0], out[2], out[1]);}
       }
       neo.show();
-      delayMicroseconds(1000);      
+      delayMicroseconds(500);      
     }  
   #endif 
 }
@@ -294,7 +297,7 @@ void displayIO(int address, long color)
 */
 void introIO()
 {
-  for(int n = 0; n < 10; n++)
+  for(int n = 0; n < 25; n++)
   {
     address = random(255);
     state = getBin(address);

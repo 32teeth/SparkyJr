@@ -27,11 +27,11 @@ void madcatz()
       ** @desc ANODE adjustment
       */      
       #ifdef ANODE
-        for(int c = 0; c < 3; c++){analogWrite(pwm[c], 255-MADCATZ_COLORS[n][c]);}
+        for(int c = 0; c < 3; c++){analogWrite(pgm_read_byte(&pwm[c]), 255-pgm_read_byte(&MADCATZ_COLORS[n][c]));}
       #else
-        for(int c = 0; c < 3; c++){analogWrite(pwm[c], MADCATZ_COLORS[n][c]);}
+        for(int c = 0; c < 3; c++){analogWrite(pgm_read_byte(&pwm[c]), pgm_read_byte(&MADCATZ_COLORS[n][c]));}
       #endif
-      if(MADCATZ[n] == 0)
+      if(pgm_read_byte(&MADCATZ[n]) == 0)
       {
         digitalWrite(outputs[n], HIGH);
         delayMicroseconds(500);
@@ -46,7 +46,7 @@ void madcatz()
     for(int n = 0; n < count; n++)
     {
       neo.setPixelColor(n, 0, 0, 0);
-      if(MADCATZ[n] == 0){neo.setPixelColor(n, MADCATZ_COLORS[n][0], MADCATZ_COLORS[n][2], MADCATZ_COLORS[n][1]);}
+      if(MADCATZ[n] == 0){neo.setPixelColor(n, pgm_read_byte(&MADCATZ_COLORS[n][0]), pgm_read_byte(&MADCATZ_COLORS[n][2]), pgm_read_byte(&MADCATZ_COLORS[n][1]));}
     }
     neo.show();
     delayMicroseconds(1000);
@@ -78,11 +78,11 @@ void hori()
       ** @desc ANODE adjustment
       */
       #ifdef ANODE
-        for(int c = 0; c < 3; c++){analogWrite(pwm[c], 255-HORI_COLORS[n][c]);}
+        for(int c = 0; c < 3; c++){analogWrite(pgm_read_byte(&pwm[c]), 255-pgm_read_byte(&HORI_COLORS[n][c]));}
       #else
-        for(int c = 0; c < 3; c++){analogWrite(pwm[c], HORI_COLORS[n][c]);}
+        for(int c = 0; c < 3; c++){analogWrite(pgm_read_byte(&pwm[c]), pgm_read_byte(&HORI_COLORS[n][c]));}
       #endif        
-      if(HORI[n] == 0)
+      if(pgm_read_byte(&HORI[n]) == 0)
       {
         digitalWrite(outputs[n], HIGH);
         delayMicroseconds(500);
@@ -97,7 +97,7 @@ void hori()
     for(int n = 0; n < count; n++)
     {
       neo.setPixelColor(n, 0, 0, 0);
-      if(HORI[n] == 0){neo.setPixelColor(n, HORI_COLORS[n][0], HORI_COLORS[n][2], HORI_COLORS[n][1]);}
+      if(HORI[n] == 0){neo.setPixelColor(n, pgm_read_byte(&HORI_COLORS[n][0]), pgm_read_byte(&HORI_COLORS[n][2]), pgm_read_byte(&HORI_COLORS[n][1]));}
     }
     neo.show();
     delayMicroseconds(1000);

@@ -12,13 +12,14 @@
 ** @desc JOY = Arduino Joystick Shield
 ** @desc RAZER = Razer Atrox Arcade Stick
 */
-#define LEO
+//#define RAZER
+#define SPARKY
 
 /*
 ** @desc play intro intro
 ** @param intro {boolean}
 */
-#define INTRO false;
+//#define INTRO;
 
 /*
 ** @define (ANODE|CATHODE)
@@ -153,7 +154,7 @@ MM.      ,MP MM.      ,MP MM.      ,MP MM.      ,MP
 
 */
 #ifdef DRIVER
-  PROGMEM const int inputs[] = {9,8,7,12,10,5,6,11};
+  PROGMEM const int inputs[] = {12,11,10,9,8,7,6,5,4};
   PROGMEM const int data = 4;
 #endif
 
