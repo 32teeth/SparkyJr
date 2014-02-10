@@ -90,7 +90,7 @@ void setup()
   /*
   ** @desc run intro
   */
-  #define INTRO
+  //#define INTRO
   #ifdef INTRO
     introIO();
   #endif
