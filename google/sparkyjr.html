@@ -8,27 +8,45 @@
         <link rel="stylesheet" href="stylesheets/app.css" />    
     </head>
     <body>
-        <section>
-            <div class="centered">
-                <div>
-                    <h1>SparkyJr.</h1>
-                    RGB LED Controller
-                </div>
-                <img src="images/stick.png">
-            </div>
-        </section>
+        <div class="fixed" ng-controller="serialController">
+            <nav class="top-bar" data-topbar>
+                <ul class="title-area">
+                    <li class="name">
+                        <h1><a href="#">SparkyJr.</a></h1>
+                    </li>
+                    <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+                </ul>
 
-        <!-- google angularjs CDN -->
-        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+                <section class="top-bar-section">
+                    <!-- Right Nav Section -->
+                    <ul class="right columns">
+                        <li class="has-dropdown">
+                            <a href="#">Serial Ports</a>
+                            <ul class="dropdown">
+                                <li ng-repeat="port in ports"><a ng-click="$parent.port = port.id">{{port.short}}</a></li>
+                            </ul>
+                        </li>                        
+                        <li class="has-dropdown">
+                            <a href="#">Bitrate</a>
+                            <ul class="dropdown">
+                                <li ng-repeat="bitrate in bitrates"><a ng-click="$parent.bitrate = bitrate">{{bitrate}}</a></li>
+                            </ul>
+                        </li>
+                        <li><a class="button radius" ng-class="{alert:port == -1, success:port > -1}">connect</a></li>
+                    </ul>
+                </section>
+            </nav>  
 
-        <!-- processing -->
-        <script src="//cloud.github.com/downloads/processing-js/processing-js/processing-1.4.1.min.js"></script>
+            {{port}}{{bitrate}}
+        </div>       
 
-        <!-- skrollr -->
-        <script src="//cdnjs.cloudflare.com/ajax/libs/skrollr/0.6.11/skrollr.min.js"></script>
+        <!-- google angularjs -->
+        <script src="js/angular/angular.min.js"></script>
+
 
         <!-- anggular app -->
         <script src="js/angular/app.js"></script>
-        <script src="js/angular/filters.js"></script>        
+        <script src="js/angular/filters.js"></script>    
+        <script src="js/angular/serialController.js"></script>
     </body>
 </html>
