@@ -95,7 +95,7 @@ void setup()
     introIO();
   #endif
   
-  //configurator = true;
+  configurator = true;
   //MADCATZ_LAYOUT = true;
   //HORI_LAYOUT = true;
 }

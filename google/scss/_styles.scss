@@ -2,3 +2,37 @@ html, body
 {
 	font-size:1rem;
 }
+
+form
+{
+	&.buttons
+	{
+		input[type='checkbox']
+		{
+			display:none;
+
+			&:checked + label:before
+			{
+				border:solid 0.5rem rgba($black, 0.75);
+			}
+		}
+
+		label
+		{
+			display: inline-block;
+			cursor:pointer;
+			position:relative;		
+
+			&:before
+			{
+				content:"";
+				display:block;
+				width:100px;
+				height:100px;
+				background:none;
+				border:solid 0.5rem rgba($black, 0.25);
+				@include border-radius(100%);
+			}			
+		}
+	}
+}

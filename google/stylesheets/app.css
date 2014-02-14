@@ -7814,3 +7814,32 @@ th.hide-for-touch {
 html, body {
   font-size: 1rem;
 }
+
+/* line 11, ../scss/_styles.scss */
+form.buttons input[type='checkbox'] {
+  display: none;
+}
+/* line 15, ../scss/_styles.scss */
+form.buttons input[type='checkbox']:checked + label:before {
+  border: solid 0.5rem rgba(0, 0, 0, 0.75);
+}
+/* line 21, ../scss/_styles.scss */
+form.buttons label {
+  display: inline-block;
+  cursor: pointer;
+  position: relative;
+}
+/* line 27, ../scss/_styles.scss */
+form.buttons label:before {
+  content: "";
+  display: block;
+  width: 100px;
+  height: 100px;
+  background: none;
+  border: solid 0.5rem rgba(0, 0, 0, 0.25);
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  -ms-border-radius: 100%;
+  -o-border-radius: 100%;
+  border-radius: 100%;
+}

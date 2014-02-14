@@ -12,8 +12,9 @@
 ** @desc JOY = Arduino Joystick Shield
 ** @desc RAZER = Razer Atrox Arcade Stick
 */
-#define RAZER
-//#define SPARKY
+//#define RAZER
+#define SPARKY
+//#define DRIVER
 
 /*
 ** @desc play intro intro
