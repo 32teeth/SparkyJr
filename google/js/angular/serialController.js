@@ -14,20 +14,27 @@ SparkyJr.controller("serialController", ["$scope", function($scope){
 	*/
 	$scope.port = -1;
 	$scope.ports = [];
-	$scope.portid;
+	$scope.portid = -1;
 	$scope.portstring;
 	$scope.baudrates = [115200, 57600, 38400, 28800, 19200, 14400, 9600, 4800, 2400, 1200, 600, 300];
 	$scope.baudrate;
 
 	$scope.address = 0;
+	$scope.setter;
 	$scope.command;
+
+
+	$scope.hex;
+	$scope.long;
+	$scope.rgb;
 
 
 	/*
 	** @method get
 	** @desc collect all available ports and push to ports array
 	*/
-	$scope.get = function(){
+	$scope.get = function()
+	{
 		$scope.serial.getPorts(function(ports){
 			for(var n = 0; n < ports.length; n++)
 			{
@@ -46,6 +53,20 @@ SparkyJr.controller("serialController", ["$scope", function($scope){
 	}
 
 	/*
+	** @method get
+	** @desc collect all available ports and push to ports array
+	*/
+	$scope.set = function()
+	{
+		var command = document.getElementById("set").value;
+		$scope.write(command);
+
+		setTimeout(function(){
+			$scope.display();
+		},250);
+	}	
+
+	/*
 	** @method open
 	** @desc collect all available ports and push to ports array
 	*/	
@@ -58,6 +79,7 @@ SparkyJr.controller("serialController", ["$scope", function($scope){
 	$scope.info = function(info)
 	{
 		$scope.portid = info.connectionId;
+		$scope.$apply();
 	}
 
 	/*
@@ -114,8 +136,30 @@ SparkyJr.controller("serialController", ["$scope", function($scope){
 			}
 		}
 
-	}		
+	}	
 
+	/*
+	** @method color conversion
+	*/	
+	$scope.colors = function()
+	{
+		$scope.hex = document.querySelector('input[type="color"]').value.slice(1,7);
+
+		/*
+		** @desc to long
+		*/		
+		$scope.long = parseInt($scope.hex, 16);
+		/*
+		** @desc to RGB
+		*/
+		$scope.rgb = [
+		    $scope.long >> 16,
+		    $scope.long >> 8 & 0xFF,
+		    $scope.long & 0xFF
+		];
+
+		console.log($scope.hex + ":" + $scope.rgb + ":" + $scope.long)
+	}
 
 	/*
 	** @@desc invoke

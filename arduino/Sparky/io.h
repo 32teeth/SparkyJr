@@ -226,7 +226,7 @@ void displayIO(int address, long color)
         {
           float percent = n/duration;
           in[c] = (int)(rgb[c] * (percent));
-          #ifdef ANODE
+          #ifdef ANODE && #ifndef SPARKY
             in[c] = 255 - (int)in[c];
           #endif            
           analogWrite(pgm_read_byte(&pwm[c]), in[c]);

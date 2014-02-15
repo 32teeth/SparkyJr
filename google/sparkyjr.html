@@ -1,72 +1,92 @@
 
 <!doctype html>
 <html class="no-js" lang="en" ng-app="SparkyJr">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-        <title>Sparky Jr.</title>
-        <link rel="stylesheet" href="stylesheets/app.css" />    
-    </head>
-    <body>
-        <div class="fixed" ng-controller="serialController">
-            <nav class="top-bar" data-topbar>
-                <ul class="title-area">
-                    <li class="name">
-                        <h1><a href="#">SparkyJr.</a></h1>
-                    </li>
-                    <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
-                </ul>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<title>Sparky Jr.</title>
+		<link rel="stylesheet" href="stylesheets/app.css" />	
+	</head>
+	<body>
+		<div class="fixed" ng-controller="serialController">
+			<nav class="top-bar" data-topbar>
+				<ul class="title-area">
+					<li class="name">
+						<h1><a href="#">SparkyJr.</a></h1>
+					</li>
+					<li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+				</ul>
 
-                <section class="top-bar-section">
-                    <!-- Right Nav Section -->
-                    <ul class="right columns">
-                        <li class="has-dropdown">
-                            <a href="#">{{ports[port].short || "Serial Ports"}}</a>
-                            <ul class="dropdown">
-                                <li ng-repeat="port in ports"><a ng-click="$parent.port = port.id">{{port.short}}</a></li>
-                            </ul>
-                        </li>                        
-                        <li class="has-dropdown">
-                            <a href="#">{{baudrate || "Baudrate"}}</a>
-                            <ul class="dropdown">
-                                <li ng-repeat="baudrate in baudrates"><a ng-click="$parent.baudrate = baudrate">{{baudrate}}</a></li>
-                            </ul>
-                        </li>
-                        <li><a class="button radius" ng-class="{alert:port == -1, success:port > -1}" ng-click="open()">connect</a></li>
-                    </ul>
-                </section>
-            </nav>  
+				<section class="top-bar-section">
+					<!-- Right Nav Section -->
+					<ul class="right columns">
+						<li class="has-dropdown">
+							<a href="#">{{ports[port].short || "Serial Ports"}}</a>
+							<ul class="dropdown">
+								<li ng-repeat="port in ports"><a ng-click="$parent.port = port.id">{{port.short}}</a></li>
+							</ul>
+						</li>						
+						<li class="has-dropdown">
+							<a href="#">{{baudrate || "Baudrate"}}</a>
+							<ul class="dropdown">
+								<li ng-repeat="baudrate in baudrates"><a ng-click="$parent.baudrate = baudrate">{{baudrate}}</a></li>
+							</ul>
+						</li>
+						<li><a class="button radius" ng-class="{alert:port == -1 || baudrate == null, success:port > -1 && baudrate != null}" ng-click="open()">connect</a></li>
+					</ul>
+				</section>
+			</nav>  
 
-            <form class="buttons row">
-                <div class="large-12 medium-12 columns">
-                    <div class="large-3 medium-3 columns" ng-repeat="value in [1,2,4,8]">
-                        <input type="checkbox" id="button{{value}}" class="btn" ng-click="buttons()" value="{{value}}">
-                        <label for="button{{value}}"></label>
-                    </div>
-                </div>
-                <div class="large-12 medium-12 columns">
-                    <div class="large-3 medium-3 columns" ng-repeat="value in [16,32,64,128]">
-                        <input type="checkbox" id="button{{value}}" class="btn" ng-click="buttons()" value="{{value}}">
-                        <label for="button{{value}}"></label>
-                    </div>
-                </div>              
-            </form>
-            
-            <div class="columns">
-                <a class="button radius alert" ng-click="display();">display</a>
-            </div>
-            <!--{{port}}{{baudrate}}-->
-        </div>       
+			<div ng-switch on="portid">
+				<div ng-switch-when="-1">
+					<div class="panel radius columns">
+						<h5>Lets get you connected</h5>
+						<p>Pick a Serial Port and Baudrate</p>
+					</div>
+
+					<!--<input type="color" id="color" name="color" ng-model="color" ng-change="colors()" value="#000000">-->
+					<canvas id="colors" width="740" height="232"></canvas>
+					<img id="spectrum" src="images/colors.png" style="display:none;">
+
+					{{color}}
+					<input type="text" id="set" value="set {{address}} {{long}}">
+					<ul class="button-group">
+				  		<li><span class="button secondary">set {{address}} {{long}}</span></li>
+				  		<li><a class="button alert radius" ng-click="set()">Set</a></li>
+					</ul>					
+				</div>
+				<div ng-switch-default>
+					<form class="buttons row">
+						<div class="large-12 medium-12 columns">
+							<div class="large-3 medium-3 columns" ng-repeat="value in [1,2,4,8]">
+								<input type="checkbox" id="button{{value}}" class="btn" ng-click="buttons()" value="{{value}}">
+								<label for="button{{value}}"></label>
+							</div>
+						</div>
+						<div class="large-12 medium-12 columns">
+							<div class="large-3 medium-3 columns" ng-repeat="value in [16,32,64,128]">
+								<input type="checkbox" id="button{{value}}" class="btn" ng-click="buttons()" value="{{value}}">
+								<label for="button{{value}}"></label>
+							</div>
+						</div>			  
+					</form>
+					
+					<div class="columns">
+						<a class="button radius alert" ng-click="display();">display</a>
+					</div>					
+				</div>
+			</div>
+			<!--{{port}}{{baudrate}}-->
+		</div>
+
+		<!-- google angularjs -->
+		<script src="js/angular/angular.min.js"></script>
 
 
-
-        <!-- google angularjs -->
-        <script src="js/angular/angular.min.js"></script>
-
-
-        <!-- anggular app -->
-        <script src="js/angular/app.js"></script>
-        <script src="js/angular/filters.js"></script>    
-        <script src="js/angular/serialController.js"></script>
-    </body>
+		<!-- anggular app -->
+		<script src="js/angular/app.js"></script>
+		<script src="js/angular/filters.js"></script>	
+		<script src="js/angular/serialController.js"></script>
+		<script src="js/spectrum.js"></script>
+	</body>
 </html>

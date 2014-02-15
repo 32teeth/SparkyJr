@@ -145,7 +145,7 @@ boolean full = false;
 /*
 ** @desc set to true to skip intro animation
 */
-boolean loaded = true;
+boolean loaded = false;
 
 /*
 ** THIS
@@ -180,7 +180,7 @@ void setup()
   
   frame.setTitle("Sparky Jr. Configurator");
   
-  dw = full ? displayWidth : 800;
+  dw = full ? displayWidth : 1024;
   dh = full ? displayHeight : 800; 
   dx = dw/2 - 640;
   dy = dh/2 - 512;
@@ -334,4 +334,3 @@ void mouseReleased() {
     command = "";
   }
 }
-

@@ -29,6 +29,7 @@
 */
 #define ANODE
 
+
 /*
 ** @desc configurator mode
 ** @param configurator {boolean}
@@ -168,7 +169,7 @@ MM.      ,MP MM.      ,MP MM.      ,MP MM.      ,MP
 #ifdef SPARKY
   PROGMEM const int inputs[] = {0,1,2,3,4,5,6,7};
   PROGMEM const int outputs[] = {18,17,16,15,14,13,12,8};
-  PROGMEM const int pwm[] = {9,10,11};
+  PROGMEM const int pwm[] = {9,11,10};
 #endif
 
 #ifdef UNO
