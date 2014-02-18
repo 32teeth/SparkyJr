@@ -8,7 +8,7 @@
 		<link rel="stylesheet" href="stylesheets/app.css" />	
 	</head>
 	<body>
-		<div class="fixed" ng-controller="serialController">
+		<div class="fixed" ng-controller="serialController" id="serialController">
 			<nav class="top-bar" data-topbar>
 				<ul class="title-area">
 					<li class="name">
@@ -36,47 +36,46 @@
 					</ul>
 				</section>
 			</nav>  
-
-			<div ng-switch on="portid">
-				<div ng-switch-when="-1">
-					<div class="panel radius columns">
-						<h5>Lets get you connected</h5>
-						<p>Pick a Serial Port and Baudrate</p>
-					</div>
-
-					<!--<input type="color" id="color" name="color" ng-model="color" ng-change="colors()" value="#000000">-->
-					<canvas id="colors" width="740" height="232"></canvas>
-					<img id="spectrum" src="images/colors.png" style="display:none;">
-
-					{{color}}
-					<input type="text" id="set" value="set {{address}} {{long}}">
-					<ul class="button-group">
-				  		<li><span class="button secondary">set {{address}} {{long}}</span></li>
-				  		<li><a class="button alert radius" ng-click="set()">Set</a></li>
-					</ul>					
-				</div>
-				<div ng-switch-default>
+					<div class="large-12 medium-12">
+						<canvas id="canvas"></canvas>
+						<img id="spectrum" src="images/colors.png" style="display:none;">
+						<input type="text" id="set" value="set {{address}} {{long}}" disabled="disabled" style="display:none;">
+					</div>	
 					<form class="buttons row">
-						<div class="large-12 medium-12 columns">
-							<div class="large-3 medium-3 columns" ng-repeat="value in [1,2,4,8]">
+						<div class="large-12 medium-12 columns text-center">
+							<div class="large-3 medium-3 columns centered" ng-repeat="value in [1,2,4,8]">
 								<input type="checkbox" id="button{{value}}" class="btn" ng-click="buttons()" value="{{value}}">
 								<label for="button{{value}}"></label>
 							</div>
 						</div>
-						<div class="large-12 medium-12 columns">
+						<div class="large-12 medium-12 columns text-center">
 							<div class="large-3 medium-3 columns" ng-repeat="value in [16,32,64,128]">
 								<input type="checkbox" id="button{{value}}" class="btn" ng-click="buttons()" value="{{value}}">
 								<label for="button{{value}}"></label>
 							</div>
 						</div>			  
 					</form>
-					
-					<div class="columns">
-						<a class="button radius alert" ng-click="display();">display</a>
-					</div>					
+					<div class="large-12 medium-12 columns">
+						<ul class="button-group columns large-12 medium-12">
+							<li class="large-8 medium-8 button secondary">set {{address}} {{long}}</li>
+							<li class="large-4 medium-4 "><a class="button alert radius large-12 medium-12" ng-click="set()">Set</a></li>
+						</ul>						
+						<a class="button radius alert" ng-click="display();">display</a>	
+					</div>	
+
+			<!--
+			<div ng-switch on="portid">
+				<div ng-switch-when="-1">
+					<div class="panel radius columns">
+						<h5>Lets get you connected</h5>
+						<p>Pick a Serial Port and Baudrate</p>
+					</div>				
+				</div>
+				<div ng-switch-default>
+									
 				</div>
 			</div>
-			<!--{{port}}{{baudrate}}-->
+			-->
 		</div>
 
 		<!-- google angularjs -->

@@ -7815,21 +7815,32 @@ html, body {
   font-size: 1rem;
 }
 
-/* line 11, ../scss/_styles.scss */
+/* line 9, ../scss/_styles.scss */
+form.buttons {
+  padding-bottom: 1rem;
+}
+/* line 12, ../scss/_styles.scss */
 form.buttons input[type='checkbox'] {
   display: none;
 }
-/* line 15, ../scss/_styles.scss */
+/* line 16, ../scss/_styles.scss */
 form.buttons input[type='checkbox']:checked + label:before {
   border: solid 0.5rem rgba(0, 0, 0, 0.75);
 }
-/* line 21, ../scss/_styles.scss */
+/* line 22, ../scss/_styles.scss */
 form.buttons label {
   display: inline-block;
   cursor: pointer;
   position: relative;
+  width: 100px;
+  height: 100px;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  -ms-border-radius: 100%;
+  -o-border-radius: 100%;
+  border-radius: 100%;
 }
-/* line 27, ../scss/_styles.scss */
+/* line 31, ../scss/_styles.scss */
 form.buttons label:before {
   content: "";
   display: block;
