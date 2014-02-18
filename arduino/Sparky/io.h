@@ -214,7 +214,7 @@ void displayIO(int address, long color)
     for(int n = 0; n < count; n++)
     {
       char pin = incoming[n];
-      pin == '1' ? digitalWrite(pgm_read_byte(&outputs[n]), OFF) : digitalWrite(pgm_read_byte(&outputs[n]), ON);
+      pin == '0' ? digitalWrite(pgm_read_byte(&outputs[n]), OFF) : digitalWrite(pgm_read_byte(&outputs[n]), ON);
     }
 
     /*

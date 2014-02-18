@@ -94,8 +94,34 @@ void setup()
   #ifdef INTRO
     introIO();
   #endif
+
   
-  configurator = true;
+  displayIO(240, 16711680);
+  displayIO(112, 16322304);
+  displayIO(48, 16417024);
+  displayIO(16, 4849408);
+
+  if(digitalRead(pgm_read_byte(&inputs[4])) == 0)
+  {
+    displayIO(255, 16777215);
+    configurator = true;
+  }
+  
+  if(digitalRead(pgm_read_byte(&inputs[5])) == 0)
+  {
+    displayIO(255, 16777215);    
+    MADCATZ_LAYOUT = true;
+    delay(1000);
+  }
+ 
+  if(digitalRead(pgm_read_byte(&inputs[6])) == 0)
+  {
+    displayIO(255, 16777215);    
+    HORI_LAYOUT = true;
+    delay(1000);
+  }  
+
+  //configurator = true;
   //MADCATZ_LAYOUT = true;
   //HORI_LAYOUT = true;
 }
