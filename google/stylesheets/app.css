@@ -7819,38 +7819,57 @@ html, body {
 .connect {
   position: fixed;
   top: 45px;
-  bottom: 0;
+  bottom: -45px;
   left: 0;
   right: 0;
   z-index: 1;
 }
 
 /* line 19, ../scss/_styles.scss */
+h3.columns {
+  font-size: 25pt;
+  color: #009999 !important;
+}
+
+/* line 28, ../scss/_styles.scss */
 form.buttons {
   padding-bottom: 1rem;
 }
-/* line 22, ../scss/_styles.scss */
+/* line 31, ../scss/_styles.scss */
 form.buttons input[type='checkbox'] {
   display: none;
 }
-/* line 26, ../scss/_styles.scss */
+/* line 35, ../scss/_styles.scss */
 form.buttons input[type='checkbox']:checked + label:before {
   border: solid 0.5rem rgba(0, 0, 0, 0.75);
 }
-/* line 32, ../scss/_styles.scss */
+/* line 41, ../scss/_styles.scss */
 form.buttons label {
   display: inline-block;
   cursor: pointer;
   position: relative;
   width: 100px;
   height: 100px;
+  background: white;
   -webkit-border-radius: 100%;
   -moz-border-radius: 100%;
   -ms-border-radius: 100%;
   -o-border-radius: 100%;
   border-radius: 100%;
+  -webkit-transition: background;
+  -moz-transition: background;
+  -o-transition: background;
+  transition: background;
+  -webkit-transition-duration: 250ms;
+  -moz-transition-duration: 250ms;
+  -o-transition-duration: 250ms;
+  transition-duration: 250ms;
+  -webkit-transition-timing-function: ease-in;
+  -moz-transition-timing-function: ease-in;
+  -o-transition-timing-function: ease-in;
+  transition-timing-function: ease-in;
 }
-/* line 41, ../scss/_styles.scss */
+/* line 54, ../scss/_styles.scss */
 form.buttons label:before {
   content: "";
   display: block;

@@ -7,10 +7,19 @@ html, body
 {
 	position:fixed;
 	top:45px;
-	bottom:0;
+	bottom:-45px;
 	left:0;
 	right:0;
 	z-index:1;
+}
+
+h3
+{
+	&.columns
+	{
+		font-size:25pt;
+		color:#009999 !important;
+	}
 }
 
 form
@@ -21,7 +30,7 @@ form
 		input[type='checkbox']
 		{
 			display:none;
-
+			
 			&:checked + label:before
 			{
 				border:solid 0.5rem rgba($black, 0.75);
@@ -35,7 +44,11 @@ form
 			position:relative;		
 			width:100px;
 			height:100px;			
+			background:$white;
 			@include border-radius(100%);
+ 			@include transition(background);
+ 			@include transition-duration(250ms);
+  			@include transition-timing-function(ease-in);
 
 			&:before
 			{

@@ -67,8 +67,11 @@ var Spectrum = (function(){
 	*/
 	function draw()
 	{
+		/*
 		context.fillStyle = "#FFFFFF";
 		context.fillRect(0,0,w,h);
+		*/
+		context.clearRect(0,0,w,h);
 
 		spectrum.src = data;
 		context.drawImage(spectrum, 30, 80);
@@ -80,9 +83,11 @@ var Spectrum = (function(){
 			color();
 		}
 
+		/*
 		context.fillStyle = "#009999";
 		context.font = '25pt OpenSans';
-		context.fillText("Pattern", 10, 40);
+		context.fillText("Select color", 30, 50);
+		*/
 
 		if(debug)
 		{
@@ -135,7 +140,7 @@ var Spectrum = (function(){
 		var buttons = document.querySelectorAll("input[type='checkbox'] + label");
 		for(var n = 0; n < buttons.length; n++)
 		{
-			buttons[n].style.background = "none";
+			buttons[n].style.background = "#FFFFFF";
 		}
 
 		var buttons = document.querySelectorAll("input[type='checkbox']:checked + label");

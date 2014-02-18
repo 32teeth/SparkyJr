@@ -23,6 +23,8 @@ SparkyJr.controller("serialController", ["$scope", function($scope){
 	$scope.setter;
 	$scope.command;
 
+	$scope.connected = false;
+
 
 	/*
 	** @method get
@@ -74,6 +76,7 @@ SparkyJr.controller("serialController", ["$scope", function($scope){
 	$scope.info = function(info)
 	{
 		$scope.portid = info.connectionId;
+		$scope.connected = true;
 		$scope.$apply();
 	}
 
@@ -124,9 +127,11 @@ SparkyJr.controller("serialController", ["$scope", function($scope){
 		for(var n = 0; n < buttons.length; n++)
 		{
 			var button = buttons[n];
+			document.querySelectorAll("input[type='checkbox'] + label")[n].style.background = "#FFFFFF";
 			if(button.checked)
 			{
 				$scope.address += parseInt(button.value);
+				document.querySelectorAll("input[type='checkbox'] + label")[n].style.background = $scope.hex;
 			}
 		}
 
