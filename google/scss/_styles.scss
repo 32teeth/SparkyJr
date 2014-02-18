@@ -3,6 +3,16 @@ html, body
 	font-size:1rem;
 }
 
+.connect
+{
+	position:fixed;
+	top:45px;
+	bottom:0;
+	left:0;
+	right:0;
+	z-index:1;
+}
+
 form
 {
 	&.buttons

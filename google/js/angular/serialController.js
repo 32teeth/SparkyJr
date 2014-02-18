@@ -68,7 +68,7 @@ SparkyJr.controller("serialController", ["$scope", function($scope){
 	$scope.open = function()
 	{
 		$scope.portstring = $scope.ports[$scope.port].long;
-		$scope.serial.open($scope.portstring, {bitrate:$scope.baudrate}, $scope.info)
+		$scope.serial.open($scope.portstring, {bitrate:$scope.baudrate}, $scope.info);
 	}
 
 	$scope.info = function(info)
@@ -84,8 +84,7 @@ SparkyJr.controller("serialController", ["$scope", function($scope){
 	$scope.write = function(command)
 	{
 		var buffer = $scope.buffer(command);
-		$scope.serial.write($scope.portid, buffer, function(){console.log("turn on the lights");});
-		//$scope.serial.flush($scope.port, function(){console.log("wooooooosh!");});
+		$scope.serial.write($scope.portid, buffer, function(){});
 	}
 
 	/*

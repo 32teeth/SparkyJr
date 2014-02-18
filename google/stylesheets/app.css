@@ -7815,19 +7815,29 @@ html, body {
   font-size: 1rem;
 }
 
-/* line 9, ../scss/_styles.scss */
+/* line 7, ../scss/_styles.scss */
+.connect {
+  position: fixed;
+  top: 45px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
+/* line 19, ../scss/_styles.scss */
 form.buttons {
   padding-bottom: 1rem;
 }
-/* line 12, ../scss/_styles.scss */
+/* line 22, ../scss/_styles.scss */
 form.buttons input[type='checkbox'] {
   display: none;
 }
-/* line 16, ../scss/_styles.scss */
+/* line 26, ../scss/_styles.scss */
 form.buttons input[type='checkbox']:checked + label:before {
   border: solid 0.5rem rgba(0, 0, 0, 0.75);
 }
-/* line 22, ../scss/_styles.scss */
+/* line 32, ../scss/_styles.scss */
 form.buttons label {
   display: inline-block;
   cursor: pointer;
@@ -7840,7 +7850,7 @@ form.buttons label {
   -o-border-radius: 100%;
   border-radius: 100%;
 }
-/* line 31, ../scss/_styles.scss */
+/* line 41, ../scss/_styles.scss */
 form.buttons label:before {
   content: "";
   display: block;

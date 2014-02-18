@@ -36,11 +36,20 @@
 					</ul>
 				</section>
 			</nav>  
-					<div class="large-12 medium-12">
-						<canvas id="canvas"></canvas>
-						<img id="spectrum" src="images/colors.png" style="display:none;">
-						<input type="text" id="set" value="set {{address}} {{long}}" disabled="disabled" style="display:none;">
-					</div>	
+
+			<div ng-switch on="portid">
+				<div ng-switch-when="-1">
+					<div class="panel connect">
+						<h5>Lets get you connected</h5>
+						<p>Pick a Serial Port and Baudrate</p>
+					</div>				
+				</div>
+				<div class="large-12 medium-12">
+					<canvas id="canvas"></canvas>
+					<img id="spectrum" src="images/colors.png" style="display:none;">
+					<input type="text" id="set" value="set {{address}} {{long}}" disabled="disabled" style="display:none;">
+				</div>					
+				<div ng-switch-default>
 					<form class="buttons row">
 						<div class="large-12 medium-12 columns text-center">
 							<div class="large-3 medium-3 columns centered" ng-repeat="value in [1,2,4,8]">
@@ -60,22 +69,10 @@
 							<li class="large-8 medium-8 button secondary">set {{address}} {{long}}</li>
 							<li class="large-4 medium-4 "><a class="button alert radius large-12 medium-12" ng-click="set()">Set</a></li>
 						</ul>						
-						<a class="button radius alert" ng-click="display();">display</a>	
-					</div>	
-
-			<!--
-			<div ng-switch on="portid">
-				<div ng-switch-when="-1">
-					<div class="panel radius columns">
-						<h5>Lets get you connected</h5>
-						<p>Pick a Serial Port and Baudrate</p>
-					</div>				
-				</div>
-				<div ng-switch-default>
-									
+						<!--<a class="button radius alert" ng-click="display();">display</a>-->
+					</div>										
 				</div>
 			</div>
-			-->
 		</div>
 
 		<!-- google angularjs -->
