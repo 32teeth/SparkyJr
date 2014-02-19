@@ -47,7 +47,7 @@ void madcatz()
     for(int n = 0; n < count; n++)
     {
       neo.setPixelColor(n, 0, 0, 0);
-      if(MADCATZ[n] == 0){neo.setPixelColor(n, pgm_read_byte(&MADCATZ_COLORS[n][0]), pgm_read_byte(&MADCATZ_COLORS[n][2]), pgm_read_byte(&MADCATZ_COLORS[n][1]));}
+      if(pgm_read_byte(&MADCATZ[n]) == 0){neo.setPixelColor(n, pgm_read_byte(&MADCATZ_COLORS[n][0]), pgm_read_byte(&MADCATZ_COLORS[n][2]), pgm_read_byte(&MADCATZ_COLORS[n][1]));}
     }
     neo.show();
     delayMicroseconds(2500);
@@ -99,7 +99,7 @@ void hori()
     for(int n = 0; n < count; n++)
     {
       neo.setPixelColor(n, 0, 0, 0);
-      if(HORI[n] == 0){neo.setPixelColor(n, pgm_read_byte(&HORI_COLORS[n][0]), pgm_read_byte(&HORI_COLORS[n][2]), pgm_read_byte(&HORI_COLORS[n][1]));}
+      if(pgm_read_byte(&HORI[n]) == 0){neo.setPixelColor(n, pgm_read_byte(&HORI_COLORS[n][0]), pgm_read_byte(&HORI_COLORS[n][2]), pgm_read_byte(&HORI_COLORS[n][1]));}
     }
     neo.show();
     delayMicroseconds(2500);

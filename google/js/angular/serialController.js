@@ -73,6 +73,18 @@ SparkyJr.controller("serialController", ["$scope", function($scope){
 		$scope.serial.open($scope.portstring, {bitrate:$scope.baudrate}, $scope.info);
 	}
 
+	/*
+	** @method open
+	** @desc collect all available ports and push to ports array
+	*/	
+	$scope.close = function()
+	{
+		$scope.write("exit");
+		$scope.portid = -1;
+		$scope.connected = false;
+		$scope.serial.close($scope.portid, function(){});
+	}	
+
 	$scope.info = function(info)
 	{
 		$scope.portid = info.connectionId;

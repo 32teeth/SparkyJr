@@ -111,23 +111,32 @@ void setup()
   {
     displayIO(255, 16777215);    
     MADCATZ_LAYOUT = true;
-    delay(1000);
   }
  
   if(digitalRead(pgm_read_byte(&inputs[6])) == 0)
   {
     displayIO(255, 16777215);    
     HORI_LAYOUT = true;
-    delay(1000);
   }  
 
   if(digitalRead(pgm_read_byte(&inputs[7])) == 0)
   {
     displayIO(255, 16777215);    
     OFFMODE = true;
-    delay(1000);
-    for(int n = 0; n < count; n++){digitalWrite(pgm_read_byte(&outputs[n]), LOW);}
   }    
+  
+  delay(1000);
+  for(int n = 0; n < count; n++)
+  {
+    #ifndef DRIVER      
+      digitalWrite(pgm_read_byte(&outputs[n]), LOW);
+    #else
+      neo.setPixelColor(n, 0, 0, 0);
+    #endif        
+  }    
+  #ifdef DRIVER
+    neo.show();
+  #endif  
   //*/
 
   //configurator = true;

@@ -32,7 +32,8 @@
 								<li ng-repeat="baudrate in baudrates"><a ng-click="$parent.baudrate = baudrate">{{baudrate}}</a></li>
 							</ul>
 						</li>
-						<li><a class="button radius" ng-class="{alert:port == -1 || baudrate == null, success:port > -1 && baudrate != null}" ng-click="open()">connect</a></li>
+						<li ng-hide="connected"><a class="button radius" ng-class="{alert:port == -1 || baudrate == null, success:port > -1 && baudrate != null}" ng-click="open()">connect</a></li>
+						<li ng-show="connected"><a class="button radius alert" ng-click="close()">exit</a></li>
 					</ul>
 				</section>
 			</nav>  
