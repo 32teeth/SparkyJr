@@ -95,7 +95,7 @@ void setup()
     introIO();
   #endif
 
-  
+  ///*
   displayIO(240, 16711680);
   displayIO(112, 16322304);
   displayIO(48, 16417024);
@@ -121,6 +121,15 @@ void setup()
     delay(1000);
   }  
 
+  if(digitalRead(pgm_read_byte(&inputs[7])) == 0)
+  {
+    displayIO(255, 16777215);    
+    OFFMODE = true;
+    delay(1000);
+    for(int n = 0; n < count; n++){digitalWrite(pgm_read_byte(&outputs[n]), LOW);}
+  }    
+  //*/
+
   //configurator = true;
   //MADCATZ_LAYOUT = true;
   //HORI_LAYOUT = true;
@@ -132,18 +141,21 @@ void setup()
 */
 void loop()
 {
-  if(configurator){programming();}
-  else
+  if(!OFFMODE)
   {
-    if(!MADCATZ_LAYOUT && !HORI_LAYOUT)
-    {
-      watchIO();
-      now = millis();
-    }
+    if(configurator){programming();}
     else
     {
-      if(MADCATZ_LAYOUT){madcatz();}
-      if(HORI_LAYOUT){hori();}
+      if(!MADCATZ_LAYOUT && !HORI_LAYOUT)
+      {
+        watchIO();
+        now = millis();
+      }
+      else
+      {
+        if(MADCATZ_LAYOUT){madcatz();}
+        if(HORI_LAYOUT){hori();}
+      }
     }
   }
 }

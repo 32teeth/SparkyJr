@@ -37,6 +37,12 @@
 boolean configurator = false;
 
 /*
+** @desc configurator mode
+** @param configurator {boolean}
+*/
+boolean OFFMODE = false;
+
+/*
 ** @note below are two layouts, madcatz and hori
 ** if you select one of the modes, there are no fades
 **

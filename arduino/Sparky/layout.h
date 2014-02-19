@@ -23,6 +23,7 @@ void madcatz()
   #ifndef DRIVER
     for(int n = 0; n < count; n++)
     {
+      digitalWrite(pgm_read_byte(&outputs[n]), LOW);      
       /*
       ** @desc ANODE adjustment
       */      
@@ -33,9 +34,9 @@ void madcatz()
       #endif
       if(pgm_read_byte(&MADCATZ[n]) == 0)
       {
-        digitalWrite(outputs[n], HIGH);
+        digitalWrite(pgm_read_byte(&outputs[n]), HIGH);
         delayMicroseconds(500);
-        digitalWrite(outputs[n], LOW);
+        digitalWrite(pgm_read_byte(&outputs[n]), LOW);
       }
     }        
   /*
@@ -77,6 +78,7 @@ void hori()
       /*
       ** @desc ANODE adjustment
       */
+      digitalWrite(pgm_read_byte(&outputs[n]), LOW);
       #ifdef ANODE
         for(int c = 0; c < 3; c++){analogWrite(pgm_read_byte(&pwm[c]), 255-pgm_read_byte(&HORI_COLORS[n][c]));}
       #else
@@ -84,9 +86,9 @@ void hori()
       #endif        
       if(pgm_read_byte(&HORI[n]) == 0)
       {
-        digitalWrite(outputs[n], HIGH);
+        digitalWrite(pgm_read_byte(&outputs[n]), HIGH);
         delayMicroseconds(500);
-        digitalWrite(outputs[n], LOW);
+        digitalWrite(pgm_read_byte(&outputs[n]), LOW);
       }
     }        
   /*
