@@ -1,0 +1,18 @@
+@mixin flexAlign($pack, $align)
+{
+	display:-ms-flexbox;
+	-ms-flex-pack:center;
+	-ms-flex-align:center;
+
+	display: -webkit-box;
+	-webkit-box-pack: $pack;
+	-webkit-box-align: $align;
+
+	display: -moz-box;
+	-moz-box-pack: $pack;
+	-moz-box-align: $align;
+
+	display: box;
+	box-pack: $pack;
+	box-align: $align;
+}

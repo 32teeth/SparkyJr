@@ -1,0 +1,98 @@
+
+<!doctype html>
+<html class="no-js" lang="en" ng-app="SparkyJr">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<title>Sparky Jr.</title>
+		<link rel="stylesheet" href="stylesheets/app.css" />	
+	</head>
+	<body>
+		<div class="fixed" ng-controller="serialController" id="serialController">
+			<nav class="top-bar" data-topbar>
+				<ul class="title-area">
+					<li class="name">
+						<h1><a href="#">SparkyJr.</a></h1>
+					</li>
+					<li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+				</ul>
+
+				<section class="top-bar-section">
+					<!-- Right Nav Section -->
+					<ul class="right columns">
+						<li class="has-dropdown">
+							<a href="#">{{ports[port].short || "Serial Ports"}}</a>
+							<ul class="dropdown">
+								<li ng-repeat="port in ports"><a ng-click="$parent.port = port.id">{{port.short}}</a></li>
+							</ul>
+						</li>						
+						<li class="has-dropdown">
+							<a href="#">{{baudrate || "Baudrate"}}</a>
+							<ul class="dropdown">
+								<li ng-repeat="baudrate in baudrates"><a ng-click="$parent.baudrate = baudrate">{{baudrate}}</a></li>
+							</ul>
+						</li>
+						<li ng-hide="connected"><a class="button radius" ng-class="{alert:port == -1 || baudrate == null, success:port > -1 && baudrate != null}" ng-click="connect()">connect</a></li>
+						<li ng-show="connected"><a class="button radius alert" ng-click="disconnect()">exit</a></li>
+					</ul>
+				</section>
+			</nav>  
+
+			<div ng-show="connected">
+				<div class="columns"><h3 class="columns">Select Pattern</h3></div>
+				<form class="buttons row">
+					<div class="large-7 medium-7">
+						<div class="large-12 medium-12 columns text-center">
+							<div class="large-3 medium-3 columns centered" ng-repeat="value in [1,2,4,8]">
+								<input type="checkbox" id="button{{value}}" class="btn" ng-click="buttons()" value="{{value}}">
+								<label for="button{{value}}"></label>
+							</div>
+						</div>
+						<div class="large-12 medium-12 columns text-center">
+							<div class="large-3 medium-3 columns" ng-repeat="value in [16,32,64,128]">
+								<input type="checkbox" id="button{{value}}" class="btn" ng-click="buttons()" value="{{value}}">
+								<label for="button{{value}}"></label>
+							</div>
+						</div>	
+					</div>		  
+				</form>
+				<div class="large-12 medium-12">
+					<div class="columns"><h3 class="columns" style="position:absolute;">Select Color</h3></div>
+					<canvas id="canvas" style="position:relative;top:-25px;"></canvas>
+					<img id="spectrum" src="images/colors.png" style="display:none;">
+					<input type="text" id="set" value="set {{address}} {{long}}" disabled="disabled" style="display:none;">
+				</div>				
+				<div class="large-12 medium-12 columns">
+					<ul class="button-group columns large-12 medium-12">
+						<li class="large-8 medium-8 button secondary">set {{address}} {{long}}</li>
+						<li class="large-4 medium-4 "><a class="button alert radius large-12 medium-12" ng-click="set()">Set</a></li>
+					</ul>						
+					<!--<a class="button radius alert" ng-click="display();">display</a>-->
+				</div>			
+			</div>
+			<div ng-hide="connected">	
+				<div class="panel connect">
+					<div class="columns large-6 medium-6">
+						<h3 class="columns">Let's get you connected</h3>
+						<ol class="columns">
+							<li><span class="label round alert text-center">1</span> Plug in your SparkyJr. <small class="label radius secondary">(Serial Device)</small></li>	
+							<li><span class="label round alert text-center">2</span> Select a Serial Port</li>
+							<li><span class="label round alert text-center">3</span> Select a Baudrate <small class="label radius secondary">(factory install is 115200)</small></li>
+						</ol>
+					</div>
+					<img src="images/stick.png" class="large-6 medium-6">
+				</div>
+			</div>
+		</div>
+
+		<!-- google angularjs -->
+		<script src="js/angular/angular.min.js"></script>
+
+
+		<!-- anggular app -->
+		<script src="js/angular/app.js"></script>
+		<script src="js/angular/filters.js"></script>	
+		<script src="js/angular/serialController.js"></script>
+		<script src="js/spectrum.js"></script>
+	</body>
+</html>

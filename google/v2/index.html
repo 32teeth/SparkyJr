@@ -1,0 +1,183 @@
+<!doctype html>
+<html class="no-js" lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<title>Sparky Jr.</title>
+		<link rel="stylesheet" href="stylesheets/app.css" />    
+	</head>
+	<body>
+		<div class="main blur">
+			<header class="columns">
+				<nav class="large-12 text-center">
+					<span>SparkyJr.</span>
+					<a data-icon="chain" data-sparky data-modal="serial_intro">serial</a>
+					<a data-icon="gamepad" data-modal="device_intro">device</a>
+					<a data-icon="pin" data-sparky data-modal="color">color</a>
+					<a data-icon="gear" data-sparky data-modal="options">options</a>
+					<a data-icon="power" data-modal="exit">exit</a>
+				</nav>
+			</header>
+		</div>
+
+		<div class="screen"></div>
+
+		<div class="modal" id="serial_intro">
+			<div class="standard">
+				<div class="header">
+					Serial Connection
+					<a data-icon="close" data-sparky data-modal="close"></a>
+				</div>
+				<div class="body">
+					We need to connect to your Sparky device via Serial Ports.
+					<div class="image columns"><img src="images/serial.png"></div>
+				</div>
+				<div class="button blue" data-modal="serial">
+					got it. let me connect.
+				</div>
+			</div>
+		</div>
+
+		<div class="modal" id="serial">
+			<div class="standard">
+				<div class="header">
+					Serial Connection
+					<a data-icon="close" data-sparky data-modal="close"></a>
+				</div>
+				<div class="body">
+					Below is a list of Serial Ports we found on your computer.
+					<ul>
+						<li></li>
+					</ul>
+				</div>
+				<div class="button blue" data-modal="device_intro">
+					do it.
+				</div>
+			</div>
+		</div>
+
+		<div class="modal" id="device_intro">
+			<div class="standard">
+				<div class="header">
+					Input Device Connection
+					<a data-icon="close" data-sparky data-modal="close"></a>
+				</div>
+				<div class="body">
+					We need to connect to your Input Device
+					<div class="image columns"><img src="images/serial.png"></div>
+				</div>
+				<div class="button blue" data-modal="device">
+					got it. let me connect.
+				</div>
+			</div>
+		</div>
+
+		<div class="modal" id="device">
+			<div class="standard">
+				<div class="header">
+					Input Device Connection
+					<a data-icon="close" data-sparky data-modal="close"></a>
+				</div>
+				<div class="body">
+					Below is a list of Input Devices we found on your computer.
+					<ul>
+						<li></li>
+					</ul>
+					<span class="red bottom">This feature is currently NOT integrated.</span>
+				</div>
+				<div class="button blue" data-modal="close">
+					skip this step.
+				</div>
+			</div>
+		</div>
+
+		<div class="modal" id="exit">
+			<div class="standard">
+				<div class="header">
+					Going so soon?
+					<a data-icon="close" data-sparky data-modal="close"></a>
+				</div>
+				<div class="body">
+					Thanks for coming by, hope you had fun.<br>
+					If you would like to further get in touch with us.
+		
+					<ul>
+						<li data-icon="facebook">32teeth</li>
+						<li data-icon="twitter">eugeneyevhen</li>
+						<li data-icon="github">32teeth.github.io/SparkyJr</li>
+						<li data-icon="linkedin">linkedin.com/in/32teeth</li>
+					</ul>
+
+					<span class="red bottom">Less QQ, more pew pew!</span>
+				</div>
+				<div class="button red" data-modal="close">
+					let me leave.
+				</div>
+			</div>
+
+
+		<!-- google angularjs -->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/angular/angular.min.js"></script>  
+
+		<script>
+			var modalController = (function(){
+					var opened = false;
+
+					function init()
+					{
+						$(".main").removeClass("blur");
+						$(".modal, .screen").hide();
+
+						$("[data-modal]").on("click", function(){
+							var modal = $(this).attr("data-modal");
+							if(modal != "close")
+							{
+								show(modal);
+							}
+							else
+							{
+								hide();
+							}
+						});
+					}
+
+					function show(modal)
+					{
+						if(!opened)
+						{
+							$(".main").addClass("blur");
+							$(".screen").fadeIn();
+							$(".modal#" + modal).fadeIn();
+							opened = true;
+						}
+						else
+						{
+							$(".modal:visible").hide();
+							$(".modal#" + modal + " .body, .modal#" + modal + " .button").hide().fadeIn();
+							$(".modal#" + modal).show();
+						}
+					}
+
+					function hide()
+					{
+							$(".modal").fadeOut();	
+							$(".main").removeClass("blur");
+							$(".screen").fadeOut();							
+
+							opened = false;						
+					}					
+
+					return {
+						init:function(){init();},
+						show:function(modal){show(modal);}
+					}
+			})();
+			modalController.init();
+
+
+			$(function(){
+			});
+		</script>    
+	</body>
+</html>

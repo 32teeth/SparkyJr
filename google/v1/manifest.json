@@ -1,0 +1,17 @@
+{
+	"name": "SparkyJr.",
+	"description": "SparkyJr. RGB LED Controller",
+	"version": "0.1",
+	"app": {
+		"background": {
+			"scripts": ["sparkyjr.js"]
+		}
+	},
+	"permissions": [
+		"serial"
+	],
+	"icons": { 
+		"16": "sparkyjr-16.png", 
+		"128": "sparkyjr-128.png" 
+	}
+}

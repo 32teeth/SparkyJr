@@ -1,0 +1,45 @@
+@mixin icon()
+{
+	&:before
+	{
+		font-family:FontAwesome;
+		font-size:1rem;
+		font-weight:normal;
+		position:relative;
+		text-indent:0;
+		z-index:999;
+		padding-right:0.25rem;
+	};
+	padding-left:1rem;
+}
+[data-icon]{@include icon();}
+
+[data-icon='plus']{&:before{content:"q";}}
+[data-icon='minus']{&:before{content:"w";}}
+[data-icon='close']{&:before{content:"e";}}
+[data-icon='play']{&:before{content:"r";}}
+[data-icon='stop']{&:before{content:"t";}}
+[data-icon='pause']{&:before{content:"y";}}
+[data-icon='forward']{&:before{content:"u";}}
+[data-icon='rewind']{&:before{content:"i";}}
+[data-icon='toolbox']{&:before{content:"o";}}
+[data-icon='search']{&:before{content:"p";}}
+[data-icon='trash']{&:before{content:"a";}}
+[data-icon='pin']{&:before{content:"s";}}
+[data-icon='upload']{&:before{content:"d";}}
+[data-icon='push']{&:before{content:"f";}}
+[data-icon='loading']{&:before{content:"g";}}
+[data-icon='gear']{&:before{content:"h";}}
+[data-icon='clock']{&:before{content:"j";}}
+[data-icon='download']{&:before{content:"k";}}
+[data-icon='chain']{&:before{content:"l";}}
+[data-icon='button']{&:before{content:"z";}}
+
+[data-icon='gamepad']{&:before{content:"\f11b";}}
+[data-icon='power']{&:before{content:"\f011";}}
+[data-icon='facebook']{&:before{content:"\f082";}}
+[data-icon='twitter']{&:before{content:"\f081";}}
+[data-icon='github']{&:before{content:"\f092";}}
+[data-icon='linkedin']{&:before{content:"\f08c";}}
+
+[data-sparky]{&:before{font-family:Sparky !important;}}

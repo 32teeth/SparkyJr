@@ -376,6 +376,7 @@
 				GCC_PREFIX_HEADER = "SparkyJr/SparkyJr-Prefix.pch";
 				INFOPLIST_FILE = "SparkyJr/SparkyJr-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -389,6 +390,7 @@
 				GCC_PREFIX_HEADER = "SparkyJr/SparkyJr-Prefix.pch";
 				INFOPLIST_FILE = "SparkyJr/SparkyJr-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -454,6 +456,7 @@
 				6F5EE35418AD3C5600B29989 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6F5EE35518AD3C5600B29989 /* Build configuration list for PBXNativeTarget "SparkyJrTests" */ = {
 			isa = XCConfigurationList;
@@ -462,6 +465,7 @@
 				6F5EE35718AD3C5600B29989 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
