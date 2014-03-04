@@ -1,183 +1,205 @@
 <!doctype html>
-<html class="no-js" lang="en">
+<html class="no-js" lang="en" ng-app="SparkyJr">
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<title>Sparky Jr.</title>
 		<link rel="stylesheet" href="stylesheets/app.css" />    
 	</head>
-	<body>
+	<body ng-controller="sparkyController">
+
 		<div class="main blur">
 			<header class="columns">
 				<nav class="large-12 text-center">
 					<span>SparkyJr.</span>
-					<a data-icon="chain" data-sparky data-modal="serial_intro">serial</a>
-					<a data-icon="gamepad" data-modal="device_intro">device</a>
+					<a data-icon="chain" data-sparky data-modal="serial">serial</a>
+					<a data-icon="gamepad" data-modal="device">device</a>
 					<a data-icon="pin" data-sparky data-modal="color">color</a>
 					<a data-icon="gear" data-sparky data-modal="options">options</a>
 					<a data-icon="power" data-modal="exit">exit</a>
+
+					<!-- hidden -->
+					<a data-modal="serial_intro" style="display:none;">serial</a>
+					<a data-modal="device_intro" style="display:none;">device</a>
 				</nav>
 			</header>
+
+			<div class="stick">
+				<svg version="1.1" id="Layer_4" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"	 width="1280px" height="1024px" viewBox="0 0 1280 1024" enable-background="new 0 0 1280 1024" xml:space="preserve"><path id="Base1" fill="#666666" d="M765,267.081c0,15.951-19.279,28.881-43.062,28.881c-23.778,0-43.062-12.93-43.062-28.881v-8.056	c0-15.95,19.279-27.899,43.062-27.899c23.783,0,43.062,11.948,43.062,27.898V267.081z"/><path id="Base6" fill="#666666" d="M910.001,279.33c0,15.951-19.279,28.881-43.062,28.881c-23.783,0-43.062-12.93-43.062-28.881	v-8.056c0-15.95,19.279-27.899,43.062-27.899c23.778,0,43.062,11.949,43.062,27.899V279.33z"/><path id="Color6" fill="#777777" d="M907.251,277.093c0,14.515-18.075,26.281-40.375,26.281s-40.375-11.767-40.375-26.281v-6.438	c0-14.515,18.075-26.281,40.375-26.281s40.375,11.767,40.375,26.281V277.093z"/><path id="Button6" opacity="0.35" fill="#FFFFFF" enable-background="new    " d="M907.251,276.968	c0,14.515-18.075,26.281-40.375,26.281s-40.375-11.767-40.375-26.281v-6.438c0-14.515,18.075-26.281,40.375-26.281	s40.375,11.767,40.375,26.281V276.968z"/><ellipse id="Cap6" fill="#777777" cx="866.876" cy="268.554" rx="34.952" ry="21.055"/><path id="Base2" fill="#666666" d="M831,223.748c0,15.951-19.279,28.881-43.062,28.881c-23.778,0-43.062-12.93-43.062-28.881v-8.056	c0-15.95,19.279-27.899,43.062-27.899c23.783,0,43.062,11.948,43.062,27.898V223.748z"/><path id="Color2" fill="#777777" d="M828.25,221.511c0,14.515-18.075,26.281-40.375,26.281S747.5,236.025,747.5,221.511v-6.438	c0-14.515,18.075-26.281,40.375-26.281s40.375,11.767,40.375,26.281V221.511z"/><path id="Button2" opacity="0.35" fill="#FFFFFF" enable-background="new    " d="M828.25,221.386	c0,14.515-18.075,26.281-40.375,26.281S747.5,235.9,747.5,221.386v-6.438c0-14.515,18.075-26.281,40.375-26.281	s40.375,11.767,40.375,26.281V221.386z"/><ellipse id="Cap2" fill="#777777" cx="787.875" cy="212.972" rx="34.952" ry="21.055"/><path id="Color1" fill="#777777" d="M762.25,264.844c0,14.515-18.075,26.281-40.375,26.281S681.5,279.358,681.5,264.844v-6.438	c0-14.515,18.075-26.281,40.375-26.281s40.375,11.767,40.375,26.281V264.844z"/><path id="Button1" opacity="0.35" fill="#FFFFFF" enable-background="new    " d="M762.25,264.719	c0,14.515-18.075,26.281-40.375,26.281S681.5,279.233,681.5,264.719v-6.438c0-14.515,18.075-26.281,40.375-26.281	s40.375,11.767,40.375,26.281V264.719z"/><ellipse id="Cap1" fill="#777777" cx="721.875" cy="256.305" rx="34.952" ry="21.055"/><path id="Base3" fill="#666666" d="M904,176.081c0,15.951-19.279,28.881-43.062,28.881c-23.778,0-43.062-12.93-43.062-28.881v-8.056	c0-15.95,19.279-27.899,43.062-27.899c23.783,0,43.062,11.949,43.062,27.899V176.081z"/><path id="Color3" fill="#777777" d="M901.25,173.844c0,14.515-18.075,26.281-40.375,26.281S820.5,188.359,820.5,173.844v-6.438	c0-14.515,18.075-26.281,40.375-26.281s40.375,11.767,40.375,26.281V173.844z"/><path id="Button3" opacity="0.35" fill="#FFFFFF" enable-background="new    " d="M901.25,173.719	c0,14.515-18.075,26.281-40.375,26.281S820.5,188.234,820.5,173.719v-6.438c0-14.515,18.075-26.281,40.375-26.281	s40.375,11.767,40.375,26.281V173.719z"/><ellipse id="Cap3" fill="#777777" cx="860.875" cy="165.306" rx="34.952" ry="21.055"/><path id="Base7" fill="#666666" d="M981.952,231.663c0,15.951-19.279,28.881-43.062,28.881c-23.778,0-43.062-12.93-43.062-28.881	v-8.056c0-15.95,19.279-27.899,43.062-27.899c23.783,0,43.062,11.949,43.062,27.899V231.663z"/><path id="Color7" fill="#777777" d="M979.202,229.426c0,14.515-18.075,26.281-40.375,26.281s-40.375-11.767-40.375-26.281v-6.438	c0-14.515,18.075-26.281,40.375-26.281s40.375,11.767,40.375,26.281V229.426z"/><path id="Button7" opacity="0.35" fill="#FFFFFF" enable-background="new    " d="M979.202,229.301	c0,14.515-18.075,26.281-40.375,26.281s-40.375-11.767-40.375-26.281v-6.438c0-14.515,18.075-26.281,40.375-26.281	s40.375,11.767,40.375,26.281V229.301z"/><ellipse id="Cap7" fill="#777777" cx="938.828" cy="220.888" rx="34.952" ry="21.055"/><path id="Base5" fill="#666666" d="M845.334,324.081c0,15.951-19.279,28.881-43.062,28.881c-23.778,0-43.062-12.93-43.062-28.881	v-8.056c0-15.95,19.279-27.899,43.062-27.899c23.783,0,43.062,11.949,43.062,27.899V324.081z"/><path id="Color5" fill="#777777" d="M842.584,321.844c0,14.515-18.075,26.281-40.375,26.281s-40.375-11.767-40.375-26.281v-6.438	c0-14.515,18.075-26.281,40.375-26.281s40.375,11.767,40.375,26.281V321.844z"/><path id="Button5" opacity="0.35" fill="#FFFFFF" enable-background="new    " d="M842.584,321.719	c0,14.515-18.075,26.281-40.375,26.281s-40.375-11.767-40.375-26.281v-6.438c0-14.515,18.075-26.281,40.375-26.281	s40.375,11.767,40.375,26.281V321.719z"/><ellipse id="Cap5" fill="#777777" cx="802.209" cy="313.305" rx="34.952" ry="21.055"/><path id="Base4" fill="#666666" d="M801.334,396.315c0,15.946-19.279,28.881-43.062,28.881c-23.778,0-43.062-12.935-43.062-28.881	v-8.061c0-15.95,19.279-27.899,43.062-27.899c23.783,0,43.062,11.949,43.062,27.899V396.315z"/><path id="Color4" fill="#777777" d="M798.584,394.079c0,14.515-18.075,26.281-40.375,26.281s-40.375-11.771-40.375-26.281v-6.438	c0-14.515,18.075-26.281,40.375-26.281s40.375,11.767,40.375,26.281V394.079z"/><path id="Button4" opacity="0.35" fill="#FFFFFF" enable-background="new    " d="M798.584,393.954	c0,14.515-18.075,26.281-40.375,26.281s-40.375-11.771-40.375-26.281v-6.438c0-14.515,18.075-26.281,40.375-26.281	s40.375,11.767,40.375,26.281V393.954z"/><ellipse id="Cap4" fill="#777777" cx="758.209" cy="385.54" rx="34.952" ry="21.055"/><path id="Base0" fill="#666666" d="M724,323.081c0,15.951-19.279,28.881-43.062,28.881c-23.778,0-43.062-12.93-43.062-28.881v-8.056	c0-15.95,19.279-27.899,43.062-27.899c23.783,0,43.062,11.948,43.062,27.898V323.081z"/><path id="Color0" fill="#777777" d="M721.25,320.844c0,14.515-18.075,26.281-40.375,26.281S640.5,335.358,640.5,320.844v-6.438	c0-14.515,18.075-26.281,40.375-26.281s40.375,11.767,40.375,26.281V320.844z"/><path id="Button0" opacity="0.35" fill="#FFFFFF" enable-background="new    " d="M721.25,320.719	c0,14.515-18.075,26.281-40.375,26.281S640.5,335.233,640.5,320.719v-6.438c0-14.515,18.075-26.281,40.375-26.281	s40.375,11.767,40.375,26.281V320.719z"/><ellipse id="Cap0" fill="#777777" cx="680.875" cy="312.305" rx="34.952" ry="21.055"/><path id="Check1" opacity="0.01" fill="#FFFFFF" enable-background="new    " d="M765,267.081c0,15.951-19.279,28.881-43.062,28.881	c-23.778,0-43.062-12.93-43.062-28.881v-8.056c0-15.95,19.279-27.899,43.062-27.899c23.783,0,43.062,11.948,43.062,27.898V267.081z"	/><path id="Check6" opacity="0.01" fill="#FFFFFF" enable-background="new    " d="M910.001,279.33	c0,15.951-19.279,28.881-43.062,28.881c-23.783,0-43.062-12.93-43.062-28.881v-8.056c0-15.95,19.279-27.899,43.062-27.899	c23.778,0,43.062,11.949,43.062,27.899V279.33z"/><path id="Check2" opacity="0.01" fill="#FFFFFF" enable-background="new    " d="M831,223.748c0,15.951-19.279,28.881-43.062,28.881	c-23.778,0-43.062-12.93-43.062-28.881v-8.056c0-15.95,19.279-27.899,43.062-27.899c23.783,0,43.062,11.948,43.062,27.898V223.748z"	/><path id="Check3" opacity="0.01" fill="#FFFFFF" enable-background="new    " d="M904,176.081c0,15.951-19.279,28.881-43.062,28.881	c-23.778,0-43.062-12.93-43.062-28.881v-8.056c0-15.95,19.279-27.899,43.062-27.899c23.783,0,43.062,11.949,43.062,27.899V176.081z"	/><path id="Check7" opacity="0.01" fill="#FFFFFF" enable-background="new    " d="M981.952,231.663	c0,15.951-19.279,28.881-43.062,28.881c-23.778,0-43.062-12.93-43.062-28.881v-8.056c0-15.95,19.279-27.899,43.062-27.899	c23.783,0,43.062,11.949,43.062,27.899V231.663z"/><path id="Check5" opacity="0.01" fill="#FFFFFF" enable-background="new    " d="M845.334,324.081	c0,15.951-19.279,28.881-43.062,28.881c-23.778,0-43.062-12.93-43.062-28.881v-8.056c0-15.95,19.279-27.899,43.062-27.899	c23.783,0,43.062,11.949,43.062,27.899V324.081z"/><path id="Check4" opacity="0.01" fill="#FFFFFF" enable-background="new    " d="M801.334,396.315	c0,15.946-19.279,28.881-43.062,28.881c-23.778,0-43.062-12.935-43.062-28.881v-8.061c0-15.95,19.279-27.899,43.062-27.899	c23.783,0,43.062,11.949,43.062,27.899V396.315z"/><path id="Check0" opacity="0.01" fill="#FFFFFF" enable-background="new    " d="M724,323.081c0,15.951-19.279,28.881-43.062,28.881	c-23.778,0-43.062-12.93-43.062-28.881v-8.056c0-15.95,19.279-27.899,43.062-27.899c23.783,0,43.062,11.948,43.062,27.898V323.081z"	/></svg>
+			</div>
 		</div>
 
 		<div class="screen"></div>
 
-		<div class="modal" id="serial_intro">
-			<div class="standard">
-				<div class="header">
-					Serial Connection
-					<a data-icon="close" data-sparky data-modal="close"></a>
-				</div>
-				<div class="body">
-					We need to connect to your Sparky device via Serial Ports.
-					<div class="image columns"><img src="images/serial.png"></div>
-				</div>
-				<div class="button blue" data-modal="serial">
-					got it. let me connect.
-				</div>
-			</div>
-		</div>
-
-		<div class="modal" id="serial">
-			<div class="standard">
-				<div class="header">
-					Serial Connection
-					<a data-icon="close" data-sparky data-modal="close"></a>
-				</div>
-				<div class="body">
-					Below is a list of Serial Ports we found on your computer.
-					<ul>
-						<li></li>
-					</ul>
-				</div>
-				<div class="button blue" data-modal="device_intro">
-					do it.
+		<span ng-controller="modalController">
+			<div class="modal" id="serial_intro">
+				<div class="standard">
+					<div class="header">
+						Serial Connection
+						<a data-icon="close" data-sparky data-modal="close"></a>
+					</div>
+					<div class="body">
+						We need to connect to your Sparky device via Serial Ports.
+						<div class="image columns"><img src="images/serial.png"></div>
+					</div>
+					<div class="button blue" data-modal="serial">
+						got it. let me connect.
+					</div>
 				</div>
 			</div>
-		</div>
 
-		<div class="modal" id="device_intro">
-			<div class="standard">
-				<div class="header">
-					Input Device Connection
-					<a data-icon="close" data-sparky data-modal="close"></a>
-				</div>
-				<div class="body">
-					We need to connect to your Input Device
-					<div class="image columns"><img src="images/serial.png"></div>
-				</div>
-				<div class="button blue" data-modal="device">
-					got it. let me connect.
+			<div class="modal" id="serial" ng-controller="serialController">
+				<div class="standard">
+					<div class="header">
+						Serial Connection
+						<a data-icon="close" data-sparky data-modal="close"></a>
+					</div>
+					<div class="body">
+						Below is a list of Serial Ports we found on your computer.
+						<ul>
+							<li ng-repeat="port in serialProps.ports">
+								<a 
+								data-icon="push" 
+								data-sparky ng-class="{true: 'active'}[serialProps.port == port.id]" 
+								ng-click="serialProps.port = port.id;">
+									{{port.short}}
+								</a>
+							</li>
+						</ul>
+					</div>
+					<div class="button blue" ng-click="connect();">
+						do it.
+					</div>
 				</div>
 			</div>
-		</div>
 
-		<div class="modal" id="device">
-			<div class="standard">
-				<div class="header">
-					Input Device Connection
-					<a data-icon="close" data-sparky data-modal="close"></a>
-				</div>
-				<div class="body">
-					Below is a list of Input Devices we found on your computer.
-					<ul>
-						<li></li>
-					</ul>
-					<span class="red bottom">This feature is currently NOT integrated.</span>
-				</div>
-				<div class="button blue" data-modal="close">
-					skip this step.
+			<div class="modal" id="device_intro">
+				<div class="standard">
+					<div class="header">
+						Input Device Connection
+						<a data-icon="close" data-sparky data-modal="close"></a>
+					</div>
+					<div class="body">
+						We need to connect to your Input Device
+						<div class="image columns"><img src="images/serial.png"></div>
+					</div>
+					<div class="button blue" data-modal="device">
+						got it. let me connect.
+					</div>
 				</div>
 			</div>
-		</div>
 
-		<div class="modal" id="exit">
-			<div class="standard">
-				<div class="header">
-					Going so soon?
-					<a data-icon="close" data-sparky data-modal="close"></a>
-				</div>
-				<div class="body">
-					Thanks for coming by, hope you had fun.<br>
-					If you would like to further get in touch with us.
-		
-					<ul>
-						<li data-icon="facebook">32teeth</li>
-						<li data-icon="twitter">eugeneyevhen</li>
-						<li data-icon="github">32teeth.github.io/SparkyJr</li>
-						<li data-icon="linkedin">linkedin.com/in/32teeth</li>
-					</ul>
-
-					<span class="red bottom">Less QQ, more pew pew!</span>
-				</div>
-				<div class="button red" data-modal="close">
-					let me leave.
+			<div class="modal" id="device" ng-controller="usbController">
+				<div class="standard">
+					<div class="header">
+						Input Device Connection
+						<a data-icon="close" data-sparky data-modal="close"></a>
+					</div>
+					<div class="body">
+						Below is a list of Input Devices we found on your computer.
+						<ul>
+							<li ng-repeat="device in usbProps.devices">
+								<a 
+								data-icon="push" 
+								data-sparky ng-class="{true: 'active'}[usbProps.device == device.id]" 
+								ng-click="usbProps.device = device.id;">
+									{{device.short}}
+								</a>
+							</li>
+						</ul>
+						<span class="red bottom">This feature is currently NOT integrated.</span>
+					</div>
+					<div class="button blue" data-modal="close">
+						skip this step.
+					</div>
 				</div>
 			</div>
+
+			<div class="modal" id="exit">
+				<div class="standard">
+					<div class="header">
+						Going so soon?
+						<a data-icon="close" data-sparky data-modal="close"></a>
+					</div>
+					<div class="body">
+						Thanks for coming by, hope you had fun.<br>
+						If you would like to further get in touch with us.
+			
+						<ul>
+							<li data-icon="facebook">32teeth</li>
+							<li data-icon="twitter">eugeneyevhen</li>
+							<li data-icon="github">32teeth.github.io/SparkyJr</li>
+							<li data-icon="linkedin">linkedin.com/in/32teeth</li>
+						</ul>
+
+						<span class="red bottom">Less QQ, more pew pew!</span>
+					</div>
+					<div class="button red" data-modal="close">
+						let me leave.
+					</div>
+				</div>
+			</div>
+
+			<div class="modal" id="color" ng-controller="colorController">
+				<div class="color">
+					<div class="header">
+						Color Picker
+						<a data-icon="close" data-sparky data-modal="close"></a>
+					</div>
+					<div class="body">
+						<canvas id="spectrum" class="spectrum"></canvas>
+						<!--<img id="spectrum" src="images/colors.png" style="display:none;">-->
+						<input type="text" id="set" value="set {{color.address}} {{color.long}}" disabled="disabled" style="display:none;">
+					</div>
+					<div class="button blue">
+						upload.
+					</div>
+				</div>
+			</div>				
+		</span>				
 
 
 		<!-- google angularjs -->
 		<script src="js/jquery.min.js"></script>
-		<script src="js/angular/angular.min.js"></script>  
+		<script src="js/angular/angular.min.js"></script>
 
+		<!-- anggular app -->
+		<script src="js/angular/app.js"></script>
+		<script src="js/angular/filters.js"></script>	
+		<script src="js/angular/sparkyController.js"></script>
+		<script src="js/angular/modalController.js"></script>
+		<script src="js/angular/serialController.js"></script>	
+		<script src="js/angular/usbController.js"></script>
+		<script src="js/angular/colorController.js"></script>
+		<script src="js/spectrum.js"></script>
+
+		<!--
 		<script>
-			var modalController = (function(){
-					var opened = false;
-
-					function init()
-					{
-						$(".main").removeClass("blur");
-						$(".modal, .screen").hide();
-
-						$("[data-modal]").on("click", function(){
-							var modal = $(this).attr("data-modal");
-							if(modal != "close")
-							{
-								show(modal);
-							}
-							else
-							{
-								hide();
-							}
-						});
-					}
-
-					function show(modal)
-					{
-						if(!opened)
-						{
-							$(".main").addClass("blur");
-							$(".screen").fadeIn();
-							$(".modal#" + modal).fadeIn();
-							opened = true;
-						}
-						else
-						{
-							$(".modal:visible").hide();
-							$(".modal#" + modal + " .body, .modal#" + modal + " .button").hide().fadeIn();
-							$(".modal#" + modal).show();
-						}
-					}
-
-					function hide()
-					{
-							$(".modal").fadeOut();	
-							$(".main").removeClass("blur");
-							$(".screen").fadeOut();							
-
-							opened = false;						
-					}					
-
-					return {
-						init:function(){init();},
-						show:function(modal){show(modal);}
-					}
-			})();
-			modalController.init();
-
-
 			$(function(){
+				$("[data-modal='serial']").trigger("click");
 			});
-		</script>    
+		</script>
+		-->
+		<!--
+		<script>
+			$(function(){
+				$("path[id^='Check']").click(function(){
+					var i = $(this).attr("id").slice(-1);
+					var selected = $(this).attr('selected') ? false : true;
+					switch(selected)
+					{
+						// unchecked
+						case true:
+							$("path[id='Check" + i + "'], path[id='Base" + i + "'], path[id='Color" + i + "'], path[id='Cap" + i + "']").attr({"selected":true});
+						break;
+						// checked
+						case false:
+							$("path[id='Check" + i + "'], path[id='Base" + i + "'], path[id='Color" + i + "'], path[id='Cap" + i + "']").attr({"selected":false});
+						break;
+					}
+				});
+			});
+		</script>  
+		-->  
 	</body>
 </html>

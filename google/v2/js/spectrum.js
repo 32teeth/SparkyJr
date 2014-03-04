@@ -28,7 +28,7 @@ var Spectrum = (function(){
 	var y = 0;
 	var dx = 28;
 	var dy = 80;
-	var limit = [30,80,770,260];
+	var limit = [0,0,770,260];
 
 	/*
 	** @param down (mouse state)
@@ -50,7 +50,7 @@ var Spectrum = (function(){
 	/*
 	** @param canvas
 	*/
-	var canvas = document.getElementById("canvas");
+	var canvas = document.getElementById("spectrum");
 	canvas.width = w;
 	canvas.height = h;
 	var context = canvas.getContext("2d");
@@ -74,7 +74,7 @@ var Spectrum = (function(){
 		context.clearRect(0,0,w,h);
 
 		spectrum.src = data;
-		context.drawImage(spectrum, 30, 80);
+		context.drawImage(spectrum, 30, 80, 740, 182);
 
 		if(down && x >= limit[0] && x <= limit[2] && y >= limit[1] && y <= limit[3])
 		{
@@ -96,10 +96,10 @@ var Spectrum = (function(){
 			context.fillText("color: rgb[" + rgb[0] + "," + rgb[1] + "," + rgb[2] + "] hex:" + hex + " long:" + long, 10, 30);
 		}	
 
-		$$scope = angular.element(document.getElementById("serialController")).scope();
-		$$scope.rgb = rgb;
-		$$scope.hex = hex;
-		$$scope.long = long;
+		$$scope = angular.element(document.getElementById("color")).scope();
+		$$scope.color.rgb = rgb;
+		$$scope.color.hex = hex;
+		$$scope.color.long = long;
 		$$scope.$apply();
 	}
 
@@ -118,7 +118,7 @@ var Spectrum = (function(){
 
 		pin.onload = function()
 		{
-		    context.drawImage(pin, x-28, y-40);
+		    context.drawImage(pin, x-dx, y-dy);
 		    domurl.revokeObjectURL(url);
 		};
 		pin.src = url;
@@ -155,6 +155,7 @@ var Spectrum = (function(){
 	*/	
 	function mouse()
 	{
+		rect = canvas.getBoundingClientRect();
 		canvas.addEventListener('mousedown', function(evt){	
 			x = evt.clientX - rect.left;
 		    y = evt.clientY - rect.top;

@@ -3,27 +3,11 @@
 ** @desc get available serial ports, list them, connect to selected
 */
 SparkyJr.controller("serialController", ["$scope", function($scope){
-	
 	/*
-	** @param serial {serial} abstraction of chromes serial object
+	** @param parent {object} reference to serial serialProps
 	*/
-	$scope.serial = chrome.serial;
-
-	/*
-	** @param ports {array} list of available ports
-	*/
-	$scope.port = -1;
-	$scope.ports = [];
-	$scope.portid = -1;
-	$scope.portstring;
-	$scope.baudrates = [115200, 57600, 38400, 28800, 19200, 14400, 9600, 4800, 2400, 1200, 600, 300];
-	$scope.baudrate;
-
-	$scope.address = 0;
-	$scope.setter;
-	$scope.command;
-
-	$scope.connected = false;
+	var parent = $scope;
+	var serial = parent.serialProps
 
 
 	/*
@@ -32,11 +16,11 @@ SparkyJr.controller("serialController", ["$scope", function($scope){
 	*/
 	$scope.get = function()
 	{
-		$scope.serial.getDevices(function(ports){
+		serial.serial.getDevices(function(ports){
 			for(var n = 0; n < ports.length; n++)
 			{
 				var port = ports[n].path.toString();
-				$scope.ports.push(
+				serial.ports.push(
 					{
 						id:n,
 						long:port,
@@ -47,6 +31,11 @@ SparkyJr.controller("serialController", ["$scope", function($scope){
 			}
 			$scope.$apply();
 		});
+
+		if(serial.portstring == "")
+		{
+			//$("[data-modal='serial_intro']").trigger("click");
+		}
 	}
 
 	/*
@@ -69,8 +58,14 @@ SparkyJr.controller("serialController", ["$scope", function($scope){
 	*/	
 	$scope.connect = function()
 	{
-		$scope.portstring = $scope.ports[$scope.port].long;
-		$scope.serial.connect($scope.portstring, {bitrate:$scope.baudrate}, $scope.info);
+		serial.portstring = serial.ports[serial.port].long;
+		serial.serial.connect(serial.portstring, {bitrate:serial.baudrate}, $scope.info);
+
+		if(!parent.wizard)
+		{
+			$("[data-modal='device_intro']").trigger("click");
+			parent.wizard = true;
+		}
 	}
 
 	/*
@@ -80,15 +75,15 @@ SparkyJr.controller("serialController", ["$scope", function($scope){
 	$scope.disconnect = function()
 	{
 		$scope.send("exit");
-		$scope.portid = -1;
-		$scope.connected = false;
-		$scope.serial.disconnect($scope.portid, function(){});
+		serial.portid = -1;
+		serial.connected = false;
+		serial.serial.disconnect(serial.portid, function(){});
 	}	
 
 	$scope.info = function(info)
 	{
-		$scope.portid = info.connectionId;
-		$scope.connected = true;
+		serial.portid = info.connectionId;
+		serial.connected = true;
 		$scope.$apply();
 	}
 
@@ -99,7 +94,7 @@ SparkyJr.controller("serialController", ["$scope", function($scope){
 	$scope.send = function(command)
 	{
 		var buffer = $scope.buffer(command);
-		$scope.serial.send($scope.portid, buffer, function(){});
+		serial.serial.send(serial.portid, buffer, function(){});
 	}
 
 	/*
@@ -108,7 +103,7 @@ SparkyJr.controller("serialController", ["$scope", function($scope){
 	*/	
 	$scope.display = function()
 	{
-		var command = "display " + $scope.address;
+		var command = "display " + serial.address;
 		$scope.send(command);
 	}
 
@@ -134,7 +129,7 @@ SparkyJr.controller("serialController", ["$scope", function($scope){
 	*/	
 	$scope.buttons = function()
 	{
-		$scope.address = 0;
+		serial.address = 0;
 		var buttons = document.getElementsByClassName("btn");
 		for(var n = 0; n < buttons.length; n++)
 		{
@@ -142,7 +137,7 @@ SparkyJr.controller("serialController", ["$scope", function($scope){
 			document.querySelectorAll("input[type='checkbox'] + label")[n].style.background = "#FFFFFF";
 			if(button.checked)
 			{
-				$scope.address += parseInt(button.value);
+				serial.address += parseInt(button.value);
 				document.querySelectorAll("input[type='checkbox'] + label")[n].style.background = $scope.hex;
 			}
 		}
