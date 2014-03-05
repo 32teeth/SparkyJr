@@ -50,7 +50,7 @@ SparkyJr.controller("serialController", ["$scope", function($scope){
 		setTimeout(function(){
 			$scope.display();
 		},250);
-	}	
+	}
 
 	/*
 	** @method connect
@@ -120,28 +120,6 @@ SparkyJr.controller("serialController", ["$scope", function($scope){
 			view[n]=command.charCodeAt(n);
 		}
 		return buffer;
-	}	
-
-
-	/*
-	** @method buttons
-	** @desc this is the address manager for all the buttons
-	*/	
-	$scope.buttons = function()
-	{
-		serial.address = 0;
-		var buttons = document.getElementsByClassName("btn");
-		for(var n = 0; n < buttons.length; n++)
-		{
-			var button = buttons[n];
-			document.querySelectorAll("input[type='checkbox'] + label")[n].style.background = "#FFFFFF";
-			if(button.checked)
-			{
-				serial.address += parseInt(button.value);
-				document.querySelectorAll("input[type='checkbox'] + label")[n].style.background = $scope.hex;
-			}
-		}
-
 	}	
 
 	/*

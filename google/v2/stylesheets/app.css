@@ -8029,8 +8029,8 @@ header nav a:hover {
 
 /* line 75, ../scss/_styles.scss */
 .stick {
-  display: none;
-  background: transparent url(../images/base.png) center center no-repeat;
+  display: block;
+  background: transparent url(../images/base.png) no-repeat;
   height: 100%;
   position: absolute;
   width: 100%;

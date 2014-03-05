@@ -28,6 +28,8 @@ var Spectrum = (function(){
 	var y = 0;
 	var dx = 28;
 	var dy = 80;
+	var top = 0;
+	var left = 0;	
 	var limit = [0,0,770,260];
 
 	/*
@@ -71,6 +73,9 @@ var Spectrum = (function(){
 		context.fillStyle = "#FFFFFF";
 		context.fillRect(0,0,w,h);
 		*/
+		top = $("#spectrum").offset().top;
+		left = $("#spectrum").offset().left;
+
 		context.clearRect(0,0,w,h);
 
 		spectrum.src = data;
@@ -157,8 +162,8 @@ var Spectrum = (function(){
 	{
 		rect = canvas.getBoundingClientRect();
 		canvas.addEventListener('mousedown', function(evt){	
-			x = evt.clientX - rect.left;
-		    y = evt.clientY - rect.top;
+			x = evt.clientX - rect.left - left;
+		    y = evt.clientX - rect.top - top;
 			down = true;
 		    draw();			
   		}, false);
@@ -169,8 +174,8 @@ var Spectrum = (function(){
 		canvas.addEventListener('mousemove', function(evt){	
 			if(down)
 			{
-			    x = evt.clientX - rect.left;
-			    y = evt.clientY - rect.top;
+			    x = evt.clientX - rect.left - left;
+			    y = evt.clientY - rect.top - top;
 
 			    draw();
 			}
