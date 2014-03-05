@@ -24,13 +24,16 @@ SparkyJr.controller("modalController", ["$scope", function($scope){
 
 		$("[data-modal]").on("click", function(){
 			$scope.modal = $(this).attr("data-modal");
-			if($scope.modal != "close")
+			if($(this).not(".disabled"))
 			{
-				$scope.show($scope.modal);
-			}
-			else
-			{
-				$scope.hide();
+				if($scope.modal != "close")
+				{
+					$scope.show($scope.modal);
+				}
+				else
+				{
+					$scope.hide();
+				}
 			}
 		});
 	}
