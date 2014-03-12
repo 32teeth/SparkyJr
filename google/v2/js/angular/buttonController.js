@@ -19,11 +19,14 @@ SparkyJr.controller("buttonController", ["$scope", function($scope){
 			{
 				// unchecked
 				case true:
-					$("path[id='Check" + i + "'], path[id='Base" + i + "'], path[id='Color" + i + "'], path[id='Cap" + i + "']").attr({"selected":true});
+					$("path[id='Check" + i + "'], path[id='Base" + i + "'], path[id='Color" + i + "'], ellipse[id='Cap" + i + "']").attr({"selected":true});
+					var hex = $$scope = angular.element(document.getElementById("color")).scope().color.hex;
+					$("path[id^='Color'][selected], ellipse[id^='Cap'][selected]").attr({"fill":hex});
 				break;
 				// checked
 				case false:
-					$("path[id='Check" + i + "'], path[id='Base" + i + "'], path[id='Color" + i + "'], path[id='Cap" + i + "']").attr({"selected":false});
+					$("path[id='Check" + i + "'], path[id='Base" + i + "'], path[id='Color" + i + "'], ellipse[id='Cap" + i + "']").attr({"selected":false});
+					$("path[id^='Color']:not([selected]), ellipse[id^='Cap']:not([selected])").attr({"fill":"#777777"});
 				break;
 			}
 			$scope.update();

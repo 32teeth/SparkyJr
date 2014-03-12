@@ -8116,29 +8116,31 @@ header nav a:hover {
 .modal .color {
   height: 372px;
   width: 760px;
+  position: absolute;
+  bottom: -20px;
 }
-/* line 140, ../scss/_styles.scss */
+/* line 142, ../scss/_styles.scss */
 .modal .color .body {
   height: 182px;
   width: 740px;
   position: relative;
 }
-/* line 146, ../scss/_styles.scss */
+/* line 148, ../scss/_styles.scss */
 .modal .color .body .spectrum {
   position: absolute;
   left: -30px;
   bottom: -18px;
 }
-/* line 155, ../scss/_styles.scss */
+/* line 157, ../scss/_styles.scss */
 .modal .color .header,
 .modal .color .button {
   width: 740px;
 }
-/* line 161, ../scss/_styles.scss */
+/* line 163, ../scss/_styles.scss */
 .modal .standard {
   height: 465px;
 }
-/* line 165, ../scss/_styles.scss */
+/* line 167, ../scss/_styles.scss */
 .modal .standard .body {
   height: 275px;
   width: 740px;
@@ -8147,21 +8149,21 @@ header nav a:hover {
   color: #00adad;
   position: relative;
 }
-/* line 174, ../scss/_styles.scss */
+/* line 176, ../scss/_styles.scss */
 .modal .standard .body .image {
   text-align: center;
   margin-top: 2.5rem;
 }
-/* line 180, ../scss/_styles.scss */
+/* line 182, ../scss/_styles.scss */
 .modal .standard .body ul {
   margin-top: 1rem;
 }
-/* line 183, ../scss/_styles.scss */
+/* line 185, ../scss/_styles.scss */
 .modal .standard .body ul li {
   color: #333333;
   font-size: 18px;
 }
-/* line 188, ../scss/_styles.scss */
+/* line 190, ../scss/_styles.scss */
 .modal .standard .body ul li [data-icon="push"] {
   color: #cccccc;
   -webkit-transition: color 250ms ease-in;
@@ -8169,7 +8171,7 @@ header nav a:hover {
   -o-transition: color 250ms ease-in;
   transition: color 250ms ease-in;
 }
-/* line 193, ../scss/_styles.scss */
+/* line 195, ../scss/_styles.scss */
 .modal .standard .body ul li [data-icon="push"]:before {
   -webkit-transition: color 250ms ease-in, left 250ms ease-in;
   -moz-transition: color 250ms ease-in, left 250ms ease-in;
@@ -8178,34 +8180,34 @@ header nav a:hover {
   top: 0.15rem;
   left: -0.5rem;
 }
-/* line 200, ../scss/_styles.scss */
+/* line 202, ../scss/_styles.scss */
 .modal .standard .body ul li [data-icon="push"]:hover {
   color: #8c8c8c;
 }
-/* line 203, ../scss/_styles.scss */
+/* line 205, ../scss/_styles.scss */
 .modal .standard .body ul li [data-icon="push"]:hover:before {
   color: #8c8c8c;
   left: -0.3rem;
 }
-/* line 210, ../scss/_styles.scss */
+/* line 212, ../scss/_styles.scss */
 .modal .standard .body ul li [data-icon="push"].active {
   color: #333333;
 }
-/* line 213, ../scss/_styles.scss */
+/* line 215, ../scss/_styles.scss */
 .modal .standard .body ul li [data-icon="push"].active:before {
   color: #00adad;
   left: -0.1rem;
 }
-/* line 223, ../scss/_styles.scss */
+/* line 225, ../scss/_styles.scss */
 .modal .standard .body .red {
   color: #990000;
 }
-/* line 228, ../scss/_styles.scss */
+/* line 230, ../scss/_styles.scss */
 .modal .standard .body .bottom {
   position: absolute;
   bottom: 1rem;
 }
-/* line 236, ../scss/_styles.scss */
+/* line 238, ../scss/_styles.scss */
 .modal .header {
   font-size: 36px;
   font-weight: bold;
@@ -8215,7 +8217,7 @@ header nav a:hover {
   background: white;
   padding: 0.75rem 1rem 0 1rem;
 }
-/* line 246, ../scss/_styles.scss */
+/* line 248, ../scss/_styles.scss */
 .modal .header [data-modal="close"] {
   float: right;
   color: #cccccc;
@@ -8224,15 +8226,15 @@ header nav a:hover {
   -o-transition: color 250ms ease-in;
   transition: color 250ms ease-in;
 }
-/* line 251, ../scss/_styles.scss */
+/* line 253, ../scss/_styles.scss */
 .modal .header [data-modal="close"]:before {
   font-size: 1.5rem;
 }
-/* line 256, ../scss/_styles.scss */
+/* line 258, ../scss/_styles.scss */
 .modal .header [data-modal="close"]:hover {
   color: #b3b3b3;
 }
-/* line 263, ../scss/_styles.scss */
+/* line 265, ../scss/_styles.scss */
 .modal .button {
   height: 100px;
   font-size: 48px;
@@ -8243,7 +8245,7 @@ header nav a:hover {
   -o-transition: background 250ms ease-in;
   transition: background 250ms ease-in;
 }
-/* line 271, ../scss/_styles.scss */
+/* line 273, ../scss/_styles.scss */
 .modal .button.blue {
   background: #00adad;
   -webkit-transition: background 250ms ease-in;
@@ -8251,11 +8253,11 @@ header nav a:hover {
   -o-transition: background 250ms ease-in;
   transition: background 250ms ease-in;
 }
-/* line 276, ../scss/_styles.scss */
+/* line 278, ../scss/_styles.scss */
 .modal .button.blue:hover {
   background: #00caca;
 }
-/* line 282, ../scss/_styles.scss */
+/* line 284, ../scss/_styles.scss */
 .modal .button.red {
   background: #990000;
   -webkit-transition: background 250ms ease-in;
@@ -8263,7 +8265,7 @@ header nav a:hover {
   -o-transition: background 250ms ease-in;
   transition: background 250ms ease-in;
 }
-/* line 287, ../scss/_styles.scss */
+/* line 289, ../scss/_styles.scss */
 .modal .button.red:hover {
   background: #ad0000;
 }

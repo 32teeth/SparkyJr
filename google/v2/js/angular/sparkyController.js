@@ -53,7 +53,7 @@ SparkyJr.controller("sparkyController", ["$scope", function($scope){
 	** ----------------------------------------------------------------
 	*/	
 	$scope.colorProps = {
-		rgb:"",
+		rgb:"#777777",
 		hex:"",
 		long:"",
 	}
