@@ -34,7 +34,7 @@ SparkyJr.controller("serialController", ["$scope", function($scope){
 
 		if(serial.portstring == "")
 		{
-			//$("[data-modal='serial_intro']").trigger("click");
+			$("[data-modal='serial_intro']").trigger("click");
 		}
 	}
 
