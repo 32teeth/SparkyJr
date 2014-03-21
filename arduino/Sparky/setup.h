@@ -12,9 +12,12 @@
 ** @desc JOY = Arduino Joystick Shield
 ** @desc RAZER = Razer Atrox Arcade Stick
 */
-//#define RAZER
-//#define SPARKY
 #define DRIVER
+//#define LEO
+//#define SPARKY
+//#define UNO
+//#define JOY
+//#define RAZER
 
 /*
 ** @desc play intro intro
@@ -28,6 +31,7 @@
 ** @desc CATHODE = Common Cathode RGB LEDs
 */
 #define ANODE
+//#define CATHODE
 
 
 /*
