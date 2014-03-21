@@ -1,6 +1,6 @@
 ![SparkyJr icon](images/logo.png)
 
-***
+-------------
 
 # Introduction
 
