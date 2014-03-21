@@ -55,7 +55,57 @@ The .sch and .brd files are available in the [eagle](https://github.com/32teeth/
 Start up your Arduino IDE and open **Sparky.ino**
 The only file you *need* to change settings in is the [setup.h](https://github.com/32teeth/SparkyJr/blob/gh-pages/arduino/Sparky/setup.h) file
 
+to identify your board to the SparkyJr software, simply uncomment the right line
+the comments in the code indicate the proper name
 
+```
+/*
+** @define (DRIVER|LEO|UNO|JOY|RAZER)
+** @desc DRIVER = Arduino WS2811 Shield
+** @desc LEO = Arduino Leonardo
+** @desc SPARKY = SparkyJrFTDI
+** @desc UNO = Arduino UNO
+** @desc JOY = Arduino Joystick Shield
+** @desc RAZER = Razer Atrox Arcade Stick
+*/
+#define DRIVER
+//#define LEO
+//#define SPARKY
+//#define UNO
+//#define JOY
+//#define RAZER
+```
+to identify your RGB LED type to the SparkyJr software, simply uncomment the right line
 
+```
+/*
+** @define (ANODE|CATHODE)
+** @desc ANODE = Common Anode RGB LEDs
+** @desc CATHODE = Common Cathode RGB LEDs
+*/
+#define ANODE
+//#define CATHODE
+```
+Complie and Run!
 
+***
+## Processing
+![Processing icon](images/processing.jpg =100x)
 
+if you are on a Mac, you're in luck. There is a packaged application available for you. Simply download the [SparkyOfficial.app](https://github.com/32teeth/SparkyJr/tree/gh-pages/processing/SparkyOfficial/SparkyOfficial/application.macosx/SparkyOfficial.app) file
+
+if you are looking to run the application from source, simply download Processing and run the [SparkyOfficial.pde](https://github.com/32teeth/SparkyJr/blob/gh-pages/processing/SparkyOfficial/SparkyOfficial/SparkyOfficial.pde) file
+
+***
+Should you run into any trouble, or have further questions, feel free to reach out.
+
+[![Facebook icon](images/fb.png) 32teeth](https://www.facebook.com/32teeth)
+
+[![Twitter icon](images/tw.png) eugeneyevhen](https://twitter.com/eugeneyevhen)
+
+[![Github icon](images/gh.png) SparkyJr](32teeth.github.io/SparkyJr)
+
+[![LinkedIn icon](images/li.png) 32teeth](http://ca.linkedin.com/in/32teeth)
+
+***
+# Thanks
