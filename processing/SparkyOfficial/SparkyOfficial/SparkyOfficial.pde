@@ -145,7 +145,7 @@ boolean full = false;
 /*
 ** @desc set to true to skip intro animation
 */
-boolean loaded = false;
+boolean loaded = true;
 
 /*
 ** THIS
@@ -229,7 +229,7 @@ void setup()
   
   // quit
   quit = new Quit();
-  quit.setup();   
+  quit.setup();
 }
 
 /*
