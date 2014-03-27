@@ -1,0 +1,457 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"port",
+				"portstring"
+			],
+			[
+				"inline",
+				"inline-block"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "Packages/Processing/Processing.sublime-build",
+	"command_palette":
+	{
+		"height": 47.0,
+		"selected_items":
+		[
+			[
+				"Package Control: instal",
+				"Package Control: Install Package"
+			],
+			[
+				"",
+				"Build: Export sketch as a macosx application"
+			],
+			[
+				"build",
+				"Build: Build"
+			],
+			[
+				"Package Control: insta",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Con",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 647.0
+	},
+	"console":
+	{
+		"height": 125.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/thirtytwoteeth/Library/Application Support/Sublime Text 2/Packages/User/MarkdownPreview.sublime-settings",
+		"/Users/thirtytwoteeth/Library/Application Support/Sublime Text 2/Packages/Markdown Preview/MarkdownPreview.sublime-settings",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/README.md",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/google/v2/js/angular/sparkyController.js",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/google/v2/js/spectrum.js",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/google/v2/js/angular/buttonController.js",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/processing/SparkyOfficial/SparkyOfficial/Stick.pde",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/google/v2/scss/_buttons.scss",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/google/v2/scss/_styles.scss",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/google/v2/manifest.json",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/google/v2/js/angular/colorController.js",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/google/v2/images/buttons.svg",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/google/v2/index.html",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/google/v2/js/angular/modalController.js",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/google/v2/sparkyjr.js",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/google/v1/js/spectrum.js",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/google/v2/scss/_colors.scss",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/google/v1/sparkyjr.html",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/google/v2/scss/app.scss",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/google/v2/js/buttons.js",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/google/v2/scss/_icons.scss",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/google/v2/scss/_mixins.scss",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/google/v2/scss/_fonts.scss",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/google/v2/js/angular/screenController.js",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/google/v2/js/svg.min.js",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/www/launch.html",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/google/v2/sparkyjr.html",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/google/index.html",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/google/scss/sparky.app.scss",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/google/scss/foundation/_sparky.scss",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/google/scss/_colors.scss",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/google/scss/_icons.scss",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/google/sparkyjr.html",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/google/js/spectrum.js",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/google/js/angular/serialController.js",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/www/index.html",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/google/manifest.json",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/arduino/Sparky/setup.h",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/arduino/Sparky/Sparky.ino",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/arduino/Sparky/layout.h",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/arduino/Sparky/io.h",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/google/sparkyjr.js",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/arduino/Sparky/programming.h",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/google/scss/_styles.scss",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/google/scss/app.scss",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/processing/SparkyOfficial/SparkyOfficial/SparkyOfficial.pde",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/google/js/processing/colors.pde",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/google/images/pin.svg",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/google/scss/foundation/css/foundation.css",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/google/scss/foundation/scss/foundation/_functions.scss",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/google/scss/foundation/scss/foundation.scss",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/www/scss/_colors.scss",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/www/scss/_fonts.scss",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/www/scss/_icons.scss",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/www/scss/_mixins.scss",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/www/scss/_settings.scss",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/www/scss/_styles.scss",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/google/pde/SparkyOfficial.pde",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/google/pde/Devices.pde",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/google/pde/Menu.pde",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/google/pde/Options.pde",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/google/pde/Quit.pde",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/google/pde/Stick.pde",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/google/pde/Intro.pde",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/google/pde/Connections.pde",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/google/pde/Picker.pde",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/google/js/angular/directives.js",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/arduino/Sparky/utility.h",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/arduino/Sparky/help.h",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/arduino/Sparky/eeprom.h",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/arduino/Sparky/colors.h",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/arduino/Sparky/io_standard.h",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/arduino/Sparky/io_driver.h",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/arduino/Sparky/io_chip.h",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/processing/Sparky/Com.pde",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/processing/Sparky/Footer.pde",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/processing/Sparky/Header.pde",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/processing/Sparky/Loading.pde",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/processing/Sparky/Menu.pde",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/processing/Sparky/Screens.pde",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/processing/Sparky/Stick.pde",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/processing/Sparky/Sparky.pde",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/processing/SparkyOfficial/SparkyOfficial/data/pin.svg",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/www/main.html",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/www/pde/hero.pde",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/index.html",
+		"/Users/thirtytwoteeth/Documents/Arduino/eightfadePWM/eightfadePWM.ino",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/www/stylesheets/app.css",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/www/scss/app.scss",
+		"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/www/config.rb",
+		"/Users/thirtytwoteeth/Documents/SparkyJr/trunk/Processing Files/__DEV__/SparkyFive/Menu.pde",
+		"/Users/thirtytwoteeth/Documents/SparkyJr/trunk/Processing Files/__DEV__/SparkyFive/Screens.pde",
+		"/Users/thirtytwoteeth/Documents/SparkyJr/trunk/Processing Files/__DEV__/SparkyFive/SparkyFive.pde",
+		"/Users/thirtytwoteeth/Documents/SparkyJr/trunk/Processing Files/__DEV__/SparkyFive/Com.pde",
+		"/Users/thirtytwoteeth/Documents/SparkyJr/trunk/Processing Files/__DEV__/SparkyFive/Stick.pde",
+		"/Users/thirtytwoteeth/Documents/SparkyJr/trunk/Processing Files/__DEV__/SparkyFive/Footer.pde",
+		"/Users/thirtytwoteeth/Documents/SparkyJr/trunk/Processing Files/__DEV__/SparkyFive/Header.pde",
+		"/Users/thirtytwoteeth/Documents/SparkyJr/trunk/Processing Files/__DEV__/SparkyFive/Loading.pde",
+		"/Users/thirtytwoteeth/Documents/SparkyJr/trunk/Arduino Files/__DEV__/SparkyFive/eeprom.h",
+		"/Users/thirtytwoteeth/Documents/SparkyJr/trunk/Arduino Files/__DEV__/SparkyFive/utility.h",
+		"/Users/thirtytwoteeth/Documents/SparkyJr/trunk/Arduino Files/__DEV__/SparkyFive/colors.h",
+		"/Users/thirtytwoteeth/Documents/SparkyJr/trunk/Arduino Files/__DEV__/SparkyFive/io.h",
+		"/Users/thirtytwoteeth/Documents/SparkyJr/trunk/Arduino Files/__DEV__/SparkyFive/SparkyFive.ino",
+		"/Users/thirtytwoteeth/Documents/SparkyJr/trunk/Arduino Files/Sparky 1.0/Sparky/SparkyClass.cpp",
+		"/Users/thirtytwoteeth/Documents/SparkyJr/trunk/Arduino Files/__DEV__/SparkyFive/effects.h",
+		"/Users/thirtytwoteeth/Documents/SparkyJr/trunk/Arduino Files/Sparky 1.0/Sparky/Sparky.pde",
+		"/Users/thirtytwoteeth/Documents/SparkyJr/trunk/Arduino Files/__DEV__/Sparky/SparkyClass.cpp",
+		"/Users/thirtytwoteeth/Documents/SparkyJr/trunk/Arduino Files/__DEV__/Sparky/Sparky.ino",
+		"/Users/thirtytwoteeth/Documents/GameEngine/GameEngine_v1/GameClass.cpp",
+		"/Users/thirtytwoteeth/Documents/GameEngine/GameEngine_v1/GameEngine.ino"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/google/v2",
+			"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/arduino",
+			"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/google/scss",
+			"",
+			"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/google/pde",
+			"",
+			"<open files>",
+			"<open folders>",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			" =100x",
+			" =25x",
+			" =50x",
+			"color",
+			".hex",
+			"FFFFFF",
+			"path[id='Cap\"",
+			"selected",
+			"px",
+			"rem",
+			"px",
+			"rem;",
+			"150",
+			"rect",
+			"Rect",
+			"rect",
+			"pin",
+			"spectrum",
+			"$$scope",
+			"Color",
+			"color",
+			"parent",
+			"gradi",
+			"nothing",
+			"$scope.",
+			" = ",
+			"function ",
+			"path[id='Check\" + i + \"'], ",
+			"\"]",
+			".parent()",
+			"\\n",
+			"lock",
+			", ",
+			"\\n",
+			"<path",
+			" \"",
+			"	",
+			"    ",
+			"\\n",
+			"Spectrum",
+			"740px",
+			"data-action=\"close\"",
+			"\"\"",
+			"blue",
+			"[data-icon]",
+			"icon",
+			"gamepad",
+			"OpenSansRegular",
+			"write",
+			"close",
+			"open",
+			"getPorts",
+			"neo",
+			"outputs[n]",
+			"centered",
+			"img",
+			"$scope.long",
+			"Open",
+			"exec",
+			"loadShape",
+			"loadImage(\"",
+			"Serial",
+			"angular",
+			"    ",
+			"bit",
+			"buttons",
+			"description",
+			"microse",
+			"sparkydark",
+			"digitalWrite(outputs[n]",
+			"digitalRead(outputs[n]",
+			"analogWrite(pwm[c]",
+			"digitalRead(inputs[n])",
+			"analogWrite(pwm[c]",
+			"(outputs[n]",
+			"PROGMEM",
+			"INTRO",
+			"PROGMEM",
+			" rotateY(90deg);\"",
+			" rotateY(0deg)\"",
+			"rotateX",
+			"90deg",
+			"opacity:0;",
+			"opacity:1;",
+			"-10%",
+			"translateX",
+			"rotateZ",
+			"0",
+			"idndef",
+			"in[",
+			"in",
+			"@description",
+			"WS2811",
+			"Com",
+			"command",
+			"HID",
+			"opacity:0;",
+			"%;\n",
+			"    ",
+			"config",
+			"configure",
+			"\");",
+			"print(\"",
+			"//",
+			"@description",
+			"PROGMEM",
+			"transition",
+			"ease-in-out",
+			"transition",
+			"dh",
+			"dH",
+			"dw",
+			"dW",
+			"HID",
+			"/*\n",
+			"state",
+			"ORANGE",
+			"shift",
+			"states",
+			"poll"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"/2px",
+			"/2rem",
+			"/2px;",
+			"/2rem;",
+			"",
+			"\\n<path",
+			"\"",
+			" ",
+			"",
+			"loadImage(\"pde/data/",
+			"\\t",
+			"digitalWrite(pgm_read_byte(&outputs[n])",
+			"digitalRead(pgm_read_byte(&outputs[n])",
+			"analogWrite(pgm_read_byte(&pwm[c])",
+			"digitalRead(pgm_read_byte(&inputs[n])",
+			"analogWrite(pgm_read_byte(&pwm[c])",
+			"(pgm_read_byte(&outputs[n])",
+			"",
+			"ifndef",
+			"@desc",
+			"DRIVER",
+			"\\t",
+			"\"));",
+			"print(F(\"",
+			"\\t",
+			"@desc"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.GameEngine_v1":
+	{
+		"height": 100.0
+	},
+	"output.GameEngine_v2":
+	{
+		"height": 175.0
+	},
+	"output.Sparky":
+	{
+		"height": 257.0
+	},
+	"output.SparkyFive":
+	{
+		"height": 292.0
+	},
+	"output.eightfadePWM":
+	{
+		"height": 254.0
+	},
+	"output.exec":
+	{
+		"height": 100.0
+	},
+	"output.stino_log":
+	{
+		"height": 100.0
+	},
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 197.0,
+	"status_bar_visible": true
+}

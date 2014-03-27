@@ -11,7 +11,7 @@
 */
 #include "setup.h"
 
-#ifdef DRIVER
+#ifdef NEO
   #include <Adafruit_NeoPixel.h>
   Adafruit_NeoPixel neo = Adafruit_NeoPixel(8, data, NEO_RGB + NEO_KHZ800);
 #endif
@@ -54,7 +54,7 @@ void setup()
   /*
   ** @desc start
   */  
-  #ifdef DRIVER
+  #ifdef NEO
     neo.begin();
     neo.setBrightness(64);
     neo.show();
@@ -64,14 +64,14 @@ void setup()
   ** @desc Timer adjustments
   */  
   TCCR1B = TCCR1B & 0b11111000 | 0x01; 
-  #ifndef LEO
+  #if !defined(LEO) && !defined(SPECIALK)
     TCCR2B = TCCR2B & 0b11111000 | 0x01;
   #endif
 
   /*
   ** @desc EEPROM Allocations 
   */
-  #ifndef LEO
+  #if !defined(LEO) && !defined(SPECIALK)
     EEPROM.setMemPool(1024 , EEPROMSizeUno);  
   #else
     EEPROM.setMemPool(1024 , EEPROMSizeATmega32u4);
@@ -128,13 +128,13 @@ void setup()
   delay(1000);
   for(int n = 0; n < count; n++)
   {
-    #ifndef DRIVER      
+    #ifndef NEO      
       digitalWrite(pgm_read_byte(&outputs[n]), LOW);
     #else
       neo.setPixelColor(n, 0, 0, 0);
     #endif        
   }    
-  #ifdef DRIVER
+  #ifdef NEO
     neo.show();
   #endif  
   //*/

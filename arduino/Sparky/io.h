@@ -9,7 +9,7 @@
 */
 void setIO()
 {
-  #ifndef DRIVER
+  #ifndef NEO
     for(int n = 0; n < count; n++)
     {
       /*RGB pins*/
@@ -84,7 +84,7 @@ void outputIO()
         /*
         ** @desc if NO driver and ANODE adjustment
         */
-        #ifndef DRIVER
+        #ifndef NEO
           #ifdef ANODE
             out[c] = 255 - out[c];
             in[c] = 255 - in[c];
@@ -95,7 +95,7 @@ void outputIO()
       /*
       ** @desc if NO driver
       */
-      #ifndef DRIVER
+      #ifndef NEO
         for(int n = 0; n < count; n++){stored[n] == 0 ? digitalWrite(pgm_read_byte(&outputs[n]), ON) : digitalWrite(pgm_read_byte(&outputs[n]), OFF);}      
         for(int c = 0; c < 3; c++){analogWrite(pgm_read_byte(&pwm[c]), out[c]);}     
 
@@ -121,7 +121,7 @@ void outputIO()
       /*
       ** @desc if NO driver
       */
-      #ifndef DRIVER
+      #ifndef NEO
         for(int n = 0; n < count; n++){states[n] == 0 ? digitalWrite(pgm_read_byte(&outputs[n]), ON) : digitalWrite(pgm_read_byte(&outputs[n]), OFF);}
         for(int c = 0; c < 3; c++){analogWrite(pgm_read_byte(&pwm[c]), 255 - rgb[c]);}
       /*
@@ -165,7 +165,7 @@ void displayIO(int address)
   /*
   ** @desc if NO driver
   */
-  #ifndef DRIVER
+  #ifndef NEO
     for(int n = 0; n < count; n++)
     {
       char pin = incoming[n];
@@ -210,7 +210,7 @@ void displayIO(int address, long color)
   /*
   ** @desc if NO driver
   */
-  #ifndef DRIVER
+  #ifndef NEO
     for(int n = 0; n < count; n++)
     {
       char pin = incoming[n];

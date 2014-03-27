@@ -164,7 +164,7 @@ void programming()
         for(int n = 0; n < count; n++)
         {
           char pin = incoming[n];
-          #ifndef DRIVER
+          #ifndef NEO
             pin == '1' ? digitalWrite(pgm_read_byte(&outputs[n]), OFF) : digitalWrite(pgm_read_byte(&outputs[n]), ON);
           #else
             if(pin != '0'){neo.setPixelColor(n, 255, 255, 255);}

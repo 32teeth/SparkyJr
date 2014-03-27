@@ -20,7 +20,7 @@ void madcatz()
   /*
   ** @desc if NO driver
   */
-  #ifndef DRIVER
+  #ifndef NEO
     for(int n = 0; n < count; n++)
     {
       digitalWrite(pgm_read_byte(&outputs[n]), LOW);      
@@ -72,7 +72,7 @@ void hori()
   /*
   ** @desc if NO driver
   */
-  #ifndef DRIVER
+  #ifndef NEO
     for(int n = 0; n < count; n++)
     {
       /*

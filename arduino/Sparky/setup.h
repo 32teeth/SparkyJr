@@ -4,20 +4,22 @@
 #include <arduino.h>
 
 /*
-** @define (DRIVER|LEO|UNO|JOY|RAZER)
+** @define (DRIVER|LEO|UNO|JOY|RAZER|SPECIALK)
 ** @desc DRIVER = Arduino WS2811 Shield
 ** @desc LEO = Arduino Leonardo
 ** @desc SPARKY = SparkyJrFTDI
 ** @desc UNO = Arduino UNO
 ** @desc JOY = Arduino Joystick Shield
 ** @desc RAZER = Razer Atrox Arcade Stick
+** @desc SPECIALK = SparkyJr Special K
 */
-#define DRIVER
+//#define DRIVER
 //#define LEO
 //#define SPARKY
 //#define UNO
 //#define JOY
 //#define RAZER
+#define SPECIALK
 
 /*
 ** @desc play intro intro
@@ -192,6 +194,15 @@ MM.      ,MP MM.      ,MP MM.      ,MP MM.      ,MP
   PROGMEM const int inputs[] = {3,2,0,1,4,12,6,8};
   PROGMEM const int outputs[] = {23,22,21,20,19,18,13,5};
   PROGMEM const int pwm[] = {9,10,11};
+#endif
+
+#ifdef SPECIALK
+  PROGMEM const int inputs[] = {12,11,10,9,8,7,6,5,4};
+  PROGMEM const int data = 4;  
+#endif
+
+#if defined(DRIVER) || defined(SPECIALK)
+  #define NEO
 #endif
 
 /*

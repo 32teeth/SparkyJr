@@ -13587,7 +13587,6 @@ We've spent an enormous amount of time creating and checking these footprints an
 <segment>
 <pinref part="PWR1" gate="G$1" pin="C"/>
 <wire x1="63.5" y1="-20.32" x2="68.58" y2="-20.32" width="0.1524" layer="91"/>
-<label x="68.58" y="-20.32" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="TXLED" class="0">
@@ -13599,7 +13598,6 @@ We've spent an enormous amount of time creating and checking these footprints an
 <segment>
 <pinref part="PWR2" gate="G$1" pin="C"/>
 <wire x1="63.5" y1="-7.62" x2="68.58" y2="-7.62" width="0.1524" layer="91"/>
-<label x="68.58" y="-7.62" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$4" class="0">
