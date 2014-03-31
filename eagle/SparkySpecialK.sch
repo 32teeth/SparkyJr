@@ -13255,7 +13255,7 @@ We've spent an enormous amount of time creating and checking these footprints an
 <label x="35.56" y="-20.32" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="D3" class="0">
+<net name="D3/2K" class="0">
 <segment>
 <wire x1="154.94" y1="-142.24" x2="177.8" y2="-142.24" width="0.1524" layer="91"/>
 <label x="180.34" y="-142.24" size="1.778" layer="95"/>
@@ -13267,7 +13267,7 @@ We've spent an enormous amount of time creating and checking these footprints an
 <label x="154.94" y="-17.78" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="D2" class="0">
+<net name="D2/4K" class="0">
 <segment>
 <wire x1="154.94" y1="-139.7" x2="177.8" y2="-139.7" width="0.1524" layer="91"/>
 <label x="180.34" y="-139.7" size="1.778" layer="95"/>
@@ -13286,7 +13286,7 @@ We've spent an enormous amount of time creating and checking these footprints an
 <pinref part="IC1" gate="G$1" pin="PD3(INT3/TXD1)"/>
 </segment>
 </net>
-<net name="D6" class="0">
+<net name="D6/4P" class="0">
 <segment>
 <wire x1="154.94" y1="-124.46" x2="177.8" y2="-124.46" width="0.1524" layer="91"/>
 <label x="180.34" y="-124.46" size="1.778" layer="95"/>
@@ -13298,7 +13298,7 @@ We've spent an enormous amount of time creating and checking these footprints an
 <label x="116.84" y="-15.24" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="D8" class="0">
+<net name="D8/2P" class="0">
 <segment>
 <wire x1="154.94" y1="-109.22" x2="177.8" y2="-109.22" width="0.1524" layer="91"/>
 <label x="180.34" y="-109.22" size="1.778" layer="95"/>
@@ -13310,7 +13310,7 @@ We've spent an enormous amount of time creating and checking these footprints an
 <label x="116.84" y="-12.7" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="D12" class="0">
+<net name="D12/1K" class="0">
 <segment>
 <wire x1="154.94" y1="-127" x2="177.8" y2="-127" width="0.1524" layer="91"/>
 <label x="180.34" y="-127" size="1.778" layer="95"/>
@@ -13322,7 +13322,7 @@ We've spent an enormous amount of time creating and checking these footprints an
 <label x="116.84" y="-17.78" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="D4" class="0">
+<net name="D4/3K" class="0">
 <segment>
 <wire x1="154.94" y1="-132.08" x2="177.8" y2="-132.08" width="0.1524" layer="91"/>
 <label x="180.34" y="-132.08" size="1.778" layer="95"/>
@@ -13444,7 +13444,7 @@ We've spent an enormous amount of time creating and checking these footprints an
 <pinref part="IC1" gate="G$1" pin="PF0(ADC0)"/>
 </segment>
 </net>
-<net name="A4" class="0">
+<net name="A4/3P" class="0">
 <segment>
 <wire x1="154.94" y1="-71.12" x2="177.8" y2="-71.12" width="0.1524" layer="91"/>
 <label x="180.34" y="-71.12" size="1.778" layer="95"/>
@@ -13456,7 +13456,7 @@ We've spent an enormous amount of time creating and checking these footprints an
 <label x="154.94" y="-12.7" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="A3" class="0">
+<net name="A3/1P" class="0">
 <segment>
 <wire x1="154.94" y1="-73.66" x2="177.8" y2="-73.66" width="0.1524" layer="91"/>
 <label x="180.34" y="-73.66" size="1.778" layer="95"/>
@@ -13468,7 +13468,7 @@ We've spent an enormous amount of time creating and checking these footprints an
 <label x="154.94" y="-10.16" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="A2" class="0">
+<net name="A2/HOME" class="0">
 <segment>
 <wire x1="154.94" y1="-76.2" x2="177.8" y2="-76.2" width="0.1524" layer="91"/>
 <label x="180.34" y="-76.2" size="1.778" layer="95"/>
@@ -13480,19 +13480,7 @@ We've spent an enormous amount of time creating and checking these footprints an
 <label x="154.94" y="-7.62" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="A1" class="0">
-<segment>
-<wire x1="154.94" y1="-78.74" x2="177.8" y2="-78.74" width="0.1524" layer="91"/>
-<label x="180.34" y="-78.74" size="1.778" layer="95"/>
-<pinref part="IC1" gate="G$1" pin="PF6(ADC6/TDO)"/>
-</segment>
-<segment>
-<pinref part="U$1" gate="G$1" pin="4"/>
-<wire x1="144.78" y1="-5.08" x2="152.4" y2="-5.08" width="0.1524" layer="91"/>
-<label x="154.94" y="-5.08" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="A0" class="0">
+<net name="A0/DOWN" class="0">
 <segment>
 <wire x1="154.94" y1="-81.28" x2="177.8" y2="-81.28" width="0.1524" layer="91"/>
 <label x="180.34" y="-81.28" size="1.778" layer="95"/>
@@ -13511,7 +13499,7 @@ We've spent an enormous amount of time creating and checking these footprints an
 <pinref part="IC1" gate="G$1" pin="PE2(HWB)"/>
 </segment>
 </net>
-<net name="D7" class="0">
+<net name="D7/DATA_OUT" class="0">
 <segment>
 <wire x1="154.94" y1="-88.9" x2="177.8" y2="-88.9" width="0.1524" layer="91"/>
 <label x="180.34" y="-88.9" size="1.778" layer="95"/>
@@ -13523,7 +13511,7 @@ We've spent an enormous amount of time creating and checking these footprints an
 <label x="139.7" y="-43.18" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="D5" class="0">
+<net name="D5/RIGHT" class="0">
 <segment>
 <wire x1="154.94" y1="-93.98" x2="177.8" y2="-93.98" width="0.1524" layer="91"/>
 <label x="180.34" y="-93.98" size="1.778" layer="95"/>
@@ -13535,7 +13523,7 @@ We've spent an enormous amount of time creating and checking these footprints an
 <label x="116.84" y="-5.08" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="D13" class="0">
+<net name="D13/UP" class="0">
 <segment>
 <wire x1="154.94" y1="-96.52" x2="177.8" y2="-96.52" width="0.1524" layer="91"/>
 <label x="180.34" y="-96.52" size="1.778" layer="95"/>
@@ -13554,7 +13542,7 @@ We've spent an enormous amount of time creating and checking these footprints an
 <pinref part="IC1" gate="G$1" pin="PB7(OC0A/OC1C/RTS)"/>
 </segment>
 </net>
-<net name="D10" class="0">
+<net name="D10/SELECT" class="0">
 <segment>
 <wire x1="154.94" y1="-104.14" x2="177.8" y2="-104.14" width="0.1524" layer="91"/>
 <label x="180.34" y="-104.14" size="1.778" layer="95"/>
@@ -13566,7 +13554,7 @@ We've spent an enormous amount of time creating and checking these footprints an
 <label x="116.84" y="-7.62" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="D9" class="0">
+<net name="D9/START" class="0">
 <segment>
 <wire x1="154.94" y1="-106.68" x2="177.8" y2="-106.68" width="0.1524" layer="91"/>
 <label x="180.34" y="-106.68" size="1.778" layer="95"/>
@@ -13663,6 +13651,18 @@ We've spent an enormous amount of time creating and checking these footprints an
 <segment>
 <pinref part="R5" gate="G$1" pin="1"/>
 <pinref part="PWR2" gate="G$1" pin="A"/>
+</segment>
+</net>
+<net name="A1/LEFT" class="0">
+<segment>
+<pinref part="U$1" gate="G$1" pin="4"/>
+<wire x1="144.78" y1="-5.08" x2="152.4" y2="-5.08" width="0.1524" layer="91"/>
+<label x="154.94" y="-5.08" size="1.778" layer="95"/>
+</segment>
+<segment>
+<wire x1="154.94" y1="-78.74" x2="177.8" y2="-78.74" width="0.1524" layer="91"/>
+<label x="180.34" y="-78.74" size="1.778" layer="95"/>
+<pinref part="IC1" gate="G$1" pin="PF6(ADC6/TDO)"/>
 </segment>
 </net>
 </nets>

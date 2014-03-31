@@ -15,6 +15,38 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "/Users/thirtytwoteeth/Documents/Prototypes/Eugene Andruszczenko/pingerplus/www/index.html",
+			"settings":
+			{
+				"buffer_size": 17122,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/thirtytwoteeth/Documents/Prototypes/Eugene Andruszczenko/pingerplus/www/css/bootstrap.min.css",
+			"settings":
+			{
+				"buffer_size": 111152,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/thirtytwoteeth/Documents/Prototypes/Eugene Andruszczenko/pingerplus/www/css/owl.theme.css",
+			"settings":
+			{
+				"buffer_size": 1663,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/thirtytwoteeth/Documents/Prototypes/Eugene Andruszczenko/pingerplus/www/css/style.css",
+			"settings":
+			{
+				"buffer_size": 8900,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "Packages/Processing/Processing.sublime-build",
 	"command_palette":
@@ -181,9 +213,10 @@
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 93.0,
 		"where_history":
 		[
+			"",
 			"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/google/v2",
 			"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/arduino",
 			"/Users/thirtytwoteeth/Documents/GitHub/SparkyJr/google/scss",
@@ -200,6 +233,15 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"#CE3B15",
+			"#CE3815",
+			"#F97A59",
+			"#DB512E",
+			"try",
+			"#DF4C26",
+			"#FACBBE",
+			"#FACFC3",
+			"#E96644",
 			" =100x",
 			" =25x",
 			" =50x",
@@ -318,8 +360,7 @@
 			"state",
 			"ORANGE",
 			"shift",
-			"states",
-			"poll"
+			"states"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -327,6 +368,9 @@
 		"regex": false,
 		"replace_history":
 		[
+			"#FFFFFF",
+			"#025d5e",
+			"#05a8a9",
 			"/2px",
 			"/2rem",
 			"/2px;",
@@ -363,8 +407,118 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "/Users/thirtytwoteeth/Documents/Prototypes/Eugene Andruszczenko/pingerplus/www/index.html",
+					"settings":
+					{
+						"buffer_size": 17122,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								17105,
+								17105
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 4812.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/Users/thirtytwoteeth/Documents/Prototypes/Eugene Andruszczenko/pingerplus/www/css/bootstrap.min.css",
+					"settings":
+					{
+						"buffer_size": 111152,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/Users/thirtytwoteeth/Documents/Prototypes/Eugene Andruszczenko/pingerplus/www/css/owl.theme.css",
+					"settings":
+					{
+						"buffer_size": 1663,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/Users/thirtytwoteeth/Documents/Prototypes/Eugene Andruszczenko/pingerplus/www/css/style.css",
+					"settings":
+					{
+						"buffer_size": 8900,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								380,
+								380
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],

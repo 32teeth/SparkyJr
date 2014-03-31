@@ -8,19 +8,19 @@
 </settings>
 <grid distance="1" unitdist="mil" unit="mm" style="lines" multiple="1" display="yes" altdistance="0.025" altunitdist="inch" altunit="inch"/>
 <layers>
-<layer number="1" name="Top" color="4" fill="1" visible="no" active="yes"/>
-<layer number="16" name="Bottom" color="1" fill="1" visible="no" active="yes"/>
-<layer number="17" name="Pads" color="2" fill="1" visible="no" active="yes"/>
-<layer number="18" name="Vias" color="2" fill="1" visible="no" active="yes"/>
-<layer number="19" name="Unrouted" color="6" fill="1" visible="no" active="yes"/>
+<layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
+<layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
+<layer number="17" name="Pads" color="2" fill="1" visible="yes" active="yes"/>
+<layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
+<layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="yes"/>
 <layer number="20" name="Dimension" color="15" fill="1" visible="yes" active="yes"/>
-<layer number="21" name="tPlace" color="7" fill="1" visible="no" active="yes"/>
+<layer number="21" name="tPlace" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="22" name="bPlace" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="23" name="tOrigins" color="15" fill="1" visible="no" active="yes"/>
-<layer number="24" name="bOrigins" color="15" fill="1" visible="no" active="yes"/>
-<layer number="25" name="tNames" color="7" fill="1" visible="no" active="yes"/>
+<layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="yes"/>
+<layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="yes"/>
+<layer number="25" name="tNames" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="26" name="bNames" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="27" name="tValues" color="7" fill="1" visible="no" active="yes"/>
+<layer number="27" name="tValues" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="28" name="bValues" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="29" name="tStop" color="7" fill="3" visible="no" active="yes"/>
 <layer number="30" name="bStop" color="7" fill="6" visible="no" active="yes"/>
@@ -112,6 +112,7 @@
 <layer number="219" name="219bmp" color="20" fill="1" visible="no" active="no"/>
 <layer number="220" name="220bmp" color="21" fill="1" visible="no" active="no"/>
 <layer number="221" name="221bmp" color="22" fill="1" visible="no" active="no"/>
+<layer number="222" name="222bmp" color="23" fill="1" visible="no" active="no"/>
 <layer number="223" name="223bmp" color="24" fill="1" visible="no" active="no"/>
 <layer number="224" name="224bmp" color="25" fill="1" visible="no" active="no"/>
 <layer number="248" name="Housing" color="7" fill="1" visible="no" active="yes"/>
@@ -4302,7 +4303,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="16.875" y1="11.43" x2="16.875" y2="6.985" width="0.254" layer="16"/>
 <wire x1="16.875" y1="6.985" x2="21.32" y2="2.54" width="0.254" layer="16"/>
 </signal>
-<signal name="D3">
+<signal name="D3/2K">
 <contactref element="IC1" pad="18"/>
 <contactref element="U$1" pad="14"/>
 <wire x1="41.91" y1="10.16" x2="40.64" y2="11.43" width="0.254" layer="16"/>
@@ -4310,7 +4311,7 @@ Please make sure your boards conform to these design rules.</description>
 <via x="28.74" y="11.43" extent="1-16" drill="0.5"/>
 <wire x1="28.74" y1="11.43" x2="28.74" y2="8.17" width="0.254" layer="1"/>
 </signal>
-<signal name="D2">
+<signal name="D2/4K">
 <contactref element="IC1" pad="19"/>
 <contactref element="U$1" pad="16"/>
 <wire x1="41.91" y1="7.62" x2="40.64" y2="8.89" width="0.254" layer="16"/>
@@ -4324,28 +4325,28 @@ Please make sure your boards conform to these design rules.</description>
 <signal name="D1/TX">
 <contactref element="IC1" pad="21"/>
 </signal>
-<signal name="D6">
+<signal name="D6/4P">
 <contactref element="IC1" pad="27"/>
 <contactref element="U$1" pad="11"/>
 <wire x1="39.37" y1="12.7" x2="38.1" y2="12.7" width="0.254" layer="1"/>
 <wire x1="33.74" y1="13.17" x2="38.1" y2="13.17" width="0.254" layer="1"/>
 <wire x1="38.1" y1="13.17" x2="38.1" y2="12.7" width="0.254" layer="1"/>
 </signal>
-<signal name="D8">
+<signal name="D8/2P">
 <contactref element="IC1" pad="28"/>
 <contactref element="U$1" pad="9"/>
 <wire x1="39.37" y1="15.24" x2="38.1" y2="15.24" width="0.254" layer="1"/>
 <wire x1="33.74" y1="13.97" x2="38.1" y2="13.97" width="0.254" layer="1"/>
 <wire x1="38.1" y1="13.97" x2="38.1" y2="15.24" width="0.254" layer="1"/>
 </signal>
-<signal name="D12">
+<signal name="D12/1K">
 <contactref element="IC1" pad="26"/>
 <contactref element="U$1" pad="13"/>
 <wire x1="39.37" y1="10.16" x2="37.465" y2="10.16" width="0.254" layer="1"/>
 <wire x1="37.465" y1="10.16" x2="37.465" y2="12.37" width="0.254" layer="1"/>
 <wire x1="33.74" y1="12.37" x2="37.465" y2="12.37" width="0.254" layer="1"/>
 </signal>
-<signal name="D4">
+<signal name="D4/3K">
 <contactref element="IC1" pad="25"/>
 <contactref element="U$1" pad="15"/>
 <wire x1="39.37" y1="7.62" x2="36.83" y2="7.62" width="0.254" layer="1"/>
@@ -4435,7 +4436,7 @@ Please make sure your boards conform to these design rules.</description>
 <signal name="A5">
 <contactref element="IC1" pad="41"/>
 </signal>
-<signal name="A4">
+<signal name="A4/3P">
 <contactref element="IC1" pad="40"/>
 <contactref element="U$1" pad="10"/>
 <wire x1="41.91" y1="15.24" x2="40.64" y2="16.51" width="0.254" layer="16"/>
@@ -4444,7 +4445,7 @@ Please make sure your boards conform to these design rules.</description>
 <via x="27.14" y="21.59" extent="1-16" drill="0.5"/>
 <wire x1="27.14" y1="21.59" x2="27.14" y2="19.77" width="0.254" layer="1"/>
 </signal>
-<signal name="A3">
+<signal name="A3/1P">
 <contactref element="IC1" pad="39"/>
 <contactref element="U$1" pad="8"/>
 <wire x1="41.91" y1="17.78" x2="40.64" y2="19.05" width="0.254" layer="16"/>
@@ -4453,7 +4454,7 @@ Please make sure your boards conform to these design rules.</description>
 <via x="27.94" y="22.86" extent="1-16" drill="0.5"/>
 <wire x1="27.94" y1="22.86" x2="27.94" y2="19.77" width="0.254" layer="1"/>
 </signal>
-<signal name="A2">
+<signal name="A2/HOME">
 <contactref element="IC1" pad="38"/>
 <contactref element="U$1" pad="6"/>
 <wire x1="41.91" y1="20.32" x2="40.64" y2="21.59" width="0.254" layer="16"/>
@@ -4461,17 +4462,7 @@ Please make sure your boards conform to these design rules.</description>
 <via x="28.74" y="21.59" extent="1-16" drill="0.5"/>
 <wire x1="28.74" y1="21.59" x2="28.74" y2="19.77" width="0.254" layer="1"/>
 </signal>
-<signal name="A1">
-<contactref element="IC1" pad="37"/>
-<contactref element="U$1" pad="4"/>
-<wire x1="41.91" y1="22.86" x2="40.64" y2="24.13" width="0.254" layer="16"/>
-<via x="29.54" y="22.86" extent="1-16" drill="0.5"/>
-<wire x1="29.54" y1="19.77" x2="29.54" y2="22.86" width="0.254" layer="1"/>
-<wire x1="40.64" y1="24.13" x2="34.29" y2="24.13" width="0.254" layer="16"/>
-<wire x1="34.29" y1="24.13" x2="34.29" y2="22.86" width="0.254" layer="16"/>
-<wire x1="34.29" y1="22.86" x2="29.54" y2="22.86" width="0.254" layer="16"/>
-</signal>
-<signal name="A0">
+<signal name="A0/DOWN">
 <contactref element="IC1" pad="36"/>
 <contactref element="U$1" pad="2"/>
 <wire x1="41.91" y1="25.4" x2="40.64" y2="26.67" width="0.254" layer="1"/>
@@ -4483,20 +4474,20 @@ Please make sure your boards conform to these design rules.</description>
 <signal name="HWB">
 <contactref element="IC1" pad="33"/>
 </signal>
-<signal name="D7">
+<signal name="D7/DATA_OUT">
 <contactref element="IC1" pad="1"/>
 <contactref element="JP1" pad="3"/>
 <wire x1="27.305" y1="26.035" x2="22.14" y2="20.87" width="0.254" layer="1"/>
 <wire x1="22.14" y1="20.87" x2="22.14" y2="17.97" width="0.254" layer="1"/>
 </signal>
-<signal name="D5">
+<signal name="D5/RIGHT">
 <contactref element="IC1" pad="31"/>
 <contactref element="U$1" pad="3"/>
 <wire x1="39.37" y1="22.86" x2="36.195" y2="22.86" width="0.254" layer="1"/>
 <wire x1="36.195" y1="22.86" x2="36.195" y2="16.37" width="0.254" layer="1"/>
 <wire x1="33.74" y1="16.37" x2="36.195" y2="16.37" width="0.254" layer="1"/>
 </signal>
-<signal name="D13">
+<signal name="D13/UP">
 <contactref element="IC1" pad="32"/>
 <contactref element="U$1" pad="1"/>
 <wire x1="39.37" y1="25.4" x2="35.56" y2="25.4" width="0.254" layer="1"/>
@@ -4506,14 +4497,14 @@ Please make sure your boards conform to these design rules.</description>
 <signal name="D11">
 <contactref element="IC1" pad="12"/>
 </signal>
-<signal name="D10">
+<signal name="D10/SELECT">
 <contactref element="IC1" pad="30"/>
 <contactref element="U$1" pad="5"/>
 <wire x1="39.37" y1="20.32" x2="36.83" y2="20.32" width="0.254" layer="1"/>
 <wire x1="36.83" y1="20.32" x2="36.83" y2="15.57" width="0.254" layer="1"/>
 <wire x1="33.74" y1="15.57" x2="36.83" y2="15.57" width="0.254" layer="1"/>
 </signal>
-<signal name="D9">
+<signal name="D9/START">
 <contactref element="IC1" pad="29"/>
 <contactref element="U$1" pad="7"/>
 <wire x1="39.37" y1="17.78" x2="37.465" y2="17.78" width="0.254" layer="1"/>
@@ -4631,6 +4622,16 @@ Please make sure your boards conform to these design rules.</description>
 <contactref element="R5" pad="1"/>
 <contactref element="PWR2" pad="A"/>
 <wire x1="34.56" y1="5.715" x2="32.165" y2="5.715" width="0.254" layer="1"/>
+</signal>
+<signal name="A1/LEFT">
+<contactref element="U$1" pad="4"/>
+<contactref element="IC1" pad="37"/>
+<via x="29.54" y="22.86" extent="1-16" drill="0.5"/>
+<wire x1="29.54" y1="19.77" x2="29.54" y2="22.86" width="0.254" layer="1"/>
+<wire x1="40.64" y1="24.13" x2="34.29" y2="24.13" width="0.254" layer="16"/>
+<wire x1="34.29" y1="24.13" x2="34.29" y2="22.86" width="0.254" layer="16"/>
+<wire x1="34.29" y1="22.86" x2="29.54" y2="22.86" width="0.254" layer="16"/>
+<wire x1="40.64" y1="24.13" x2="41.91" y2="22.86" width="0.254" layer="16"/>
 </signal>
 </signals>
 </board>
