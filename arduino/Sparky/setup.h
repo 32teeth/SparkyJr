@@ -197,8 +197,8 @@ MM.      ,MP MM.      ,MP MM.      ,MP MM.      ,MP
 #endif
 
 #ifdef SPECIALK
-  PROGMEM const int inputs[] = {12,11,10,9,8,7,6,5,4};
-  PROGMEM const int data = 4;  
+  PROGMEM const int inputs[] = {A3,8,A4,6,12,3,4,2};
+  PROGMEM const int data = 7;  
 #endif
 
 #if defined(DRIVER) || defined(SPECIALK)
