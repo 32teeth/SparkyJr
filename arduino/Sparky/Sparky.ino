@@ -139,7 +139,7 @@ void setup()
   #endif  
   //*/
 
-  //configurator = true;
+  configurator = true;
   //MADCATZ_LAYOUT = true;
   //HORI_LAYOUT = true;
 }
