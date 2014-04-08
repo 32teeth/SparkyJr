@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0500"
+   LastUpgradeVersion = "0510"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6F5EE32518AD3C5600B29989"
+               BlueprintIdentifier = "6F1A974D18F31C8700C86332"
                BuildableName = "SparkyJr.app"
                BlueprintName = "SparkyJr"
                ReferencedContainer = "container:SparkyJr.xcodeproj">
@@ -32,7 +32,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6F5EE34018AD3C5600B29989"
+               BlueprintIdentifier = "6F1A977118F31C8700C86332"
                BuildableName = "SparkyJrTests.xctest"
                BlueprintName = "SparkyJrTests"
                ReferencedContainer = "container:SparkyJr.xcodeproj">
@@ -42,7 +42,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6F5EE32518AD3C5600B29989"
+            BlueprintIdentifier = "6F1A974D18F31C8700C86332"
             BuildableName = "SparkyJr.app"
             BlueprintName = "SparkyJr"
             ReferencedContainer = "container:SparkyJr.xcodeproj">
@@ -61,7 +61,7 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6F5EE32518AD3C5600B29989"
+            BlueprintIdentifier = "6F1A974D18F31C8700C86332"
             BuildableName = "SparkyJr.app"
             BlueprintName = "SparkyJr"
             ReferencedContainer = "container:SparkyJr.xcodeproj">
@@ -79,7 +79,7 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6F5EE32518AD3C5600B29989"
+            BlueprintIdentifier = "6F1A974D18F31C8700C86332"
             BuildableName = "SparkyJr.app"
             BlueprintName = "SparkyJr"
             ReferencedContainer = "container:SparkyJr.xcodeproj">

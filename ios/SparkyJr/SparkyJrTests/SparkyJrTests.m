@@ -2,7 +2,7 @@
 //  SparkyJrTests.m
 //  SparkyJrTests
 //
-//  Created by eugene andruszczenko on 2/13/2014.
+//  Created by eugene andruszczenko on 2014-04-07.
 //  Copyright (c) 2014 eugene andruszczenko. All rights reserved.
 //
 
