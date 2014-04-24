@@ -22,6 +22,11 @@
 #define SPECIALK
 
 /*
+** @desc if you are using the 16 pixel joystick ring as well
+*/
+#define JOY
+
+/*
 ** @desc play intro intro
 ** @param intro {boolean}
 */

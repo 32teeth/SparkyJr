@@ -13,7 +13,13 @@
 
 #ifdef NEO
   #include <Adafruit_NeoPixel.h>
-  Adafruit_NeoPixel neo = Adafruit_NeoPixel(8, data, NEO_RGB + NEO_KHZ800);
+  #ifndef JOY
+    int pixels = 8;
+  #endif  
+  #ifdef JOY
+    int pixels = 24;
+  #endif    
+  Adafruit_NeoPixel neo = Adafruit_NeoPixel(pixels, data, NEO_RGB + NEO_KHZ800);
 #endif
 
 /*
@@ -45,6 +51,10 @@
 #include "help.h";
 #include "programming.h";
 
+#ifdef JOY
+  #include "joystick.h"
+#endif
+
 /*
 ** @method setup
 ** @desc main arduino setup
@@ -56,7 +66,7 @@ void setup()
   */  
   #ifdef NEO
     neo.begin();
-    neo.setBrightness(64);
+    neo.setBrightness(255);
     neo.show();
   #endif
   
@@ -86,6 +96,10 @@ void setup()
   ** @desc set io functionality
   */  
   setIO();
+  
+  #ifdef JOY
+    setJoystickIO();
+  #endif   
   
   /*
   ** @desc run intro
@@ -135,13 +149,15 @@ void setup()
     #endif        
   }    
   #ifdef NEO
+    displayIO(255, 0); 
     neo.show();
   #endif  
   //*/
 
-  configurator = true;
+  //configurator = true;
   //MADCATZ_LAYOUT = true;
   //HORI_LAYOUT = true;
+
 }
 
 /*
@@ -165,6 +181,10 @@ void loop()
         if(MADCATZ_LAYOUT){madcatz();}
         if(HORI_LAYOUT){hori();}
       }
+      
+      #ifdef JOY
+        dislpayJoystickIO();
+      #endif  
     }
   }
 }
