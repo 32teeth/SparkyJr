@@ -24,17 +24,17 @@ SparkyJr.controller("modalController", ["$scope", function($scope){
 
 		$("[data-modal]").on("click", function(){
 			$scope.modal = $(this).attr("data-modal");
-			if($(this).not(".disabled"))
-			{
 				if($scope.modal != "close")
 				{
-					$scope.show($scope.modal);
+					if(!$(this).hasClass("disabled"))
+					{
+						$scope.show($scope.modal);
+					}
 				}
 				else
 				{
 					$scope.hide();
 				}
-			}
 		});
 	}
 
@@ -46,8 +46,15 @@ SparkyJr.controller("modalController", ["$scope", function($scope){
 	{
 		if(!$scope.opened)
 		{
-			$(".main").addClass("blur");
-			$(".screen").fadeIn();
+			if(modal != "color")
+			{
+				$(".main").addClass("blur");
+				$(".screen").fadeIn();
+			}
+			else
+			{
+				$("header").addClass("blur");
+			}
 			$(".modal#" + modal).fadeIn();
 			$scope.opened = true;
 		}
@@ -66,7 +73,7 @@ SparkyJr.controller("modalController", ["$scope", function($scope){
 	$scope.hide = function()
 	{
 		$(".modal").fadeOut();	
-		$(".main").removeClass("blur");
+		$(".main, header").removeClass("blur");
 		$(".screen").fadeOut();							
 
 		$scope.opened = false;						

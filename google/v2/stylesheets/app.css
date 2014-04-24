@@ -8004,7 +8004,8 @@ header nav a:hover {
 }
 
 /* line 58, ../scss/_styles.scss */
-.main {
+.main,
+header{
   -webkit-transition: text-shadow 250ms ease-in;
   -moz-transition: text-shadow 250ms ease-in;
   -o-transition: text-shadow 250ms ease-in;
@@ -8015,13 +8016,15 @@ header nav a:hover {
   z-index: 50;
 }
 /* line 62, ../scss/_styles.scss */
-.main.blur {
+.main.blur,
+header.blur{
   -webkit-filter: blur(1px);
   -moz-filter: blur(1px);
   filter: blur(1px);
 }
 /* line 66, ../scss/_styles.scss */
-.main.blur * {
+.main.blur * ,
+header.blur *{
   -webkit-filter: blur(1px);
   -moz-filter: blur(1px);
   filter: blur(1px);
@@ -8293,4 +8296,15 @@ svg [id^='Base'] {
 /* line 23, ../scss/_buttons.scss */
 svg [id^='Base'][selected] {
   fill: rgba(0, 0, 0, 0.75);
+}
+
+
+.modal#color
+{
+  height:372px;
+  width:760px;
+  position:fixed;
+  bottom:0;
+  left:0;
+  top:370px;
 }

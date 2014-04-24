@@ -66,6 +66,8 @@ SparkyJr.controller("serialController", ["$scope", function($scope){
 			$("[data-modal='device_intro']").trigger("click");
 			parent.wizard = true;
 		}
+
+		$("[data-modal].disabled").removeClass("disabled");
 	}
 
 	/*
