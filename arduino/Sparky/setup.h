@@ -13,13 +13,13 @@
 ** @desc RAZER = Razer Atrox Arcade Stick
 ** @desc SPECIALK = SparkyJr Special K
 */
-#define DRIVER
+//#define DRIVER
 //#define LEO
 //#define SPARKY
 //#define UNO
 //#define JOY
 //#define RAZER
-//#define SPECIALK
+#define SPECIALK
 
 /*
 ** @desc if you are using the 16 pixel joystick ring as well

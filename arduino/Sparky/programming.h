@@ -190,6 +190,18 @@ void programming()
         Serial.print(F("exiting configurator\n"));
         configurator = false;
       }
+      
+      if(command.equals("madcatz"))
+      {
+        MADCATZ_LAYOUT = true;
+        HORI_LAYOUT = false;        
+      }
+      
+      if(command.equals("hori"))
+      {
+        MADCATZ_LAYOUT = false;
+        HORI_LAYOUT = true;        
+      }      
 
       if(command.equals("help"))
       {
