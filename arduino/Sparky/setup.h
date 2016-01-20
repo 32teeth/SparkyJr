@@ -24,7 +24,7 @@
 /*
 ** @desc if you are using the 16 pixel joystick ring as well
 */
-#define JOY
+//#define JOY
 
 /*
 ** @desc play intro intro

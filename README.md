@@ -8,6 +8,8 @@
 
 The hardware is based on AVR microcontrollers and programmed via [AVR Studio](http://www.atmel.ca/microsite/atmel_studio6/) or the [Arduino IDE](http://arduino.cc/en/Main/Software)
 
+**<span style="color:red">*note:*</span> please use Arduino IDE 1.0.6**
+
 ![Open Source icon](images/osh.png)
 
 **SparkyJr.** in it's entirety is open source. Including hardware design, software implementation and libraries
