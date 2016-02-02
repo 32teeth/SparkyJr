@@ -30,7 +30,7 @@
 ** @desc play intro intro
 ** @param intro {boolean}
 */
-#define INTRO;
+//#define INTRO;
 
 /*
 ** @define (ANODE|CATHODE)
