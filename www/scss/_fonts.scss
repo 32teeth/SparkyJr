@@ -1,0 +1,11 @@
+/*
+	fonts
+*/
+@include font-face(
+	'FontAwesome', 
+	font-files(
+		"fontawesome-webfont.woff", 
+		"fontawesome-webfont.ttf", 
+		"fontawesome-webfont.eot"
+	)
+);

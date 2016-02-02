@@ -1,0 +1,20 @@
+@mixin icon()
+{
+	text-align:center;
+	&:before
+	{
+		display:block;
+		font-family:FontAwesome;
+		font-weight:normal;
+		position:relative;
+		top:0.25rem;
+		left:0;
+		padding-right:0.5rem;
+		text-indent:0;
+		z-index:999;
+	};
+}
+[data-icon]
+{
+	@include icon();
+}

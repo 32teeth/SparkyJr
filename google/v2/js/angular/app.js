@@ -1,0 +1,1 @@
+var SparkyJr = angular.module('SparkyJr', []);

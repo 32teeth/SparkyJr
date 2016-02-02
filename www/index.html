@@ -1,0 +1,115 @@
+
+<!doctype html>
+<html class="no-js" lang="en" ng-app="SparkyJr">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <title>Sparky Jr.</title>
+        <link rel="stylesheet" href="stylesheets/app.css" />    
+    </head>
+    <body>
+        <section>
+            <div class="centered">
+                <div data-599="opacity:1;" data-600="opacity:0;">
+                    <h1>SparkyJr.</h1>
+                    <span>
+                        <span data-300="color:rgba(0,0,0,1);" data-400="color:rgba(153,0,0,1);">R</span><span data-300="color:rgba(0,0,0,1);" data-400="color:rgba(0,153,0,1);">G</span><span data-300="color:rgba(0,0,0,1);" data-400="color:rgba(0,0,153,1);">B</span>
+                    </span>
+                    LED Controller
+                </div>
+                <img src="images/stick.png" data-100="display:block;width:50%;transform:translate(50%,100%);" data-300="transform:translate(50%,0%);" data-500="transform:translate(50%,0%);" data-600="transform:translate(50%,-50%);" data-700="transform:translate(50%,-50%);opacity:1;" data-750="opacity:0;">
+            </div>
+        </section>
+        <section data-700="opacity:0;transform:translate(0,0%);" data-800="opacity:1" data-2000="transform:translate(0,0%);opacity:1;" data-2300="transform:translate(0,-120%);opacity:0;" class="video">
+            <video width="100%" height="100%" poster="video/teaser.jpg" loop autoplay>
+                <source src="video/teaser.ogv" type="video/ogg">
+                <source src="video/teaser.mp4" type="video/mp4">
+                <source src="video/teaser.webm" type="video/webm">
+            </video>
+        </section>  
+        <section id="front" 
+            data-0="transform:translate(0,100%);" 
+            data-2100="transform:translate(0,100%);" 
+            data-2200="transform:translate(0,0);"
+        >
+            <div class="centered"
+                data-0="transform:rotateY(0deg) perspective(100px);" 
+                data-2600="transform:rotateY(0deg) perspective(100px);" 
+                data-2800="transform:rotateY(90deg) perspective(100px);" 
+            >
+                <div>
+                    <h1>Join Us</h1>
+                    <a href="http://fitc.ca/event/to14/" target="_blank" class="button radius secondary">@FITC Toronto 2014</a>
+                    <p>April 27-29, 2014</p>
+                </div>
+            </div>
+        </section>   
+        <section id="back" 
+            data-0="transform:translate(0,100%);" 
+            data-2100="transform:translate(0,100%);" 
+            data-2200="transform:translate(0,0);"           
+        >
+            <div class="centered"
+                data-0="transform:rotateY(-90deg) perspective(100px);" 
+                data-2800="transform:rotateY(-90deg) perspective(100px);" 
+                data-3000="transform:rotateY(0deg) perspective(100px);" 
+
+                style="top:5%"
+            >
+                <div>
+                    <h1>Shibe</h1>
+                    <img src="images/doge.png">
+                    <p>Such Dig!</p>
+                </div>
+            </div>
+        </section> 
+        <!--    
+        <section class="box" data-1100="transform:translate(0,-100%);" data-1200="transform:translate(0,0%);">
+            <div class="large-6 medium-6 small-12 columns">
+                <h2>Welcome</h2>
+                <p>hi</p>
+            </div>
+            <div class="large-3 medium-6 small-12 columns">
+                <img src="images/stick.png">
+            </div> 
+        </section>
+        -->
+        <!--
+        <section class="box" data-200="transform:translate(0,100%);" data-300="transform:translate(0,0%);">
+            <div class="large-6 medium-6 small-12 columns">
+                <h2>Getting Started</h2>
+                <p>hi</p>
+            </div>
+        </section>   
+        -->          
+
+
+        <!-- google angularjs CDN -->
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+
+        <!-- processing -->
+        <script src="//cloud.github.com/downloads/processing-js/processing-js/processing-1.4.1.min.js"></script>
+
+        <!-- skrollr -->
+        <script src="//cdnjs.cloudflare.com/ajax/libs/skrollr/0.6.11/skrollr.min.js"></script>
+
+        <!-- anggular app -->
+        <script src="js/angular/app.js"></script>
+        <script src="js/angular/filters.js"></script>
+
+        <script>
+            skrollr.init();
+        </script>
+
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-47948608-1', '32teeth.github.io');
+          ga('send', 'pageview');
+
+        </script>        
+    </body>
+</html>

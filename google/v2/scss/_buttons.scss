@@ -1,0 +1,27 @@
+svg
+{
+	*
+	{
+		@include transition(opacity 250ms ease-in, fill 250ms ease-in);
+	}
+
+	[id^='Check']
+	{
+		cursor:pointer;		
+		fill:rgba($white,1);
+		&:hover
+		{
+			fill:rgba($white,0.5);
+		}
+	}
+
+	[id^='Base']
+	{
+		fill:rgba($darkgray,0.5);
+
+		&[selected]
+		{
+			fill:rgba($black,0.75);
+		}
+	}
+}

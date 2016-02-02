@@ -1,6 +1,10 @@
 ![SparkyJr icon](images/logo.png)
 
+<<<<<<< HEAD
 ***
+=======
+-------------
+>>>>>>> gh-pages
 
 # Introduction
 
@@ -8,12 +12,22 @@
 
 The hardware is based on AVR microcontrollers and programmed via [AVR Studio](http://www.atmel.ca/microsite/atmel_studio6/) or the [Arduino IDE](http://arduino.cc/en/Main/Software)
 
+<<<<<<< HEAD
 ![Open Source icon](images/osh.png =50x)
+=======
+**<span style="color:red">*note:*</span> please use Arduino IDE 1.0.6**
+
+![Open Source icon](images/osh.png)
+>>>>>>> gh-pages
 
 **SparkyJr.** in it's entirety is open source. Including hardware design, software implementation and libraries
 ***
 ##Software
+<<<<<<< HEAD
 ####![Arduino icon](images/arduino.png =25x) Arduino
+=======
+####![Arduino icon](images/arduino.png) Arduino
+>>>>>>> gh-pages
 
 **SparkyJr.** Arduino based files are located in the *[arduino](https://github.com/32teeth/SparkyJr/tree/gh-pages/arduino/Sparky)* folder
 
@@ -23,17 +37,29 @@ This includes all the files required to upload to your specific AVR chipset.
 
 *for help on installing libraries into the Arduino IDE, please visit the [how to](http://arduino.cc/en/Guide/Libraries) on the Arduino site
 
+<<<<<<< HEAD
 ####![Processing icon](images/processing.jpg =25x) Processing
+=======
+####![Processing icon](images/processing.jpg) Processing
+>>>>>>> gh-pages
 **SparkyJr.** Processing based files are located in the *[processing](https://github.com/32teeth/SparkyJr/tree/gh-pages/processing)* folder
 
 This includes all the files required to run the configurator.
 
+<<<<<<< HEAD
 ####![Google Chrome icon](images/chrome.jpeg =25x) Google Chrome App
+=======
+####![Google Chrome icon](images/chrome.jpeg) Google Chrome App
+>>>>>>> gh-pages
 **SparkyJr.**'s configurator is additionally available as a Google Chrome Application and is available unpackaged in the [google](https://github.com/32teeth/SparkyJr/tree/gh-pages/google) folder
 
 ***
 ##Hardware
+<<<<<<< HEAD
 ####![Eagle Cad icon](images/eagle.png =25x) Eagle CAD
+=======
+####![Eagle Cad icon](images/eagle.png) Eagle CAD
+>>>>>>> gh-pages
 All of the PCB design, schema and board layout files where designed in [CadSoft's Eagle Cad PCB](http://www.cadsoftusa.com/eagle-pcb-design-software/product-overview/?language=en) software.
 
 The .sch and .brd files are available in the [eagle](https://github.com/32teeth/SparkyJr/tree/gh-pages/eagle) folder.
@@ -44,13 +70,21 @@ The .sch and .brd files are available in the [eagle](https://github.com/32teeth/
 |  v1 | v2 (pwm)  | v3 (ftdi) (32u4)  | *v4* (current)  | v4 (expansion) |
 |---|---|---|---|---|
 |retired|retired|deprecated|current release|expansion board|
+<<<<<<< HEAD
 |  ![Arduino icon](images/sparky1.png =100x) |  ![Arduino icon](images/sparky2.png =100x) | ![Arduino icon](images/sparky3.png =100x)  |  ![Arduino icon](images/sparky4.png =100x) |  ![Arduino icon](images/sparky5.png =100x) |
+=======
+|  ![Arduino icon](images/sparky1.png) |  ![Arduino icon](images/sparky2.png) | ![Arduino icon](images/sparky3.png)  |  ![Arduino icon](images/sparky4.png) |  ![Arduino icon](images/sparky5.png) |
+>>>>>>> gh-pages
 |   |   |  ftdi [sch](https://github.com/32teeth/SparkyJr/blob/gh-pages/eagle/SparkyJr_v4FTDI.sch) [brd](https://github.com/32teeth/SparkyJr/blob/gh-pages/eagle/SparkyJr_v4FTDI.brd) |  [sch](https://github.com/32teeth/SparkyJr/blob/gh-pages/eagle/SparkySpecialK.sch) [brd](https://github.com/32teeth/SparkyJr/blob/gh-pages/eagle/SparkySpecialK.brd) | [sch](https://github.com/32teeth/SparkyJr/blob/gh-pages/eagle/SparkySpecialKExpansion.sch) [brd](https://github.com/32teeth/SparkyJr/blob/gh-pages/eagle/SparkySpecialKExpansion.brd)  |
 |   |   |  32u4 [sch](https://github.com/32teeth/SparkyJr/blob/gh-pages/eagle/SparkyJr_v432u4.sch) [brd](https://github.com/32teeth/SparkyJr/blob/gh-pages/eagle/SparkyJr_v432u4.brd) |   |   |
 
 ***
 ## Arduino
+<<<<<<< HEAD
 ![Arduino icon](images/arduino.png =100x)
+=======
+![Arduino icon](images/arduino.png)
+>>>>>>> gh-pages
 
 Start up your Arduino IDE and open **Sparky.ino**
 The only file you *need* to change settings in is the [setup.h](https://github.com/32teeth/SparkyJr/blob/gh-pages/arduino/Sparky/setup.h) file
@@ -90,7 +124,11 @@ Complie and Run!
 
 ***
 ## Processing
+<<<<<<< HEAD
 ![Processing icon](images/processing.jpg =100x)
+=======
+![Processing icon](images/processing.jpg)
+>>>>>>> gh-pages
 
 if you are on a Mac, you're in luck. There is a packaged application available for you. Simply download the [SparkyOfficial.app](https://github.com/32teeth/SparkyJr/tree/gh-pages/processing/SparkyOfficial/SparkyOfficial/application.macosx/SparkyOfficial.app) file
 

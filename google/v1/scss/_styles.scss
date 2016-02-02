@@ -1,0 +1,65 @@
+html, body
+{
+	font-size:1rem;
+}
+
+.connect
+{
+	position:fixed;
+	top:45px;
+	bottom:-45px;
+	left:0;
+	right:0;
+	z-index:1;
+}
+
+h3
+{
+	&.columns
+	{
+		font-size:25pt;
+		color:#009999 !important;
+	}
+}
+
+form
+{
+	&.buttons
+	{
+		padding-bottom:1rem;
+		input[type='checkbox']
+		{
+			display:none;
+			
+			&:checked + label:before
+			{
+				border:solid 0.5rem rgba($black, 0.75);
+			}
+		}
+
+		label
+		{
+			display: inline-block;
+			cursor:pointer;
+			position:relative;		
+			width:100px;
+			height:100px;			
+			background:$white;
+			@include border-radius(100%);
+ 			@include transition(background);
+ 			@include transition-duration(250ms);
+  			@include transition-timing-function(ease-in);
+
+			&:before
+			{
+				content:"";
+				display:block;
+				width:100px;
+				height:100px;
+				background:none;
+				border:solid 0.5rem rgba($black, 0.25);
+				@include border-radius(100%);
+			}			
+		}
+	}
+}

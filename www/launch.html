@@ -1,0 +1,121 @@
+<!doctype html>
+<html class="no-js" lang="en" ng-app="SparkyJr">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Sparky Jr.</title>
+        <link rel="stylesheet" href="stylesheets/app.css" />
+    </head>
+    <body>
+        
+
+        <!-- 
+            Arduino
+            =====================
+            About
+            IDE Setup / Download
+            GitHub
+            Pinout/mapping
+            Configuration
+                Serial
+                Programming
+        -->
+        <div class="fixed">
+            <nav class="top-bar" data-topbar="" data-options="is_hover: false" style="">
+            <ul class="title-area">
+                <li class="name"><h1><a href="#">Sparky Jr.</a></h1></li>
+                <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+            </ul>
+            
+            
+            <section class="top-bar-section">
+                <ul class="right">
+                    <li class="has-dropdown">
+                        <a href="#">Sparky Jr.</a>
+                        <ul class="dropdown">
+                            <li><a href="#">Welcome</a></li>
+                            <li><a href="#">Getting Started</a></li>
+                            <li class="has-dropdown">
+                                <a href="#">Arduino</a>
+                                <ul class="dropdown" class="has-dropdown">
+                                    <li><a href="#">Structure</a></li>
+                                    <li><a href="#">Configurating</a></li>
+                                    <li><a href="#">Uploading</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li> 
+                    <li class="has-dropdown">
+                        <a href="#">Arduino</a>
+                        <ul class="dropdown">
+                            <li><a href="http://arduino.cc/en/Main/Software" target="_blank">Download IDE</a></li>
+                        </ul>                        
+                    </li>
+                    <li class="has-dropdown">
+                        <a href="#">Processing</a>
+                        <ul class="dropdown">
+                            <li><a href="http://processing.org/download/?processing" target="_blank">Download IDE</a></li>
+                        </ul>
+                    </li>                                       
+                </ul>
+            </section>
+            </nav> 
+        </div>
+
+        <section class="hero">
+            <video id="hero" loop autoplay>
+                <source src="video/sparkydark.ogv" type="video/ogg">
+                <source src="video/sparkydark.mp4" type="video/mp4">
+                <source src="video/sparkydark.webm" type="video/webm">
+            </video>
+            <canvas data-processing-sources="pde/hero.pde"></canvas>
+        </section>        
+
+        <div class="content" id="content">
+            <section>
+                <div class="large-6 medium-6 small-12 columns">
+                    <h2>Welcome</h2>
+                    <p>hi</p>
+                </div>
+                <div class="large-3 medium-6 small-12 columns">
+                    <img src="images/stick.png">
+                </div>
+            </section>
+
+            <section>
+                <h2>Getting Started</h2>
+            </section>
+
+            <section>
+                <h2>Arduino</h2>
+                
+                <h3>Structure</h3>
+                <h3>Configurating</h3>
+                <h3>Uploading</h3>
+            </section>
+        </div>
+
+        <!-- jQuery CDN -->
+        <script src="//code.jquery.com/jquery.js"></script>
+
+        <script src="js/modernizr/modernizr.js"></script>
+        <script src="js/foundation/foundation.min.js"></script>
+
+        <!-- google angularjs CDN -->
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+
+        <!-- processing -->
+        <script src="http://cloud.github.com/downloads/processing-js/processing-js/processing-1.4.1.min.js"></script>
+
+        <!-- anggular app -->
+        <script src="js/angular/app.js"></script>
+        <script src="js/angular/filters.js"></script>
+
+        <script>
+            $(document).foundation();
+            $(function(){
+
+            })
+        </script>
+    </body>
+</html>
